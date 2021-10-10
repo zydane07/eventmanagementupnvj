@@ -1,0 +1,55 @@
+.my-shadow {
+    box-shadow: 0 .5rem 1rem rgba(42,72,88,.15)!important;
+}
+
+.nav-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.2rem;
+    /* color: #2F4858!important; */
+}
+.nav-pict{
+    width: 33px;
+    height: 33px;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #2F4858!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #2F4858!important;
+}
+
+.nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: none;
+}
+
+.nav__link {
+    position: relative;
+    color: #fff;
+}
+  
+  .nav__link:hover {
+    position: relative;
+}
+
+.nav__link:hover::after {
+    position: absolute;
+    content: "";
+    width: 82%;
+    height: 0.18rem;
+    left: 0.5rem;
+    top: 3.6rem;
+    background-color: #008493;
+}
+
+.active::after {
+    position: absolute;
+    content: "";
+    width: 82%;
+    height: 0.18rem;
+    left: 0.5rem;
+    top: 3.6rem;
+    background-color: #008493;
+}
