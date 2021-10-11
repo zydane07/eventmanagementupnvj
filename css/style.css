@@ -110,3 +110,8 @@ body { background: #D7F9DB !important; }
 .text-profile{
     font-weight: bold;
 }
+footer{
+    background-color: #008493;
+    color: #d5d5d5;
+    padding-top: 2rem;
+}
