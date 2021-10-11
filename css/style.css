@@ -1,3 +1,5 @@
+body { background: #D7F9DB !important; }
+
 .my-shadow {
     box-shadow: 0 .5rem 1rem rgba(42,72,88,.15)!important;
 }
@@ -54,3 +56,57 @@
     background-color: #008493;
 }
 
+.jumbotron{
+    background-color: white;
+    padding-bottom: 5%;
+    height: 33em;
+    
+}
+
+.backgroundphoto{
+    height: 20em;
+    border-radius: 0px 0px 20px 20px;
+    position: relative;
+    background-image: linear-gradient(to right, #7cc985 , #00A397);
+
+}
+
+.user{
+    text-align: center;
+    
+}
+
+.user .photoprofile{
+    text-align: center;
+    width: 10em;
+    height: 10em;
+    margin-top: -120px;
+    position: relative;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 100% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user .nama{
+    margin-top: 10px;
+    font-size: 2em !important;
+    font-weight: bold !important;
+}
+
+.editprofile button{
+    padding-right: 40px;
+    padding-left: 40px;
+    background-color: #00A397;
+    border-color: #00A397;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.editprofile button:hover{
+    background-color: #028179;
+    border-color: #028179;
+}
+
+.text-profile{
+    font-weight: bold;
+}
