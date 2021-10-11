@@ -71,6 +71,24 @@
         </div>
     </div>
 
+    <!-- search button -->
+    <div class="container">
+        <div class="box mt-4">
+            <form action="">
+                <input type="text" placeholder="Cari event yang ingin kamu ikuti...">
+                <select name="" id="">
+                    <option value="">Webinar</option>
+                    <option value="">Workshop</option>
+                    <option value="">Lomba</option>
+                    <option value="">Lainnya</option>
+                </select>
+                <input type="submit" value="Cari">
+            </form>
+        </div>
+    </div>
+
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
