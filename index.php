@@ -14,6 +14,8 @@
 </head>
 
 <body>
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3">
         <div class="container">
             <a class="navbar-brand pe-5" href="#">Navbar w/ text</a>
@@ -58,6 +60,16 @@
             </div>
         </div>
     </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-image bg-info">
+        <div class="container pt-5 pb-5">
+            <h1 class="head-font text-white">Hi, Mohamad Zydane!</h1>
+            <p class="p-font text-white">Selamat datang di Sistem Informasi Event Management ORMAWA dan Mahasiswa</p>
+            <p class="p-font mb-4 text-white">UPN Veteran Jakarta. Ikuti event-event menarik yang dapat mengembangkan skillmu.</p>
+            <a class="btn btn-custom mb-4" href="#" role="button">Pengenalan Aplikasi</a>
+        </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
