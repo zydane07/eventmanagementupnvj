@@ -54,7 +54,7 @@
     width: 82%;
     height: 0.18rem;
     left: 0.5rem;
-    top: 3.8rem;
+    top: 3.6rem;
     background-color: #008493;
 }
 
@@ -66,8 +66,6 @@
 .bel{
     padding-right: 1rem !important;
 }
-
-
 
 /* jumbotron */
 .bg-image {
@@ -249,3 +247,22 @@
     background-color: #D7F9DB;
     width: 200px;
 }
+
+/* footer */
+
+footer{
+    background-color: #008493;
+    padding-top: 2rem;
+}
+.ft-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.125rem!important;
+}
+
+@media (max-width:991px){
+    .active::after{
+        left: 0rem !important;
+        top: 2.5rem !important;
+        width: 25% !important;
+    }
+    }
