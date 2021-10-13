@@ -58,40 +58,6 @@
     background-color: #008493;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.navbox{
-    flex-direction: row !important;
-    align-items: center !important;
-}
-
-.bel{
-    padding-right: 1rem !important;
-}
-
-
-
 /* jumbotron */
 .bg-image {
     background-image: url('../img/jumbotron.png');
@@ -286,10 +252,3 @@ footer{
 
 
 
-@media (max-width:991px){
-    .active::after{
-        left: 0rem !important;
-        top: 2.5rem !important;
-        width: 25% !important;
-    }
-    }
