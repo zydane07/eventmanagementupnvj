@@ -249,11 +249,3 @@
     background-color: #D7F9DB;
     width: 200px;
 }
-
-@media (max-width:991px){
-.active::after{
-    left: 0rem !important;
-    top: 2.5rem !important;
-    width: 25% !important;
-}
-}
