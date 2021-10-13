@@ -250,19 +250,6 @@
     width: 200px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width:991px){
 .active::after{
     left: 0rem !important;
