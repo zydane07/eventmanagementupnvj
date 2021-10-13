@@ -1,128 +1,131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- logo -->
+    <link rel="icon" href="img/icon.png" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/styleProfile.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styleProfile.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Dashboard</title>
-</head>
+    <title>Profile</title>
+  </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3">
-        <div class="container">
-            <a class="navbar-brand pe-5" href="#">Navbar w/ text</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item pe-3">
-                        <a class="nav-link" href="#">Beranda</a>
-                    </li>
-                    <li class="nav-item pe-3">
-                        <a class="nav-link" href="#">Bantuan</a>
-                    </li>
-                    <li class="nav-item pe-3">
-                        <a class="nav-link" href="#">Tentang Aplikasi</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item d-flex align-items-center">
-                        <div class="text-center">
-                            <img src="icons/Bell.svg" class="pe-3" alt="notifikasi">
-                        </div>
-                    </li>
-                    <li class="nav-item d-flex align-items-center gambarbell">
-                        <div class="text-center">
-                            <img src="img/profil 1.png" class="rounded nav-pict" alt="photo profil">
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown ps-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mohamad Zydane Ulir Rizqi Toyyibi
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Event Saya</a></li>
-                            <li><a class="dropdown-item" href="#">Lihat Sertifikat</a></li>
-                            <li><a class="dropdown-item" href="#">Keluar</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3 fixed-top">
+      <div class="container">
+        <a class="navbar-brand me-5" href="#">
+          <img src="img/logo 4.png" width="125" height="" alt="" class="pt-1" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item pe-3">
+              <a class="nav-link" aria-current="page" href="#">Beranda</a>
+            </li>
+            <li class="nav-item pe-3">
+              <a class="nav-link" href="#">Bantuan</a>
+            </li>
+            <li class="nav-item pe-3">
+              <a class="nav-link" href="#">Tentang Aplikasi</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item d-flex align-items-center">
+              <div class="text-center">
+                <img src="icons/Bell.svg" class="pe-3" alt="notifikasi" />
+              </div>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <div class="text-center">
+                <img src="img/profil 1.png" class="rounded nav-pict" alt="photo profil" />
+              </div>
+            </li>
+            <li class="nav-item dropdown ps-1">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mohamad Zydane Ulir Rizqi Toyyibi </a>
+              <ul class="dropdown-menu" style="width: 100%" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="#">Profile</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Event Saya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Lihat Sertifikat</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Keluar</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="jumbotron jumbotron-fluid shadow">
-      <div class="container backgroundphoto">
-      </div>
+      <div class="container backgroundphoto"></div>
       <div class="container user">
-        <img src="img/profil 1.png" class="rounded nav-pict photoprofile" alt="photo profil">
+        <img src="img/profil 1.png" class="rounded nav-pict photoprofile" alt="photo profil" />
         <h1 class="display-4 nama">Mohamad Zydane Ulir Rizqi Toyyibi</h1>
         <p class="lead deskripsi">mohamadzydane@upnvj.ac.id</p>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font pt-3 pb-3 navprofile">
         <div class="container container-tombolprofile">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pengaturan">
-                    <li class="nav-item pe-3">
-                        <a class="nav-link active fw-bold nav__link" aria-current="page" href="#">Profile Pribadi</a>
-                    </li>
-                    <li class="nav-item pe-3">
-                        <a class="nav-link" href="#">Pengaturan Akun</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item d-flex align-items-center btnEditprofile">
-                        <div class="button editprofile">
-                          <button type="button" class="btn btn-success">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"><img src="./icons/pencil (2) 1.svg" alt=""></span>
-                            <span class="text-profile">Edit Profile</span>
-                          </button>
-                        </div>
-                    </li>
-                </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pengaturan">
+            <li class="nav-item pe-3">
+              <a class="nav-link active fw-bold nav__link" aria-current="page" href="#">Profile Pribadi</a>
+            </li>
+            <li class="nav-item pe-3">
+              <a class="nav-link" href="#">Pengaturan Akun</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item d-flex align-items-center btnEditprofile">
+              <div class="button editprofile">
+                <button type="button" class="btn btn-success">
+                  <span class="glyphicon glyphicon-off" aria-hidden="true"><img src="./icons/pencil (2) 1.svg" alt="" /></span>
+                  <span class="text-profile text-white">Edit Profile</span>
+                </button>
+              </div>
+            </li>
+          </ul>
         </div>
-    </nav>
+      </nav>
     </div>
-    <div class="container padding-profile rounded" style="background-color: white;padding: 30px;margin-top: 50px;margin-bottom: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <h5>Nama: </h5>
-        <p>Mohamad Zydane Ulir Rizqi Toyyibi</p>
-        <h5>NIM: </h5>
-        <p>1910511120</p>
-        <h5>No. HP: </h5>
-        <p>081228119616</p>
-        <h5>Fakultas: </h5>
-        <p>Ilmu Komputer</p>
-        <h5>Prodi: </h5>
-        <p>Informatika</p>
-        <h5>Angkatan: </h5>
-        <p>2019</p>
-        <h5>Jenis-Kelamin: </h5>
-        <p>Laki-Laki</p>
-        <h5>Tanggal Lahir: </h5>
-        <p>29 Februari 2000</p>
+    <div class="container padding-profile rounded" style="background-color: white; padding: 30px; margin-top: 50px; margin-bottom: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+      <h5>Nama:</h5>
+      <p>Mohamad Zydane Ulir Rizqi Toyyibi</p>
+      <h5>NIM:</h5>
+      <p>1910511120</p>
+      <h5>No. HP:</h5>
+      <p>081228119616</p>
+      <h5>Fakultas:</h5>
+      <p>Ilmu Komputer</p>
+      <h5>Prodi:</h5>
+      <p>Informatika</p>
+      <h5>Angkatan:</h5>
+      <p>2019</p>
+      <h5>Jenis-Kelamin:</h5>
+      <p>Laki-Laki</p>
+      <h5>Tanggal Lahir:</h5>
+      <p>29 Februari 2000</p>
     </div>
-    <footer>
-        <div class="container padding">
-            <div class="row text-center">
-                <p>@2021 Crystal Team</p>
-            </div>
-        </div>
+
+    <footer class="container-fluid pt-4 pb-2">
+      <p class="text-white text-center ft-font">&#169;2021 Crystal Team</p>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-
-</body>
-
+  </body>
 </html>

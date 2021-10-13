@@ -1,5 +1,6 @@
 * {
     font-family: 'PT Serif', serif;
+    color: #2F4858!important;
 }
 
 body { background: #D7F9DB !important; }
@@ -68,8 +69,6 @@ body { background: #D7F9DB !important; }
 .jumbotron{
     background-color: white;
     
-    
-    
 }
 
 .backgroundphoto{
@@ -85,6 +84,10 @@ body { background: #D7F9DB !important; }
     
 }
 
+.ft-font {
+    font-size: 1.125rem!important;
+}
+
 .user .photoprofile{
     text-align: center;
     width: 10em;
@@ -98,6 +101,7 @@ body { background: #D7F9DB !important; }
 
 .user .nama{
     margin-top: 10px;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 2em !important;
     font-weight: bold !important;
 }
