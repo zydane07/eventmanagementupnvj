@@ -22,13 +22,25 @@
         <a class="navbar-brand me-5" href="#">
           <img src="img/logo 4.png" width="125" height="" alt="" class="pt-1" />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <ul class="navbar-nav mb-2 mb-lg-0 navbox">
+          <li class="nav-item">
+            <div class="float-xl-right">
+              <img src="icons/Bell.svg" class="d-block d-lg-none bel" alt="notifikasi" />
+            </div>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </li>
+        
+        
+        </ul>
+          
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item pe-3">
-              <a class="nav-link" aria-current="page" href="#">Beranda</a>
+              <a class="nav-link" aria-current="page" href="index.html">Beranda</a>
             </li>
             <li class="nav-item pe-3">
               <a class="nav-link" href="#">Bantuan</a>
@@ -38,17 +50,17 @@
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item d-flex align-items-center">
+            <li class="d-none d-lg-block">
               <div class="text-center">
                 <img src="icons/Bell.svg" class="pe-3" alt="notifikasi" />
               </div>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <div class="text-center">
+              <div class="d-none d-lg-block">
                 <img src="img/profil 1.png" class="rounded nav-pict" alt="photo profil" />
               </div>
             </li>
-            <li class="nav-item dropdown ps-1">
+            <li class="nav-item dropdown ps-0">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mohamad Zydane Ulir Rizqi Toyyibi </a>
               <ul class="dropdown-menu" style="width: 100%" aria-labelledby="navbarDropdownMenuLink">
                 <li>
@@ -67,6 +79,7 @@
             </li>
           </ul>
         </div>
+        
       </div>
     </nav>
 
