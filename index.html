@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- logo -->
+    <link rel="icon" href="img/icon.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/styleHome.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -14,9 +16,11 @@
 
   <body style="min-height: 2000px">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3 fixed-top">
       <div class="container">
-        <a class="navbar-brand pe-5" href="#">Navbar w/ text</a>
+        <a class="navbar-brand me-5" href="#">
+          <img src="img/logo 4.png" width="125" height="" alt="" class="pt-1" />
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,8 +70,8 @@
     </nav>
 
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid bg-image bg-info pt-5 pb-5">
-      <div class="container mb-4 pb-2">
+    <div class="jumbotron jumbotron-fluid bg-image bg-info pt-5 pb-5 mt-5">
+      <div class="container mb-5 pb-2 mt-5">
         <h1 class="head-font text-white">Hi, Mohamad Zydane!</h1>
         <p class="p-font text-white">Selamat datang di Sistem Informasi Event Management ORMAWA dan Mahasiswa</p>
         <p class="p-font mb-4 text-white">UPN Veteran Jakarta. Ikuti event-event menarik yang dapat mengembangkan skillmu.</p>
@@ -80,7 +84,7 @@
       <div class="box mt-custom">
         <form action="">
           <input type="text" placeholder="Cari event yang ingin kamu ikuti..." />
-          <select name="" id="list">
+          <select name="" id="list" class="">
             <option selected>Kategori</option>
             <option value="">Webinar</option>
             <option value="">Workshop</option>

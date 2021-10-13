@@ -3,7 +3,7 @@
 }
 
 .my-shadow-2 {
-    box-shadow: 0 .5rem 1rem rgba(42,72,88,.65)!important;
+    box-shadow: 0 .5rem 1rem rgba(42,72,88,.35)!important;
 }
 
 .nav-font {
@@ -164,7 +164,7 @@
 }
 
 .menu {
-    opacity: 0;
+    /* opacity: 0; */
     visibility: hidden;
     transform: translateY(1rem);
     transition: all 0.35s;
