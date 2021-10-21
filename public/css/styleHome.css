@@ -1,0 +1,294 @@
+.my-shadow {
+    box-shadow: 0 .5rem 1rem rgba(42,72,88,.15)!important;
+}
+
+.my-shadow-2 {
+    box-shadow: 0 .5rem 1rem rgba(42,72,88,.35)!important;
+}
+
+.nav-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.2rem;
+    /* color: #2F4858!important; */
+}
+.nav-pict{
+    width: 33px;
+    height: 33px;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #2F4858!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #2F4858!important;
+}
+
+.nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: none;
+}
+
+.nav__link {
+    position: relative;
+    color: #fff;
+}
+  
+  .nav__link:hover {
+    position: relative;
+}
+
+.nav__link:hover::after {
+    position: absolute;
+    content: "";
+    width: 82%;
+    height: 0.18rem;
+    left: 0.5rem;
+    top: 3.6rem;
+    background-color: #008493;
+}
+/*
+.active::after {
+    position: absolute;
+    content: "";
+    width: 5%;
+    height: 0.18rem;
+   
+    top: 3.8rem;
+    background-color: #008493;
+}
+*/
+.navbox{
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.bel{
+    padding-right: 1rem !important;
+}
+
+
+
+/* jumbotron */
+.bg-image {
+    background-image: url('../img/jumbotron.png');
+    background-color: #008493;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.head-font {
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+
+.p-font {
+    font-family: 'PT Serif', serif;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1.25rem;
+    letter-spacing: 0.05rem;
+}
+
+.btn-custom {
+    font-family: 'Century Gothic', sans-serif!important;
+    font-weight: bold!important;
+    font-size: 0.775rem!important;
+    color: #fff!important;
+    text-decoration: none;
+    background-color: #2F4858!important;
+    padding: 0.75rem 1rem!important;
+    border-radius: 0.5rem!important;
+    /* border-color: #fff!important; */
+
+}
+
+.btn-custom:hover {
+    color: #fff;
+    background-color: #008493;
+    border-color: #008493;
+}
+
+.btn:hover {
+    color: #212529;
+}
+
+/* search */
+.box {
+    font-family: 'PT Serif', serif;
+}
+
+.box input {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.box input[type="text"] {
+    background: #fff;
+    width: 50rem;
+    height: 4rem;
+    border: 1px solid rgba(47, 72, 88, .8);
+    border-radius: 15px 0 0 15px;
+    outline: none;
+    background-image: url('../icons/search.svg');
+    background-position: 20px 18px;
+    background-repeat: no-repeat;
+    padding: 0 60px;
+}
+
+.box select {
+    position: relative;
+    left: -3px;
+    border: 1px solid rgba(47, 72, 88, .8);
+    outline: none;
+    background: #fff;
+    font-size: 18px;
+    padding: 21px 20px 20px;
+    margin: -2px;
+    border-right: 15px solid #fff;
+}
+
+.box input[type="submit"] {
+    position: relative;
+    left: -5px;
+    width: 10rem;
+    height: 4rem;
+    /* font-size: 20px; */
+    border: none;
+    border-radius: 0 15px 15px 0;
+    outline: none;
+    cursor: pointer;
+    background: #008493;
+    color: #fff;
+    transition: .5s;
+}
+
+.box input[type="submit"]:hover {
+    background: #026570;
+}
+
+.mt-custom {
+    margin-top: -2.2rem!important;
+}
+
+.menu {
+    /* opacity: 0; */
+    visibility: hidden;
+    transform: translateY(1rem);
+    transition: all 0.35s;
+}
+
+.menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* event */
+.card-custom {
+    background-image: url(../img/poster.png);
+    background-size: cover;
+    padding: 10rem 0 0;
+    border-radius: 15px;
+    width: 24rem;
+    /* max-width: 352px;
+    max-height: 269px; */
+}
+
+.card-font {
+    font-family: 'Century Gothic', sans-serif!important;
+    font-weight: bold!important;
+}
+
+.card-body-custom {
+    padding: 1.5rem;
+    background-color: #008493;
+    border-radius: 15px;
+}
+
+.date {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    background-image: url('../icons/calendar.svg');
+    /* background-position: 15px; */
+    background-repeat: no-repeat;
+    padding: 0 30px;
+}
+
+.btn-custom-2 {
+    font-family: 'Century Gothic', sans-serif!important;
+    font-weight: bold!important;
+    font-size: 0.775rem!important;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, .8);
+    /* background-color: #2F4858!important; */
+    padding: 0.75rem 1rem!important;
+    border-radius: 0.5rem!important;
+    /* border-color: #fff!important; */
+}
+
+.btn-custom-2:hover {
+    color: #fff;
+    background-color: #2F4858;
+    border-color: #008493;
+}
+
+.sub-font {
+    font-family: 'Century Gothic', sans-serif;
+    color: #2F4858;
+    font-weight: bold;
+    font-size: 2.25rem;
+}
+
+/* carousel */
+.bg-custom{
+    /* padding-right: 20px; */
+    background-image: url(https://www.upnvj.ac.id/id/files/large/09d66b5fab4ed182e93ae8bb276692c1.html);
+    border-radius: 0.5rem!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #D7F9DB;
+    background-position: 50% -65px;
+}
+
+.bg-text {
+    /* padding: 1.5em; */
+    border-radius: 0.5rem!important;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(255,255,255,0));
+}
+
+/* footer */
+
+footer{
+    background-color: #008493;
+    padding-top: 2rem;
+}
+.ft-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.125rem!important;
+
+}
+
+@media (max-width:991px){
+    .active::after{
+        left: 0rem !important;
+        top: 2.5rem !important;
+        width: 25% !important;
+    }
+}
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+
+  .reveal.activee{
+    transform: translateY(0px);
+    opacity: 1;
+  } 

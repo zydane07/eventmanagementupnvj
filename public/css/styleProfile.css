@@ -1,0 +1,236 @@
+p,h1,h2,h3,h4,h5,h6 {
+    font-family: 'PT Serif', serif;
+    color: #2F4858;
+}
+
+body { background: #D7F9DB !important; }
+
+.my-shadow {
+    box-shadow: 0 .5rem 1rem rgba(42,72,88,.15)!important;
+}
+
+/** NAVBAR **/
+.nav-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.2rem;
+    /* color: #2F4858!important; */
+}
+.nav-pict{
+    width: 33px;
+    height: 33px;
+    
+}
+
+.active::after {
+    position: absolute;
+    content: "";
+    width: 5%;
+    height: 0.18rem;
+   
+    top: 3.8rem;
+    background-color: #008493;
+}
+
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #2F4858!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #2F4858!important;
+}
+
+.nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: none;
+}
+
+.nav__link {
+    position: relative;
+    color: #fff;
+}
+  
+  .nav__link:hover {
+    position: relative;
+}
+
+.nav__link:hover::after {
+    position: absolute;
+    content: "";
+    width: 82%;
+    height: 0.18rem;
+    left: 0.5rem;
+    top: 3.6rem;
+    background-color: #008493;
+}
+
+.active::after {
+    position: absolute;
+    content: "";
+    width: 82%;
+    height: 0.18rem;
+    left: 0.5rem;
+    top: 3.6rem;
+    background-color: #008493;
+}
+
+.navbox{
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.bel{
+    padding-right: 1rem !important;
+}
+
+
+/** JUMBOTRON **/
+.jumbotron{
+    background-color: white;
+    
+}
+
+.backgroundphoto{
+    height: 20em;
+    border-radius: 0px 0px 20px 20px;
+    position: relative;
+    background-image: linear-gradient(to right, #7cc985 , #00A397);
+
+}
+
+.user{
+    text-align: center;
+    
+}
+
+.ft-font {
+    font-size: 1.125rem!important;
+}
+
+.user .photoprofile{
+    text-align: center;
+    width: 10em;
+    height: 10em;
+    margin-top: -120px;
+    position: relative;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 100% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user .nama{
+    margin-top: 10px;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 2em !important;
+    font-weight: bold !important;
+}
+
+ul.nav-pengaturan{
+    max-width: 990px;
+    list-style: none;
+    
+    
+}
+
+.nav-pengaturan li{
+    display:inherit !important;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+.nav-pengaturan .pe-3{
+    padding-right: 0rem !important;
+    
+}
+
+
+
+.nav-pengaturan .active::after{
+    left: 0rem !important;
+    top: 2rem !important;
+    width: 100% !important;
+    
+}
+
+.container-tombolprofile{
+    display: inline-block !important;
+}
+.btnEditprofile{
+    display: flex !important;
+    justify-content: center;
+    margin-top: 10px;
+}
+.editprofile button{
+    padding-right: 40px;
+    padding-left: 40px;
+    background-color: #00A397;
+    border-color: #00A397;
+    border-radius: 10px;
+    
+}
+
+.editprofile button:hover{
+    background-color: #028179;
+    border-color: #028179;
+}
+
+.text-profile{
+    font-weight: bold;
+}
+footer{
+    background-color: #008493;
+    padding-top: 2rem;
+}
+
+@media (min-width:991px){
+    .jumbotron{
+    background-color: white;
+    
+}
+   .container-tombolprofile{
+       
+       display: flex !important;
+   }
+   .nav-pengaturan .active::after{
+    left: 0.5rem !important;
+    top: 3.4rem !important;
+    width: 5% !important;
+}
+.btnEditprofile{
+    display: flex !important;
+    justify-content: center;
+    margin-top: 0px;
+}
+.nav-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1.2rem;
+    /* color: #2F4858!important; */
+}
+.pe-3{
+        margin-bottom: 0px !important;
+    }
+
+    
+    img.pe-3{
+        
+        margin-top: 0.6em !important;
+    }
+}
+
+@media (max-width:1075px){
+    
+.nav-font {
+    font-family: 'PT Serif', serif;
+    font-size: 1rem;
+    /* color: #2F4858!important; */
+}
+
+}
+
+@media (min-width:1076px){
+    .nav-pengaturan .active::after{
+        left: 0.7rem !important;
+        top: 3.55rem !important;
+        width: 5% !important;
+    }
+}
