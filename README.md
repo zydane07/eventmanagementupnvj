@@ -33,21 +33,3 @@ FOLDER BUAT FRONT END:
 3. SRC > ROUTES > routers.js
   
   Tempat buat ngerender halaman atau page website kita di url tertentu. Bisa diliat dibawah ada contoh
-
-
-FOLDER BUAT BACK END:
-
-1. SRC:
- 
-  1.1. Controller
-      Tempat proses data terjadi, contohnya, ngambil data dari database atau ngirim data ke database dsb.
-
-  1.2. Models
-      Folder bikin schema database disini 
-
-  1.3. Routes
-      Nentuin proses apa yang bakal terjadi untuk tiap page url.
-  
-  1.4. ValidationModel
-      Ngevalidasi data yang dikirim Client / User nanti, kalo engga sesuai sama yang diminta, Bisa
-      dibikin error.
