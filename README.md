@@ -9,32 +9,6 @@ Cara ngejalaninnya:
 3. buka di browser localhost:3000
 
 
-FOLDER BUAT FRONT END:
-
-1. VIEWS:
-  Tempat content tiap halaman website dan layoutnya, 
-  contoh: isi content dari page / halaman index dan profil ada di folder ini.
-
-  1.1. Layouts
-    Ada dua folder dan satu File:
-    1) Component, isinya itu component yang selalu ada di tiap page / halaman website 
-      Contoh: Navbar, footer, script (script untuk tiap halaman) selalu sama.
-    
-    2)Pages, isi dari page atau content dari page.
-      Contoh: Untuk saat ini ada dua folder, homepage dan profil. Isi dari masing-masing folder itu content
-              untuk page tersebut.
-
-    3)Main-Layout.ejs, Layout website kita / kerangka website kita, kalo diliat, itu yang bakal keganti
-      <% body %> nya doang. 
-
-2. Public
-  Tempat css, icons, img, js, sounds.
-
-3. SRC > ROUTES > routers.js
-  
-  Tempat buat ngerender halaman atau page website kita di url tertentu. Bisa diliat dibawah ada contoh
-
-
 FOLDER BUAT BACK END:
 
 1. SRC:
