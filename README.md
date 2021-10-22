@@ -24,4 +24,8 @@ FOLDER BUAT BACK END:
   
   1.4. ValidationModel
       Ngevalidasi data yang dikirim Client / User nanti, kalo engga sesuai sama yang diminta, Bisa
-      dibikin error.
+      dibikin error.<br>
+
+  Menyusul<br>
+  1.5  SendEmail<br> 
+        Ngirim email buat verifikasi akun 
