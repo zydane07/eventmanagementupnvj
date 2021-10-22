@@ -103,40 +103,10 @@ Request:
 ```json
 {
   "email": "string",
-  "password": "string",
-  "confirmPassword": "string",
   "fullName": "string",
-  "nidn": "string",
-  "phoneNumber": "string"
-}
-```
-
-Response:
-
-```json
-{
-  "success": "boolean",
-  "message": "string"
-}
-```
-
-## Register Ormawa
-
-Request:
-
-- Method: POST
-- Endpoint: `-`
-- Header:
-  - Content-Type: "application/json"
-  - Accept: "application/json"
-- Body:
-
-```json
-{
-  "email": "string",
+  "phoneNumber": "string",
   "password": "string",
-  "name": "string",
-  "role": "string"
+  "confirmPassword": "string"
 }
 ```
 
@@ -206,8 +176,7 @@ Request:
 
 ```json
 {
-  "nidn": "string",
-  "email": "string",
+  "email": "string"
 }
 ```
 
@@ -225,7 +194,7 @@ Response:
 Request:
 
 - Method: PUT
-- Endpoint: `/reset-password/:token`
+- Endpoint: `/reset-password/:auth`
 - Header:
   - Content-Type: "application/json"
   - Accept: "application/json"
@@ -267,3 +236,31 @@ Response:
 }
 ```
 
+## Register Ormawa
+
+Request:
+
+- Method: POST
+- Endpoint: `-`
+- Header:
+  - Content-Type: "application/json"
+  - Accept: "application/json"
+- Body:
+
+```json
+{
+  "email": "string",
+  "password": "string",
+  "name": "string",
+  "role": "string"
+}
+```
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
