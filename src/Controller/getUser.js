@@ -1,9 +1,9 @@
-const profile = ()=>{
+const profile = (req,res,next)=>{
   const nama = 'Bagas Prabaswara';
   const umur = 19;
   const namadepan = nama.split(' ');
-  const obj = {nama,umur,namadepan};
-  return obj;
+  req.obj = {nama,umur,namadepan};
+  next();
   
 }
 

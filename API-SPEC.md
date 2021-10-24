@@ -163,7 +163,7 @@ Response:
 }
 ```
 
-## Forget Password Lecturer
+## Forget Password Mahasiswa
 
 Request:
 
@@ -224,7 +224,7 @@ Request:
 - Endpoint: `/logout`
 - Header:
   - Accept: "application/json"
-  - Authorization: "bearer token"
+  - Cookies: "token"
 - Body:
 
 Response:
@@ -235,6 +235,98 @@ Response:
   "message": "string"
 }
 ```
+## Homepage
+
+Request:
+
+- Method: GET
+- Endpoint: `/`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "id_event":"number",
+    "nama_event":"string",
+    "tanggal_event":"datetime"
+  }
+  
+}
+```
+## Detail Event
+
+Request:
+
+- Method: GET
+- Endpoint: `/detail/:id_event`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "event":{
+      "id_event":"number",
+      "nama_event":"string",
+      "tanggal_event":"datetime",
+      "detail_eo":"string",
+      "poster_event":"string",
+      "kategori":"string",
+      "deskripsi_event":"string",
+      "benefits":"string",
+      "registered_people":"number"
+    }
+  }
+  
+}
+```
+
+## Get Profile Mahasiswa
+
+Request:
+
+- Method: GET
+- Endpoint: `/profile`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "data": {
+    "user": {
+      "photo": "string",
+      "email": "string",
+      "nama_lengkap": "string",
+      "password": "string",
+      "nim": "string",
+      "no_hp": "string",
+      "fakultas": "string",
+      "prodi":"string",
+      "angkatan": "string",
+      "Jenis_Kelamin": "string",
+      "tanggal_lahir":"datetime"
+    }
+  }
+}
+```
+
 
 ## Register Ormawa
 
