@@ -1,0 +1,11 @@
+.bg-custom {
+  height: 100em;
+  /* border-radius: 0px 0px 20px 20px; */
+  position: relative;
+  background-image: linear-gradient(to right, #69f0ae, #00a397);
+}
+
+.img-fluid {
+  max-width: 50%;
+  height: auto;
+}

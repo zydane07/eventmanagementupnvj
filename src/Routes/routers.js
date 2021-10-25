@@ -22,7 +22,22 @@ routers.get('/profile',(req,res)=>{
   });
 })
 
-//^ JANGAN IKUTIN KAYAK DUA YANG DIATAS, CONTOHNYA DIBAWAH 
+routers.get('/login',(req,res)=>{
+  res.render('login',{
+    layout: 'layouts/login-layout',
+    css: 'a',
+    title:'login'
+  });
+})
+
+routers.get('/register',(req,res)=>{
+  res.render('register',{
+    layout: 'layouts/login-layout'
+  })
+})
+
+routers.get('/')
+
 /*
 routers.get('/profile',(req,res)=>{
   res.render('profile',{
@@ -32,7 +47,7 @@ routers.get('/profile',(req,res)=>{
   });
 })
 
-routers.get('/',(req,res)=>{        '/' -> URL NYA APA
+routers.get('/',(req,res)=>{        '/' -> URL NYA APA (endpoint)
   res.render('index',{              NGERENDER PAGE / HALAMAN YANG ADA DI FOLDER VIEWS
     layout: 'layouts/main-layout',  KERANGKA WEBSITE KITA (Pake ini terus kecuali buat login dan regis)
     title: 'Home',                  TITLE TIAP PAGE BEDA-BEDA
