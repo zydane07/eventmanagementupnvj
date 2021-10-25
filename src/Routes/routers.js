@@ -1,28 +1,34 @@
-const express = require('express');
+const express = require("express");
 const routers = express.Router();
-const getProfile = require('../Controller/getUser');
+const getProfile = require("../Controller/getUser");
 
-routers.get('/',(req,res)=>{
+routers.get("/", (req, res) => {
   const obj = getProfile();
-  res.render('index',{
-    layout: 'layouts/main-layout',
-    title: 'Home',
-    css: 'styleHome',
-    ...obj
+  res.render("index", {
+    layout: "layouts/main-layout",
+    title: "Home",
+    css: "styleHome",
+    ...obj,
   });
 });
 
-routers.get('/profile',(req,res)=>{
+routers.get("/profile", (req, res) => {
   const obj = getProfile();
-  res.render('profile',{
-    layout: 'layouts/main-layout',
-    title: 'Profile',
-    css: 'styleProfile',
-    ...obj
+  res.render("profile", {
+    layout: "layouts/main-layout",
+    title: "Profile",
+    css: "styleProfile",
+    ...obj,
   });
-})
+});
 
-//^ JANGAN IKUTIN KAYAK DUA YANG DIATAS, CONTOHNYA DIBAWAH 
+routers.get("/login", (req, res) => {
+  res.render("login", {
+    layout: "layouts/login-layout",
+  });
+});
+
+//^ JANGAN IKUTIN KAYAK DUA YANG DIATAS, CONTOHNYA DIBAWAH
 /*
 routers.get('/profile',(req,res)=>{
   res.render('profile',{
@@ -40,4 +46,4 @@ routers.get('/',(req,res)=>{        '/' -> URL NYA APA
   });
 })
 */
-module.exports = routers
+module.exports = routers;
