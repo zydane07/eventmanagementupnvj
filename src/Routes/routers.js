@@ -25,6 +25,8 @@ routers.get("/profile", (req, res) => {
 routers.get("/login", (req, res) => {
   res.render("login", {
     layout: "layouts/login-layout",
+    css: "a",
+    title: "login",
   });
 });
 
@@ -38,7 +40,7 @@ routers.get('/profile',(req,res)=>{
   });
 })
 
-routers.get('/',(req,res)=>{        '/' -> URL NYA APA
+routers.get('/',(req,res)=>{        '/' -> URL NYA APA (endpoint)
   res.render('index',{              NGERENDER PAGE / HALAMAN YANG ADA DI FOLDER VIEWS
     layout: 'layouts/main-layout',  KERANGKA WEBSITE KITA (Pake ini terus kecuali buat login dan regis)
     title: 'Home',                  TITLE TIAP PAGE BEDA-BEDA
