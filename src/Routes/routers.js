@@ -36,7 +36,21 @@ routers.get('/register', (req, res) => {
   })
 })
 
+routers.get('/search', (req, res) => {
+  res.render('search', {
+    layout: 'layouts/main-layout',
+    title: 'search',
+    css: 'styleHome',
+  });
+})
 
+routers.get('/tentang', (req, res) => {
+  res.render('about', {
+    layout: 'layouts/about-layout',
+    title: 'Tentang Aplikasi',
+    css: 'styleHome',
+  });
+})
 
 routers.get('/')
 

@@ -34,7 +34,7 @@
 }
 
 .ctm-margin {
-    margin: 180px 300px;
+    margin: 140px 230px;
 }
 
 /* form */
@@ -122,14 +122,14 @@ label {
 .email {
     position: absolute;
     /* right: 15px; */
-    transform: translate(-1990%, 15%);
+    transform: translate(-2100%, 15%);
     font-size: 25px;
     /* top: 50%; */
 }
 .lock {
     position: absolute;
     /* right: 15px; */
-    transform: translate(-2260%, 15%);
+    transform: translate(-2400%, 15%);
     font-size: 25px;
     /* top: 50%; */
 }
