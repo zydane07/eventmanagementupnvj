@@ -2,9 +2,9 @@ const express = require('express');
 const routers = express.Router();
 const getProfile = require('../Controller/getUser');
 
-routers.get('/',(req,res)=>{
+routers.get('/', (req, res) => {
   const obj = getProfile();
-  res.render('index',{
+  res.render('index', {
     layout: 'layouts/main-layout',
     title: 'Home',
     css: 'styleHome',
@@ -12,9 +12,9 @@ routers.get('/',(req,res)=>{
   });
 });
 
-routers.get('/profile',(req,res)=>{
+routers.get('/profile', (req, res) => {
   const obj = getProfile();
-  res.render('profile',{
+  res.render('profile', {
     layout: 'layouts/main-layout',
     title: 'Profile',
     css: 'styleProfile',
@@ -22,18 +22,34 @@ routers.get('/profile',(req,res)=>{
   });
 })
 
-routers.get('/login',(req,res)=>{
-  res.render('login',{
+routers.get('/login', (req, res) => {
+  res.render('login', {
     layout: 'layouts/login-layout',
-    css: 'a',
-    title:'login'
+    css: 'styleLoginOrmawa',
+    title: 'login'
   });
 })
 
-routers.get('/register',(req,res)=>{
-  res.render('register',{
+routers.get('/register', (req, res) => {
+  res.render('register', {
     layout: 'layouts/login-layout'
   })
+})
+
+routers.get('/search', (req, res) => {
+  res.render('search', {
+    layout: 'layouts/main-layout',
+    title: 'search',
+    css: 'styleHome',
+  });
+})
+
+routers.get('/tentang', (req, res) => {
+  res.render('about', {
+    layout: 'layouts/about-layout',
+    title: 'Tentang Aplikasi',
+    css: 'styleHome',
+  });
 })
 
 routers.get('/')
