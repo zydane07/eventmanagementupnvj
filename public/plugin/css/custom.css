@@ -1,0 +1,29 @@
+.login-page,
+.register-page {
+    background-image: linear-gradient(0.45turn, #69f0ae, #00a397);
+    /* background-color: ; */
+}
+
+.img-size {
+    height: 2em;
+}
+
+.btn-primary {
+    background-color: #2f4858;
+    border-color: #2f4858;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #008493;
+    border-color: #008493;
+}
+
+.login-card-body,
+.register-card-body {
+    padding: 25px;
+}

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "watch": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 1 --no-ui --no-inject-changes"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,10 @@
     "joi": "^17.4.2",
     "mongoose": "^6.0.11",
     "nodemon": "^2.0.13"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0"
   }
 }
