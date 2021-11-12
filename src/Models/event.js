@@ -7,9 +7,9 @@ const eventSchema = mongoose.Schema({
   kategori: String,
   nama_event: String,
   tanggal_event: Date,
-  deskripsi_event: Date,
+  deskripsi_event: String,
   benefits: String,
-  register_people: String,
+  registered_people: String,
 });
 
 module.exports = mongoose.model('Event', eventSchema);
