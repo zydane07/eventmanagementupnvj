@@ -94,7 +94,7 @@
 .btn-custom {
     font-family: 'Century Gothic', sans-serif!important;
     font-weight: bold!important;
-    font-size: 0.775rem!important;
+    font-size: 1rem!important;
     color: #fff!important;
     text-decoration: none;
     background-color: #2F4858!important;
@@ -272,6 +272,10 @@ footer{
     font-size: 1.125rem!important;
 
 }
+.btn-share{
+    background-color: transparent!important;
+    border: 1px solid black!important;
+}
 input[type="file"] {
     display: none;
   }
@@ -282,7 +286,7 @@ input[type="file"] {
     border-radius: 8px;
     background-color: #008493;
     display: inline-block;
-    padding: 6px 12px;
+    padding: 10px 40px 10px 40px;
     cursor: pointer;
   }
 

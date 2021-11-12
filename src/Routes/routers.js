@@ -21,6 +21,25 @@ routers.get('/profile',(req,res)=>{
     ...obj
   });
 })
+routers.get('/eventDetail',(req,res)=>{
+  const obj = getProfile();
+  res.render('eventdetail',{
+    layout: 'layouts/main-layout',
+    title: 'Detail Event',
+    css: 'styleDetail',
+    ...obj
+  });
+})
+routers.get('/eventList',(req,res)=>{
+  const obj = getProfile();
+  res.render('eventlist',{
+    layout: 'layouts/main-layout',
+    title: 'Event List',
+    css: 'styleDetail',
+    ...obj
+  });
+})
+
 
 //^ JANGAN IKUTIN KAYAK DUA YANG DIATAS, CONTOHNYA DIBAWAH 
 /*
