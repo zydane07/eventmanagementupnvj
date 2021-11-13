@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('component/header')  %> 
-    <title><%= title %></title>
-  </head>
+    <head>
+        <%- include('component/header') %>
+        <title><%= title %></title>
+    </head>
 
-  <body>
-   <%- include('component/navbar')  %> 
-
-   <%- body %>
-  
-   <%- include('component/footer')  %> 
-   
-   <%- include('component/script')  %> 
-  </body>
+    <body>
+        <%- include('component/navbarGlobal') %> <%- body %> <%- include('component/footer') %> <%- include('component/script') %>
+    </body>
 </html>

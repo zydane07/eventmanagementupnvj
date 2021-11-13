@@ -216,6 +216,23 @@ footer{
         margin-top: 0.6em !important;
     }
 }
+.form-group{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+input[type="file"] {
+    display: none;
+  }
+  
+.custom-file-upload {
+    border: 1px solid #ccc;
+    color: white;
+    border-radius: 8px;
+    background-color: #008493;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
 
 @media (max-width:1075px){
     

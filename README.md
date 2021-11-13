@@ -27,6 +27,14 @@ EVENT MANAGEMENT UPNVJ
           Contoh: Untuk saat ini ada dua folder, homepage dan profil. Isi dari masing-masing folder itu content 
                   untuk page tersebut.
 
+
+2. Public
+  Tempat css, icons, img, js, sounds.
+
+3. SRC > ROUTES > routers.js
+  
+  Tempat buat ngerender halaman atau page website kita di url tertentu. Bisa diliat dibawah ada contoh
+
         3)Main-Layout.ejs, Layout website kita / kerangka website kita, kalo diliat, itu yang bakal keganti <br>
           <% body %> nya doang. 
 
@@ -54,3 +62,4 @@ EVENT MANAGEMENT UPNVJ
   1.4) ValidationModel<br>
       Ngevalidasi data yang dikirim Client / User nanti, kalo engga sesuai sama yang diminta, Bisa
       dibikin error.
+
