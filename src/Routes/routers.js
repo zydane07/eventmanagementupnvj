@@ -25,12 +25,77 @@ routers.get("/profile", (req, res) => {
 routers.get("/login", (req, res) => {
   res.render("login", {
     layout: "layouts/login-layout",
-    css: "a",
+    css: "styleLoginUser",
     title: "login",
   });
 });
 
-//^ JANGAN IKUTIN KAYAK DUA YANG DIATAS, CONTOHNYA DIBAWAH
+routers.get("/register", (req, res) => {
+  res.render("register", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "register",
+  });
+});
+
+routers.get("/register2", (req, res) => {
+  res.render("register2", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "register",
+  });
+});
+
+routers.get("/register3", (req, res) => {
+  res.render("register3", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "register",
+  });
+});
+
+routers.get("/ResendVerif", (req, res) => {
+  res.render("ResendVerif", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "Resend Verif",
+  });
+});
+
+routers.get("/LupaPass", (req, res) => {
+  res.render("LupaPass", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "Lupa Password",
+  });
+});
+
+routers.get("/LupaPass2", (req, res) => {
+  res.render("LupaPass2", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "Lupa Password",
+  });
+});
+
+routers.get("/LupaPass3", (req, res) => {
+  res.render("LupaPass3", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "Lupa Password",
+  });
+});
+
+routers.get("/LupaPass4", (req, res) => {
+  res.render("LupaPass4", {
+    layout: "layouts/login-layout",
+    css: "styleLoginUser",
+    title: "Lupa Password",
+  });
+});
+
+routers.get("/");
+
 /*
 routers.get('/profile',(req,res)=>{
   res.render('profile',{
