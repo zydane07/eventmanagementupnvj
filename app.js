@@ -1,16 +1,22 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const routers = require("./src/Routes/routers");
-const routersOrmawa = require("./src/Routes/routers-ormawa");
-const expressLayouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv/config");
 
+const routers = require('./src/routes');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const helmet = require('helmet');
+const cookieparser = require('cookie-parser');
+
+require('dotenv/config');
+app.use(helmet());
+app.use(cookieparser());
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 app.use(expressLayouts);
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.DB_CONNECTION, {
@@ -20,6 +26,7 @@ const connectDB = async () => {
     console.log("Database connected!");
   } catch (err) {
     console.log("Failed to connect to Database:", err);
+
   }
 };
 
@@ -35,12 +42,14 @@ app.use("/dist", express.static(__dirname + "public/dist"));
 app.use("/plugin", express.static(__dirname + "public/plugin"));
 
 // Set Views
-app.set("views", "./views");
-app.set("view engine", "ejs");
 
-app.use(routers);
-app.use(routersOrmawa);
+app.set('views','./views');
+app.set('view engine','ejs');
 
-app.listen(port, () => {
-  console.log("Sedang berjalan...");
+routers.forEach((route)=>{
+  app.use(route.path, route.api);
+});
+
+app.listen(port,()=>{
+  console.log('Sedang berjalan...')
 });

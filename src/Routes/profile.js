@@ -1,6 +1,7 @@
 const express = require('express');
 const Auth = require('./verifyToken');
 const profileController = require('../Controller/profileController');
+
 const getProfile = require('../Controller/getUser');
 const router = express.Router();
 
@@ -16,6 +17,7 @@ const router = express.Router();
     ...obj,
   });
 });
+
 
 /**
  * @route /api/profile

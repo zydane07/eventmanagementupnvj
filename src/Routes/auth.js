@@ -83,6 +83,7 @@ router.get("/LupaPass4", (req, res) => {
 /**
  * @router /api/auth
  */
+
  router.post('/register',mahasiswaController.register);
  router.get('/verification/:token',verifyController.verifUser);
  router.post('/verification',verifyController.resendEmail);

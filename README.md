@@ -13,6 +13,11 @@ EVENT MANAGEMENT UPNVJ
 
 **FOLDER BUAT FRONT END:**
 
+1. SRC:
+ 
+  1.1. Controller
+      Tempat proses data terjadi, contohnya, ngambil data dari database atau ngirim data ke database dsb.
+
 1) VIEWS: <br>
   Tempat content tiap halaman website dan layoutnya, 
   contoh: isi content dari page / halaman index dan profil ada di folder ini.
@@ -41,6 +46,7 @@ EVENT MANAGEMENT UPNVJ
 2) Public <br>
   Tempat css, icons, img, js, sounds.
 
+
 3) SRC > ROUTES > routers.js <br>
   Tempat buat ngerender halaman atau page website kita di url tertentu. Bisa diliat di file Routes bagian bawah ada contohnya gua komen.
 <br>
@@ -61,5 +67,11 @@ EVENT MANAGEMENT UPNVJ
 
   1.4) ValidationModel<br>
       Ngevalidasi data yang dikirim Client / User nanti, kalo engga sesuai sama yang diminta, Bisa
-      dibikin error.
+      dibikin error.<br>
+
+  Menyusul<br>
+  1.5  SendEmail<br> 
+        Ngirim email buat verifikasi akun 
+
+
 
