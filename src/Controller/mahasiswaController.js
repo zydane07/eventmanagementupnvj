@@ -5,7 +5,7 @@ const sendEmail = require('../Nodemailer/sendEmail');
 const verifEmail = require('../Models/verifEmail')
 const {nanoid} = require('nanoid');
 
-const register = async(req,res)=>{
+exports.register = async (req,res) =>{
   try{
     //Menerima input kemudian di validasi
     const {email,namaLengkap,noHp,password,repassword} = req.body;
@@ -62,7 +62,7 @@ const register = async(req,res)=>{
     }).save()
 
     //Link untuk verifikasi yang akan dikirimkan ke email
-    const link = `http://localhost:3000/verification/${saveVerif.emailToken}`
+    const link = `http://localhost:3000/api/auth/verification/${saveVerif.emailToken}`
     await sendEmail(process.env.TEST_GMAIL,'Verifikasi Email',
     `Use this link to verif your SIM-U Account: ${link} `)
     
@@ -79,5 +79,3 @@ const register = async(req,res)=>{
     })
   }
 }
-
-module.exports=register;

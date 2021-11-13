@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const routers = require('./src/Routes/routers');
+const routers = require('./src/routes');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -43,10 +43,11 @@ app.use('/icon',express.static(__dirname+'public/icon'));
 app.set('views','./views');
 app.set('view engine','ejs');
 
-
-app.use(routers);
+routers.forEach((route)=>{
+  app.use(route.path, route.api);
+});
 
 app.listen(port,()=>{
   console.log('Sedang berjalan...')
-})
+});
 

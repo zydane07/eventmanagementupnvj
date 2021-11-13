@@ -1,7 +1,29 @@
 const Event = require('../Models/event');
 
-const getDetailEvent = async (req,res) => {
-	try{
+exports.getEvents = async(req,res)=>{
+  try {
+    const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id');{
+    // const homePage = await HomePage.find();{
+      return res.status(200).send({
+        success : true,
+        message : 'Berhasil get all events',
+        data : {
+            events
+        }
+      })
+      // return res.json(homePage)
+    }
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : 'Gagal load all events'
+    });
+  }
+}
+
+exports.getEventsDetails = async(req,res)=>{
+  try{
 		// const event = await Event.findOne({}).select('id_event nama_event tanggal_event detail_eo poster_event kategori deskripsi_event benefits register_people -_id');{
 		const event = await Event.findOne({id_event:req.params.id_event});
 		return res.status(200).send({
@@ -29,5 +51,3 @@ const getDetailEvent = async (req,res) => {
 		});
 	}
 }
-
-module.exports = getDetailEvent;

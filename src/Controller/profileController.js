@@ -1,6 +1,6 @@
 const Mahasiswa = require('../Models/mahasiswa');
 
-const profile = async(req,res)=>{
+exports.profile = async(req,res)=>{
   try{
     //Mencari profile di database collection Mahasiswa email yang ada di cookie
     const profileMhs = await Mahasiswa.findOne({email:req.user.email});
@@ -35,5 +35,3 @@ const profile = async(req,res)=>{
     });
   }
 }
-
-module.exports = profile;
