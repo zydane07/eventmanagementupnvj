@@ -1,0 +1,180 @@
+.bg-custom {
+  /* height: 100%; */
+  /* border-radius: 0px 0px 20px 20px; */
+  position: relative;
+  background-image: linear-gradient(0.35turn, #69f0ae, #00a397);
+}
+
+.ctm-img-fluid {
+  max-width: 50%;
+}
+
+.ctm-font-head {
+  font-family: "Century Gothic", sans-serif;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.h1 {
+  font-family: "Century Gothic", sans-serif;
+  margin-bottom: 0;
+  text-align: center;
+  color: #2f4858;
+  font-weight: bold;
+}
+
+.ctm-font {
+  font-family: "PT Serif", serif;
+  text-align: center;
+  color: #2f4858;
+  /* font-weight: bold; */
+  font-size: 1.2rem;
+}
+
+.ctm-margin {
+  margin: 128px 265px;
+}
+
+.ctm-margin-2 {
+  margin: 60px 200px;
+}
+
+/* form */
+
+.form-control {
+  position: relative;
+  display: inline-block;
+  font-family: "Century Gothic", sans-serif;
+  box-sizing: border-box;
+  background-color: #ebecf0;
+  /* width: 50%; */
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding-left: 50px;
+}
+
+.form-control:hover,
+.form-control:focus,
+.form-control:active,
+.form-control.active,
+.open .dropdown-toggle.form-control {
+  color: #2f4858;
+  background-color: #ebecf0;
+  border-color: #00a397;
+}
+
+.form-control:hover {
+  color: #2f4858;
+  background-color: #ebecf0;
+  border-color: #00a397;
+}
+
+.form-control:focus,
+.form-control.focus {
+  box-shadow: none;
+}
+
+.btn-primary {
+  font-family: "Century Gothic", sans-serif;
+  font-weight: bold;
+  background-color: #2f4858;
+  width: 100%;
+  border-color: #2f4858;
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #008493;
+  border-color: #008493;
+}
+
+a {
+  font-family: "PT Serif", serif;
+  color: #008493;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: #2f4858;
+}
+
+label {
+  font-family: "PT Serif", serif;
+  color: #2f4858;
+  font-size: 1.2rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.paragraph {
+  font-family: "PT Serif", serif;
+  color: #2f4858;
+  font-size: 1.2rem;
+}
+
+.email-log,
+.phone {
+  position: absolute;
+  /* right: 15px; */
+  transform: translate(-2275%, 15%);
+  font-size: 25px;
+  /* top: 50%; */
+}
+.lock-log,
+.name {
+  position: absolute;
+  /* right: 15px; */
+  transform: translate(-2600%, 15%);
+  font-size: 25px;
+  /* top: 50%; */
+}
+
+.email,
+.phone {
+  position: absolute;
+  /* right: 15px; */
+  transform: translate(-2800%, 15%);
+  font-size: 25px;
+  /* top: 50%; */
+}
+.lock,
+.name {
+  position: absolute;
+  /* right: 15px; */
+  transform: translate(-3200%, 15%);
+  font-size: 25px;
+  /* top: 50%; */
+}
+
+.eye {
+  position: absolute;
+  /* right: 15px; */
+  transform: translate(-200%, 50%);
+  /* top: 50%; */
+  cursor: pointer;
+}
+
+.fa,
+.far {
+  color: #008493;
+}
+
+.m-ctm {
+  margin-top: 230px;
+}
+
+.img-position {
+  position: absolute;
+  transform: translate(-2575%, 15%);
+}

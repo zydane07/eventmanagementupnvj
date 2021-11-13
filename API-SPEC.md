@@ -326,8 +326,6 @@ Response:
   }
 }
 ```
-
-
 ## Register Ormawa
 
 Request:
