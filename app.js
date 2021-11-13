@@ -31,7 +31,6 @@ const connectDB = async () => {
 };
 
 connectDB();
-
 // Static Files
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));

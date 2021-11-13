@@ -4,14 +4,20 @@ exports.getEvents = async(req,res)=>{
   try {
     const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id');{
     // const homePage = await HomePage.find();{
-      return res.status(200).send({
+      /*return res.status(200).send({
         success : true,
         message : 'Berhasil get all events',
         data : {
             events
         }
-      })
+      })*/
       // return res.json(homePage)
+			res.render('index', {
+				nama: req.user.nama,
+				layout: 'layouts/main-layout',
+				title: 'Home',
+				css: 'styleHome',
+			});
     }
   }
   catch (err){

@@ -1,6 +1,5 @@
 const express = require('express');
 const routers = express.Router();
-const getProfile = require('../Controller/getUser');
 const Auth = require('./verifyToken');
 
 routers.get('/',Auth,(req,res)=>{

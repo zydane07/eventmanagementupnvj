@@ -4,15 +4,15 @@ const events = require('./Routes/events');
 
 const routes = [
   {
-    path: '/api/auth',
+    path: '/',
     api: auth,
   },
   {
-    path: '/api/profile',
+    path: '/',
     api: profile,
   },
   {
-    path: '/api/events',
+    path: '/',
     api: events,
   },
 ];

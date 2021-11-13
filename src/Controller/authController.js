@@ -50,10 +50,7 @@ exports.login = async (req,res) => {
     const payload = {email,nama:checkDB.nama_lengkap}
     const tokenUser = jwt.sign(payload,process.env.SECRET_KEY);
     res.cookie('dataUser',tokenUser);
-    return res.status(200).send({
-      success: true,
-      message: 'Berhasil login',
-    })
+    res.redirect('/');
 
   }
   catch(err){

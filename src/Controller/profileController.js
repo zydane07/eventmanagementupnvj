@@ -9,7 +9,7 @@ exports.profile = async(req,res)=>{
         success: false,
         message: 'User tidak ada',
       });
-    }
+    }/*
     return res.status(200).send({
       success: true,
       data:{
@@ -26,7 +26,12 @@ exports.profile = async(req,res)=>{
           photo: profileMhs.photo
         }
       }
-    })
+    })*/
+    res.render("profile", {
+      layout: "layouts/main-layout",
+      title: "Profile",
+      css: "styleProfile",
+    });
   }
   catch(err){
     return res.send({
