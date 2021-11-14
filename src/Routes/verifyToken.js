@@ -1,5 +1,13 @@
 const jwt = require('jsonwebtoken');
 
+/**
+ * @function auth (for access)
+ * @description access denied for anonymous user if access some private endpoint.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 const auth = (req, res, next) => {
   /*
   const authHeader = req.header('Authorization');

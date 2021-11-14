@@ -3,9 +3,6 @@ const eventController = require('../Controller/eventController');
 const Identifikasi = require('./autentik');
 const router = express.Router();
 
-/**
- * @view
- */
 /*
  router.get('/', (req, res) => {
   res.render('index', {

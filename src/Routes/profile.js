@@ -10,7 +10,8 @@ const router = express.Router();
 
 
 /**
- * @route /api/profile
+ * @route /profile
+ * @description get profile by user cookie
  */
 router.get('/profile', Auth, profileController.profile);
 

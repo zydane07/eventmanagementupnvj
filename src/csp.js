@@ -1,4 +1,7 @@
-
+/**
+ * @global
+ * @description Updating rules for Content-Security-Policy
+ */
 let sources = {
   'default-src': ['\'self\''],
   'script-src': ['\'self\'','https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js',
