@@ -255,7 +255,8 @@ Response:
   "data":{
     "id_event":"number",
     "nama_event":"string",
-    "tanggal_event":"datetime"
+    "tanggal_event":"datetime",
+    "poster_Event":"string"
   }
   
 }
@@ -326,6 +327,73 @@ Response:
   }
 }
 ```
+## Daftar Event
+
+Request:
+
+- Method: POST
+- Endpoint: `/detail/:id_event/register`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+  - Accept: "application/json"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+## Save Event / Add to Wishlist
+
+Request:
+
+- Method: POST
+- Endpoint: `/detail/:id_event/save`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+  - Accept: "application/json"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+## Event Saya / History Event saya
+
+Request:
+
+- Method: GET
+- Endpoint: `/profile/history`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "id_event":"number",
+    "nama_event":"string",
+    "tanggal_event":"datetime",
+    "poster_Event":"string"
+  }
+  
+}
+```
+
 ## Register Ormawa
 
 Request:

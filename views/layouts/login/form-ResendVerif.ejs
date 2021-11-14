@@ -2,15 +2,19 @@
   <p class="h1 m-ctm">Kirim Ulang Verifikasi</p>
   <p class="ctm-font mt-1">Silahkan masukkan email untuk dikirimkan verivikasi kembali</p>
 
-  <form action="" method="post">
+  <form action="/verification" method="POST">
     <div class="form-group mb-5 mt-5">
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email" name="email" />
       <span class="email-log"><i class="fa fa-envelope"></i></span>
     </div>
-
+    <% if (typeof err != 'undefined') { %>
+      <div class="alert alert-danger" role="alert">
+        <%= err %> 
+      </div>
+    <% } %>
     <div class="row mt-5">
       <div class="col">
-        <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+        <button type="submit" class="btn btn-primary btn-block">Kirim</button>
       </div>
     </div>
   </form>

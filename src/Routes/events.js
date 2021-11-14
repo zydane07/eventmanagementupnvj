@@ -12,6 +12,7 @@ const router = express.Router();
     layout: 'layouts/main-layout',
     title: 'Home',
     css: 'styleHome',
+    nama: "bagas"
   });
 });
 */

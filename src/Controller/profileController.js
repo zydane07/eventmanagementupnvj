@@ -27,10 +27,24 @@ exports.profile = async(req,res)=>{
         }
       }
     })*/
-    res.render("profile", {
+    const user = {
+      email: profileMhs.email,
+      nama_lengkap: profileMhs.nama_lengkap,
+      tanggal_lahir: profileMhs.tanggal_lahir,
+      Jenis_Kelamin: profileMhs.jenis_kelamin,
+      nim: profileMhs.nim,
+      prodi: profileMhs.prodi,
+      fakultas: profileMhs.fakultas,
+      angkatan: profileMhs.angkatan,
+      no_hp:profileMhs.no_hp,
+      photo: profileMhs.photo
+    }
+    return res.render("profile", {
       layout: "layouts/main-layout",
       title: "Profile",
       css: "styleProfile",
+      nama: req.user.nama,
+      user
     });
   }
   catch(err){

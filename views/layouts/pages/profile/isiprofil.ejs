@@ -71,17 +71,17 @@
   <div class="container backgroundphoto"></div>
   <div class="container user">
     <img src="img/profil 1.png" class="rounded nav-pict photoprofile" alt="photo profil" />
-    <h1 class="display-4 nama">Mohamad Zydane Ulir Rizqi Toyyibi</h1>
-    <p class="lead deskripsi">mohamadzydane@upnvj.ac.id</p>
+    <h1 class="display-4 nama"><%= user.nama_lengkap %> </h1>
+    <p class="lead deskripsi"><%= user.email %> </p>
   </div>
   
   <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font pt-3 pb-3 navprofile">
     <div class="container container-tombolprofile">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pengaturan">
-        <li class="nav-item pe-3">
+        <li class="nav-item pe-3 navAkun">
           <a class="nav-link active fw-bold nav__link" aria-current="page" href="#" id="prof">Profile Pribadi</a>
         </li>
-        <li class="nav-item pe-3">
+        <li class="nav-item pe-3 navAkun">
           <a class="nav-link" href="#" id="aturakun">Pengaturan Akun</a>
         </li>
       </ul>
@@ -100,34 +100,34 @@
 </div>
 <div id="dprofile" class="container padding-profile rounded" style="background-color: white; padding: 30px; margin-top: 50px; margin-bottom: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
   <h5>Nama:</h5>
-  <p>Mohamad Zydane Ulir Rizqi Toyyibi</p>
+  <p><%= user.nama_lengkap %> </p>
   <h5>NIM:</h5>
-  <p>1910511120</p>
+  <p><%= user.nim %> </p>
   <h5>No. HP:</h5>
-  <p>081228119616</p>
+  <p><%= user.no_hp %> </p>
   <h5>Fakultas:</h5>
-  <p>Ilmu Komputer</p>
+  <p><%= user.fakultas %> </p>
   <h5>Prodi:</h5>
-  <p>Informatika</p>
+  <p><%= user.prodi %> </p>
   <h5>Angkatan:</h5>
-  <p>2019</p>
+  <p><%= user.angkatan %> </p>
   <h5>Jenis-Kelamin:</h5>
-  <p>Laki-Laki</p>
+  <p><%= user.Jenis_Kelamin %> </p>
   <h5>Tanggal Lahir:</h5>
-  <p>29 Februari 2000</p>
+  <p><%= user.tanggal_lahir %> </p>
 </div>
 <div id="dpengaturan" class="container padding-profile rounded" style="background-color: white; display: none; padding: 30px; margin-top: 50px; margin-bottom: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
   <div class="form-group">
     <label for="email"><b>Email: </b></label>
-    <input type="text" class="form-control" name="email" placeholder="Nama Lengkap" value="mohamadzydane@upnvj.ac.id">
+    <input type="text" class="form-control" name="email" placeholder="Email" value="<%= user.email %> ">
   </div>
   <div class="form-group">
     <label for="hp"><b>No. HP: </b></label>
-    <input type="number" class="form-control" name="hp" placeholder="Nomor HP" value="081228119616">
+    <input type="number" class="form-control" name="no_hp" placeholder="Nomor HP" value="<%= user.no_hp %> ">
   </div>
   <div class="form-group">
     <label for="hp"><b>Password *: </b></label>
-    <input type="password" class="form-control" name="hp" placeholder="Password">
+    <input type="password" class="form-control" name="password" placeholder="Password">
     <small>Perlu diisi jika mengganti informasi</small>
   </div>
   <div class="container" style="padding-left: 0rem; padding-top: 1rem;">

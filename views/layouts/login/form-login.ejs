@@ -26,7 +26,11 @@
         <a href="/LupaPass">Lupa kata sandi?</a>
       </div>
     </div>
-
+    <% if (typeof error != 'undefined') { %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %> 
+      </div>
+    <% } %> 
     <div class="row mb-3">
       <div class="col">
         <button type="submit" class="btn btn-primary btn-block">Masuk</button>

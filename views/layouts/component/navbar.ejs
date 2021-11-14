@@ -2,12 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white nav-font my-shadow pt-3 pb-3 fixed-top">
     <div class="container">
         <a class="navbar-brand me-5" href="#">
-            <img src="img/logo 4.png" width="125" height="" alt="" class="pt-1" />
+            <img src="/img/logo 4.png" width="125" height="" alt="" class="pt-1" />
         </a>
         <ul class="navbar-nav mb-2 mb-lg-0 navbox">
             <li class="nav-item">
                 <div class="float-xl-right">
-                    <img src="icons/Bell.svg" class="d-block d-lg-none bel" alt="notifikasi" />
+                    <img src="/icons/Bell.svg" class="d-block d-lg-none bel" alt="notifikasi" />
                 </div>
             </li>
             <li class="nav-item">
@@ -31,12 +31,12 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item d-flex align-items-center">
                     <div class="d-none d-lg-block">
-                        <img src="icons/Bell.svg" class="pe-3" alt="notifikasi" />
+                        <img src="/icons/Bell.svg" class="pe-3" alt="notifikasi" />
                     </div>
                 </li>
                 <li class="nav-item d-flex align-items-center">
                     <div class="d-none d-lg-block">
-                        <img src="img/profil 1.png" class="rounded nav-pict" alt="photo profil" />
+                        <img src="/img/profil 1.png" class="rounded nav-pict" alt="photo profil" />
                     </div>
                 </li>
                 <li class="nav-item dropdown ps-0">
@@ -52,7 +52,11 @@
                             <a class="dropdown-item" href="#">Lihat Sertifikat</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Keluar</a>
+                            <form action="/logout?_method=DELETE" method="POST">
+                                <a class="dropdown-item" href="#">
+                                    <button type="submit" class="form-submit-button">Log out</button>
+                                </a>
+                            </form>
                         </li>
                     </ul>
                 </li>

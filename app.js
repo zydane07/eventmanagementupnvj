@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 
 const routers = require('./src/routes');
+const cspMiddleware = require('./src/csp');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,6 +12,7 @@ const cookieparser = require('cookie-parser');
 
 require('dotenv/config');
 app.use(helmet());
+app.use(cspMiddleware.csp);
 app.use(cookieparser());
 app.use(cors());
 app.use(express.json());

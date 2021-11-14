@@ -12,27 +12,48 @@ exports.register = async (req,res) =>{
     const result = valRegis.validate(req.body);
 
     if(result.error){
+      /*
       return res.status(400).send({
         success: false,
         message: result.error.details[0].message
+      });*/
+      return res.render("register", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "Register",
+        error: result.error
       });
     }
 
     //Check apakah email sudah ada
     const checkDB = await Mahasiswa.findOne({email});
     if(checkDB){
+      /*
       return res.status(400).send({
         success: false,
         message: 'Email sudah terdaftar!',
-      })
+      })*/
+      return res.render("register", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "Register",
+        success: false
+      });
     }
 
     //Check apakah password dan repassword sama
     if(password!==repassword){
+      /*
       return res.status(400).send({
         success:false,
         message:'Password dan Konfirm Password tidak sama!'
-      })
+      })*/
+      return res.render("register", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "Register",
+        password: false
+      });
     }
     
     //Menghashing password
@@ -50,10 +71,17 @@ exports.register = async (req,res) =>{
     //Mengirimkan email untuk melakukan verifikasi, jika sudah pernah, maka tidak akan dikirim lagi
     const verif = await verifEmail.findOne({email});
     if(verif){
+      /*
       return res.status(400).send({
         success: false,
         message: 'Email sudah pernah dikirimkan verifikasi'
-      })
+      })*/
+      return res.render("register", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "Register",
+        verif: false
+      });
     }
     //Memasukkan email dan tokenemail ke collection VerifEmail di database.
     const saveVerif = await new verifEmail({
@@ -62,20 +90,24 @@ exports.register = async (req,res) =>{
     }).save()
 
     //Link untuk verifikasi yang akan dikirimkan ke email
-    const link = `http://localhost:3000/api/auth/verification/${saveVerif.emailToken}`
+    const link = `http://localhost:3000/verification/${saveVerif.emailToken}`
     await sendEmail(process.env.TEST_GMAIL,'Verifikasi Email',
     `Use this link to verif your SIM-U Account: ${link} `)
     
-    return res.status(200).send({
-      success: true,
-      message: 'Verifikasi berhasil dikirimkan ke email user'
-    })
+    return res.status(200).redirect('/register2');
   }
 
   catch(err){
+    /*
     return res.status(400).send({
       success: false,
       message: `Terjadi Kesalahan saat mengirimkan email`
-    })
+    })*/
+    return res.render("register", {
+      layout: "layouts/login-layout",
+      css: "styleLoginUser",
+      title: "Register",
+      err
+    });
   }
 }

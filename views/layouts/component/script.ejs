@@ -9,21 +9,15 @@
     referrerpolicy="no-referrer"
 ></script>
 <!-- script main -->
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- caraousel -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- toastr -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
-<script src="js/toastr.js"></script>
-<script>
-    $("#detail, #detail2, #detail3").on("click", function () {
-        toastr.error("Fitur masih dalam tahap pengembangan", "Warning");
-        var audio = new Audio("sounds/notification.mp3");
-        audio.play();
-    });
-</script>
+<script src="/js/toastr.js"></script>
+<script src="/js/setToast.js"></script>
 
 <!-- <script>
     $("#navbarText .navbar-nav a").on("click", function () {
@@ -31,104 +25,13 @@
         $(this).parent("li").addClass("active");
     });
 </script> -->
-
-<script type="text/javascript">
-    window.addEventListener("scroll", reveal);
-
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowheight = window.innerHeight;
-            var revealtop = reveals[i].getBoundingClientRect().top;
-            var revealpoint = 150;
-
-            if (revealtop < windowheight - revealpoint) {
-                reveals[i].classList.add("activee");
-            } else {
-                reveals[i].classList.remove("activee");
-            }
-        }
-    }
-</script>
+<script src="/js/smoothScroll.js"></script>
 
 <!-- script pass -->
 
-<script>
-    var state = false;
-    function toggle() {
-        if (state) {
-            document.getElementById("password").setAttribute("type", "password");
-            document.getElementById("eye").style.color = "#008493";
-            state = false;
-        } else {
-            document.getElementById("password").setAttribute("type", "text");
-            document.getElementById("eye").style.color = "#2f4858";
-            state = true;
-        }
-    }
-</script>
-<script type="text/javascript">
-    $("#fakultas").on('change', function () {
-        var el = $(this);
-        if (el.val() === "Ilmu Komputer") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>Informatika</option>");
-            $("#prodi").append("<option>S1 Sistem Informasi</option>");
-            $("#prodi").append("<option>D3 Sistem Informasi</option>");
-        } else if (el.val() === "Teknik") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>Mesin</option>");
-            $("#prodi").append("<option>Industri</option>");
-            $("#prodi").append("<option>Perkapalan</option>");
-            $("#prodi").append("<option>Elektro</option>");
-        } else if (el.val() === "Kedokteran") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>Kedokteran</option>");
-            $("#prodi").append("<option>Farmasi</option>");
-            $("#prodi").append("<option>Pendidikan Profesi Dokter</option>");
-        } else if (el.val() === "Ilmu Sosial dan Politik") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>Ilmu Komunikasi</option>");
-            $("#prodi").append("<option>Hubungan Internasional</option>");
-            $("#prodi").append("<option>Ilmu Politik</option>");
-        } else if (el.val() === "Hukum") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>Hukum</option>");
-        } else if (el.val() === "Ilmu Kesehatan") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>D3 Keperawatan</option>");
-            $("#prodi").append("<option>D3 Fisioterapi</option>");
-            $("#prodi").append("<option>S1 Keperawatan</option>");
-            $("#prodi").append("<option>Kesehatan Masyarakat</option>");
-            $("#prodi").append("<option>Gizi</option>");
-        } else if (el.val() === "Ekonomi dan Bisnis") {
-            $("#prodi").empty();
-            $("#prodi").append("<option>D3 Perbankan dan Keuangan</option>");
-            $("#prodi").append("<option>D3 Akuntansi</option>");
-            $("#prodi").append("<option>S1 Akuntansi</option>");
-            $("#prodi").append("<option>Manajemen</option>");
-            $("#prodi").append("<option>Ekonomi Pembangunan</option>");
-            $("#prodi").append("<option>Ekonomi Syariah</option>");
-        }
-    });
-</script>
-<script type="text/javascript">
-  $('#aturakun').click(function () {
-      var idx = $(this).closest('#aturakun').index();
-      $('#prof').removeClass('active fw-bold nav__link')
-      $(this).addClass('active fw-bold nav__link');
-      $('#dprofile').hide();
-      $('#dpengaturan').show();
-  });
-  $('#prof').click(function () {
-      var idx = $(this).closest('#prof').index();
-      $('#aturakun').removeClass('active fw-bold nav__link')
-      $(this).addClass('active fw-bold nav__link');
-      $('#dprofile').show();
-      $('#dpengaturan').hide();
-  });
-</script>
+<script src="/js/showPass.js"></script>
+<script src="/js/modal.js"></script>
+<script src="/js/nav.js"></script>
 
 
 

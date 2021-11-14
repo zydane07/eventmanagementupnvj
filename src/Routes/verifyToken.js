@@ -13,7 +13,6 @@ const auth = (req, res, next) => {
   try {
     const verified = jwt.verify(token, process.env.SECRET_KEY);
     req.user = verified
-    console.log(req.user.nama);
     next();
   } catch (err) {
     return res.send({ success: false, message: 'Token Invalid' });

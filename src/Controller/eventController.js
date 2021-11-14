@@ -2,7 +2,7 @@ const Event = require('../Models/event');
 
 exports.getEvents = async(req,res)=>{
   try {
-    const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id');{
+    const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id');
     // const homePage = await HomePage.find();{
       /*return res.status(200).send({
         success : true,
@@ -18,7 +18,7 @@ exports.getEvents = async(req,res)=>{
 				title: 'Home',
 				css: 'styleHome',
 			});
-    }
+    
   }
   catch (err){
     return res.send({
