@@ -1,72 +1,75 @@
 <div class="modal fade" id="editmodal" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="model-header">
-        <div class="row">
-          <div class="col text-center" style="padding: 1rem;">
-            <h5 class="modal-title" id="exampleModalLongTitle"><b>EDIT PROFILE</b></h5>
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <form method="post" action="/profile?_method=PUT">
+          <div class="model-header">
+            <div class="row">
+              <div class="col text-center" style="padding: 1rem;">
+                <h5 class="modal-title" id="exampleModalLongTitle"><b>EDIT PROFILE</b></h5>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="modal-body" style="padding-top: 0rem;">
-        <div class="row">
-          <div class="col d-flex justify-content-center">
-            <img src="img/profil 1.png" alt="photo profil" />
+          <div class="modal-body" style="padding-top: 0rem;">
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <img src="img/profil 1.png" alt="photo profil" />
+              </div>
+              <div class="form-group d-flex justify-content-center" >
+                <label for="file-upload" class="custom-file-upload">
+                  Upload
+                </label>
+                <input id="file-upload" type="file" accept="image/*"/>
+              </div>
+            </div>
+            <div class="container">
+              <div class="form-group">
+                <label for="nama"><b>Nama: </b></label>
+                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= user.nama_lengkap %> ">
+              </div>
+              <div class="form-group">
+                  <label for="nim"><b>NIM: </b></label>
+                  <input type="text" class="form-control" name="nim" placeholder="NIM" value="<%= user.nim %> ">
+              </div>
+              <div class="form-group">
+                <label for="fakultas"><b>Fakultas: </b></label>
+                <select name="fakultas" class="form-control" id="fakultas">
+                    <option>Ilmu Komputer</option>
+                    <option>Ekonomi dan Bisnis</option>
+                    <option>Kedokteran</option>
+                    <option>Teknik</option>
+                    <option>Ilmu Sosial dan Politik</option>
+                    <option>Hukum</option>
+                    <option>Teknik</option>
+                    <option>Ilmu Kesehatan</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="prodi"><b>Program Studi: </b></label>
+              <select name="prodi" class="form-control" id="prodi">
+                  <option></option>
+              </select>
           </div>
-          <div class="form-group d-flex justify-content-center" >
-            <label for="file-upload" class="custom-file-upload">
-              Upload
-            </label>
-            <input id="file-upload" type="file" accept="image/*"/>
+            <div class="form-group">
+              <label for="jenis_kelamin"><b>Jenis Kelamin: </b></label>
+              <label><input type="radio" name="jenis_kelamin" value="laki-laki">  Laki - laki</label>
+              <label><input type="radio" name="jenis_kelamin" value="perempuan">  Perempuan</label>
           </div>
-        </div>
-        <div class="container">
-          <div class="form-group">
-            <label for="nama"><b>Nama: </b></label>
-            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="Mohamad Zydane Ulir Rizqi Toyyibi">
-        </div>
-        <div class="form-group">
-            <label for="nim"><b>NIM: </b></label>
-            <input type="text" class="form-control" name="nim" placeholder="NIM" value="1910511120">
-        </div>
-        <div class="form-group">
-          <label for="fakultas"><b>Fakultas: </b></label>
-          <select name="fakultas" class="form-control" id="fakultas">
-              <option>Ilmu Komputer</option>
-              <option>Ekonomi dan Bisnis</option>
-              <option>Kedokteran</option>
-              <option>Teknik</option>
-              <option>Ilmu Sosial dan Politik</option>
-              <option>Hukum</option>
-              <option>Teknik</option>
-              <option>Ilmu Kesehatan</option>
-          </select>
-      </div>
-      <div class="form-group">
-        <label for="prodi"><b>Program Studi: </b></label>
-        <select name="prodi" class="form-control" id="prodi">
-            <option></option>
-        </select>
-    </div>
-      <div class="form-group">
-        <label for="jenis_kelamin"><b>Jenis Kelamin: </b></label>
-        <label><input type="radio" name="jenis_kelamin" value="laki-laki">  Laki - laki</label>
-        <label><input type="radio" name="jenis_kelamin" value="perempuan">  Perempuan</label>
-    </div>
-        <div class="form-group">
-            <label for="tgl_lahir"><b>Tanggal Lahir: </b></label>
-            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir">
-        </div>
-        
+              <div class="form-group">
+                  <label for="tgl_lahir"><b>Tanggal Lahir: </b></label>
+                  <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir">
+            </div>
+            
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
-  </div>
-</div>
+
 <div class="jumbotron jumbotron-fluid shadow">
   <div class="container backgroundphoto"></div>
   <div class="container user">

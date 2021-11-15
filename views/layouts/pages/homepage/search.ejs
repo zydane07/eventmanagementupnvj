@@ -5,51 +5,42 @@
             <p class="sub-font mb-1 mt-5">Hasil Pencarian</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm mb-5">
-            <div class="card-custom my-shadow-2">
-                <div class="card-body-custom">
-                    <p class="card-font h5 text-white mb-4">Lomba Tabligh Akbar Uswah 2021</p>
-                    <div class="row pt-2 d-flex align-items-lg-baseline">
-                        <div class="col">
-                            <p class="date text-white">29 Sept - 29 Okt</p>
-                        </div>
-                        <div class="col-5 text-center">
-                            <a type="button" class="btn-custom-2" id="detail">Lihat Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm mb-5">
-            <div class="card-custom my-shadow-2">
-                <div class="card-body-custom">
-                    <p class="card-font h5 text-white mb-4">Lomba Tabligh Akbar Uswah 2021</p>
-                    <div class="row pt-2 d-flex align-items-lg-baseline">
-                        <div class="col">
-                            <p class="date text-white">29 Sept - 29 Okt</p>
-                        </div>
-                        <div class="col-5 text-center">
-                            <a type="button" class="btn-custom-2" id="detail2">Lihat Detail</a>
+    <div class="row d-flex justify-content-center">
+        <% events.forEach(event =>{ %>
+            <div class="col-lg-4 mt-4">
+                <div class="card-custom my-shadow-2">
+                    <div class="card-body-custom">
+                        <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
+                        <div class="row pt-2 d-flex align-items-lg-baseline">
+                            <div class="col">
+                                <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
+                            </div>
+                            <div class="col-5 text-center">
+                                <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm">
-            <div class="card-custom my-shadow-2">
-                <div class="card-body-custom">
-                    <p class="card-font h5 text-white mb-4">Lomba Tabligh Akbar Uswah 2021</p>
-                    <div class="row pt-2 d-flex align-items-lg-baseline">
-                        <div class="col">
-                            <p class="date text-white">29 Sept - 29 Okt</p>
-                        </div>
-                        <div class="col-5 text-center">
-                            <a type="button" class="btn-custom-2" id="detail3">Lihat Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% }) %> 
     </div>
 </div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <% if (typeof searchQuery !='undefined') { %>
+        <% for( let index = 0; index < sumPage; index++ ) { %>
+            <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>&event=<%= searchQuery %>&category=<%= categoryQuery %>"><%= index+1 %></a></li>
+          <% } %>
+      <% } else { %>
+        <% for( let index = 0; index < sumPage; index++ ) { %>
+            <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>"><%= index+1 %></a></li>
+          <% } %>
+      <% } %>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>

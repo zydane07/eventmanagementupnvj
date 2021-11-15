@@ -8,10 +8,7 @@ const savedEvent = mongoose.Schema({
 });
 
 const historyEvent = mongoose.Schema({
-  id_event: Number,
-  nama_event: String,
-  poster_event: String,
-  tanggal_event: Date,
+  id_event: String
 });
 
 const mahasiswaSchema = mongoose.Schema({
@@ -31,10 +28,7 @@ const mahasiswaSchema = mongoose.Schema({
     type:[savedEvent],
     require: false
   },
-  historyEvent: {
-    type:[historyEvent],
-    require:false
-  }
+  historyEvent: [historyEvent]
 });
 
 module.exports = mongoose.model('Mahasiswa', mahasiswaSchema);

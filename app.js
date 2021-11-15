@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const cookieparser = require('cookie-parser');
+const methodOverride = require('method-override');
 
 require('dotenv/config');
 app.use(helmet());
@@ -16,6 +17,7 @@ app.use(cspMiddleware.csp);
 app.use(cookieparser());
 app.use(cors());
 app.use(express.json());
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:false}));
 app.use(expressLayouts);
 

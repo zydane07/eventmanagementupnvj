@@ -2,8 +2,7 @@ const { date } = require('joi');
 const mongoose = require('mongoose');
 
 const registered = mongoose.Schema({
-  email: String,
-  nama_lengkap: String
+  email: String
 })
 
 const eventSchema = mongoose.Schema({

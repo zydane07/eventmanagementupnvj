@@ -54,3 +54,39 @@ exports.profile = async(req,res)=>{
     });
   }
 }
+
+exports.updateProfile = async(req,res) =>{
+  try{
+    const userProfile = await Mahasiswa.findOne({email:req.user.email});
+    if(!userProfile){
+      return res.render("login", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "login",
+        error: 'User tidak ada, silahkan login kembali'
+      });
+    }
+    await Mahasiswa.updateOne({email: userProfile.email},{
+      $set: {
+        nama_lengkap: req.body.nama,
+        nim: req.body.nim,
+        fakultas: req.body.fakultas,
+        prodi: req.body.prodi,
+        jenis_kelamin: req.body.jenis_kelamin,
+        tanggal_lahir: req.body.tgl_lahir
+      }
+    });
+    return res.redirect('/profile');
+  }
+  catch(err){
+    const userProfile = await Mahasiswa.findOne({email:req.user.email});
+    if(!userProfile){
+      return res.render("login", {
+        layout: "layouts/login-layout",
+        css: "styleLoginUser",
+        title: "login",
+        error: 'Terjadi kesalahan saat update, silahkan login kembali!'
+      });
+    }
+  }
+}

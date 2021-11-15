@@ -1,6 +1,7 @@
 const express = require('express');
 const eventController = require('../Controller/eventController');
 const Identifikasi = require('./autentik');
+const Auth = require('./verifyToken');
 const router = express.Router();
 
 /*
@@ -15,6 +16,7 @@ const router = express.Router();
 */
 router.get('/eventDetail',(req,res)=>{
   res.render('eventdetail',{
+    nama: 'Bagas',
     layout: 'layouts/main-layout',
     title: 'Detail Event',
     css: 'styleDetail',
@@ -22,20 +24,22 @@ router.get('/eventDetail',(req,res)=>{
 })
 router.get('/eventList',(req,res)=>{
   res.render('eventlist',{
+    nama: "bagas",
     layout: 'layouts/main-layout',
     title: 'Event List',
     css: 'styleDetail',
   });
 })
-
+/*
 router.get('/search', (req, res) => {
   res.render('search', {
     layout: 'layouts/main-layout',
     title: 'search',
     css: 'styleHome',
+    nama: "bagas",
   });
 })
-
+*/
 router.get('/tentang', (req, res) => {
   res.render('about', {
     layout: 'layouts/about-layout',
@@ -50,6 +54,8 @@ router.get('/tentang', (req, res) => {
  */
 
 router.get('/',Identifikasi, eventController.getEvents);
-router.get('/detail/:id_event',eventController.getEventsDetails);
+router.get('/detail/:id_event',Identifikasi,eventController.getEventsDetails);
+router.post('/detail/:id_event',Auth,eventController.daftarEvent);
 
+router.get('/search',Identifikasi,eventController.getEventsSearch);
 module.exports = router;

@@ -14,5 +14,5 @@ const router = express.Router();
  * @description get profile by user cookie
  */
 router.get('/profile', Auth, profileController.profile);
-
+router.put('/profile',Auth,profileController.updateProfile);
 module.exports = router;
