@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:3000/register2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- logo -->
+<link rel="icon" href="http://localhost:3000/img/icon.png">
+
+<!-- Bootstrap CSS -->
+<link href="./register_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="./register_files/all.min.css">
+
+<!-- internal css -->
+<link rel="stylesheetProfile" href="http://localhost:3000/css/styleProfile.css">
+<link rel="stylesheet" href="./register_files/styleLoginUser.css">
+
+<!-- toastr css -->
+<link href="./register_files/toastr.css" rel="stylesheet">
+
+    <title>register</title>
+  </head>
+
+  <body>
+    <div class="container-fluid" style="height: 100vh">
+      <div class="row" style="height: 100%">
+        <div class="col-md-4 bg-custom d-flex flex-column bd-highlight"><img src="./register_files/logo putih.png" class="img-fluid ctm-img-fluid mb-5 p-5 bd-highlight" alt="Responsive image">
+<div class="p-5 bd-highlight align-items-center">
+    <img src="./register_files/vector1.svg" class="img-fluid" alt="Responsive image">
+    <p class="ctm-font-head pt-3">Sistem Informasi Event Management ORMAWA dan Mahasiswa UPN Veteran Jakarta</p>
+</div>
+</div>
+        <div class="col-md-8"><div class="ctm-margin">
+  <p class="h1" style="margin-top: 210px">Verifikasi</p>
+  <p class="ctm-font mt-1 mb-4">Kami telah mengirimkan email verifikasi untuk mendaftarkan akun Anda Silakan periksa email Anda dan klik tautan untuk melanjutkan</p>
+  <img src="./register_files/Vector2.svg" alt="" class="mx-auto d-block" style="max-width: 80%">
+
+  <div class="row mb-2 mt-4">
+    <div class="col">
+      <button type="submit" class="btn btn-primary btn-block">Kembali ke halaman login</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="text-center paragraph">Belum mendapatkan email? <a href="http://localhost:3000/login" style="font-weight: bold">Kirim Ulang</a></p>
+    </div>
+  </div>
+</div>
+
+</div>
+      </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="./register_files/bootstrap.bundle.min.js.download" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- jquery -->
+<script src="./register_files/jquery.min.js.download" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- toastr -->
+<script src="./register_files/toastr.js.download"></script>
+
+<script src="./register_files/toastr.js(1).download"></script>
+<script>
+    $("#detail, #detail2, #detail3").on("click", function () {
+        toastr.error("Fitur masih dalam tahap pengembangan", "Warning");
+        var audio = new Audio("sounds/notification.mp3");
+        audio.play();
+    });
+</script>
+
+<script>
+    $("#navbarText .navbar-nav a").on("click", function () {
+        $("#navbarText .navbar-nav ").find("li.active").removeClass("active");
+        $(this).parent("li").addClass("active");
+    });
+</script>
+
+<script type="text/javascript">
+    window.addEventListener("scroll", reveal);
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowheight = window.innerHeight;
+            var revealtop = reveals[i].getBoundingClientRect().top;
+            var revealpoint = 150;
+
+            if (revealtop < windowheight - revealpoint) {
+                reveals[i].classList.add("activee");
+            } else {
+                reveals[i].classList.remove("activee");
+            }
+        }
+    }
+</script>
+
+<!-- script pass -->
+
+<script>
+    var state = false;
+    function toggle() {
+        if (state) {
+            document.getElementById("password").setAttribute("type", "password");
+            document.getElementById("eye").style.color = "#008493";
+            state = false;
+        } else {
+            document.getElementById("password").setAttribute("type", "text");
+            document.getElementById("eye").style.color = "#2f4858";
+            state = true;
+        }
+    }
+</script>
+
+  
+
+<script>mendeleyWebImporter = {
+  downloadPdfs(t,e) { return this._call('downloadPdfs', [t,e]); },
+  open() { return this._call('open', []); },
+  setLoginToken(t) { return this._call('setLoginToken', [t]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.9991655243736439', methodName, methodArgs }, 'http://localhost:3000');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script></body></html>

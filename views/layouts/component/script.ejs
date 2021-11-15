@@ -8,18 +8,16 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 ></script>
+<!-- script main -->
+<script src="/js/main.js"></script>
 
+<!-- caraousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- toastr -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
-<script src="js/toastr.js"></script>
-<script>
-    $("#detail, #detail2, #detail3").on("click", function () {
-        toastr.error("Fitur masih dalam tahap pengembangan", "Warning");
-        var audio = new Audio("sounds/notification.mp3");
-        audio.play();
-    });
-</script>
+<script src="/js/toastr.js"></script>
+<script src="/js/setToast.js"></script>
 
 <!-- <script>
     $("#navbarText .navbar-nav a").on("click", function () {
@@ -27,51 +25,17 @@
         $(this).parent("li").addClass("active");
     });
 </script> -->
-
-<script type="text/javascript">
-    window.addEventListener("scroll", reveal);
-
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowheight = window.innerHeight;
-            var revealtop = reveals[i].getBoundingClientRect().top;
-            var revealpoint = 150;
-
-            if (revealtop < windowheight - revealpoint) {
-                reveals[i].classList.add("activee");
-            } else {
-                reveals[i].classList.remove("activee");
-            }
-        }
-    }
-</script>
+<script src="/js/smoothScroll.js"></script>
 
 <!-- script pass -->
 
-<script>
-    var state = false;
-    function toggle() {
-        if (state) {
-            document.getElementById("password").setAttribute("type", "password");
-            document.getElementById("eye").style.color = "#008493";
-            state = false;
-        } else {
-            document.getElementById("password").setAttribute("type", "text");
-            document.getElementById("eye").style.color = "#2f4858";
-            state = true;
-        }
-    }
-</script>
+<script src="/js/showPass.js"></script>
+<script src="/js/modal.js"></script>
+<script src="/js/nav.js"></script>
 
-<!-- script main -->
-<script src="js/main.js"></script>
 
-<!-- caraousel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<!-- <script>
+<!--<script>
     $(".carousel").owlCarousel({
         margin: 10,
         loop: true,
@@ -79,4 +43,5 @@
         autoplayTimeout: 2000,
         autoplayHoverPause: true,
     });
-</script> -->
+</script> 
+-->

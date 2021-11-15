@@ -9,80 +9,81 @@ body { background: #D7F9DB !important; }
     box-shadow: 0 .5rem 1rem rgba(42,72,88,.15)!important;
 }
 
-/** NAVBAR **/
 .nav-font {
-    font-family: 'PT Serif', serif;
+    font-family: "PT Serif", serif;
     font-size: 1.2rem;
     /* color: #2F4858!important; */
 }
-.nav-pict{
+.nav-pict {
     width: 33px;
     height: 33px;
-    
 }
 
-.active::after {
-    position: absolute;
-    content: "";
-    width: 5%;
-    height: 0.18rem;
-   
-    top: 3.8rem;
-    background-color: #008493;
+ul li a {
+    list-style: none;
+    text-decoration: none;
 }
-
-
 .navbar-light .navbar-nav .nav-link.active,
-.navbar-light .navbar-nav .show>.nav-link {
-    color: #2F4858!important;
+.navbar-light .navbar-nav .show > .nav-link {
+    color: #2f4858 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #2F4858!important;
+    color: #2f4858 !important;
 }
 
-.nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+.nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
     color: none;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .nav__link {
     position: relative;
     color: #fff;
 }
-  
-  .nav__link:hover {
+
+.nav__link:hover {
     position: relative;
 }
 
 .nav__link:hover::after {
     position: absolute;
     content: "";
-    width: 82%;
+    width: 100%;
     height: 0.18rem;
-    left: 0.5rem;
-    top: 3.6rem;
+    left: 0;
+    top: 3.8rem;
     background-color: #008493;
 }
 
+/*Active menu*/
 .active::after {
     position: absolute;
     content: "";
-    width: 82%;
+    width: 100%;
     height: 0.18rem;
-    left: 0.5rem;
-    top: 3.6rem;
+    left: 0;
+    top: 3.8rem;
     background-color: #008493;
 }
 
-.navbox{
+.navbox {
     flex-direction: row !important;
     align-items: center !important;
 }
 
-.bel{
+.bel {
     padding-right: 1rem !important;
 }
 
+.navAkun{
+    margin-right: 1rem !important;
+}
 
 /** JUMBOTRON **/
 .jumbotron{
@@ -215,6 +216,41 @@ footer{
         
         margin-top: 0.6em !important;
     }
+}
+.form-group{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+input[type="file"] {
+    display: none;
+  }
+  
+.custom-file-upload {
+    border: 1px solid #ccc;
+    color: white;
+    border-radius: 8px;
+    background-color: #008493;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  
+.form-submit-button {
+
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+
+}
+
+.form-submit-button:hover {
+
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+
 }
 
 @media (max-width:1075px){

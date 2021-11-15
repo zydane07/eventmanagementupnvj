@@ -300,6 +300,19 @@ footer {
     font-family: "PT Serif", serif;
     font-size: 1.125rem !important;
 }
+input[type="file"] {
+    display: none;
+  }
+  
+.custom-file-upload {
+    border: 1px solid #ccc;
+    color: white;
+    border-radius: 8px;
+    background-color: #008493;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
 
 @media (max-width: 991px) {
     .active::after {
@@ -319,4 +332,24 @@ footer {
 .reveal.activee {
     transform: translateY(0px);
     opacity: 1;
+}
+
+.form-submit-button {
+
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+
+}
+
+ 
+
+.form-submit-button:hover {
+
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+
 }

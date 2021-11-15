@@ -163,7 +163,7 @@ Response:
 }
 ```
 
-## Forget Password Lecturer
+## Forget Password Mahasiswa
 
 Request:
 
@@ -224,7 +224,7 @@ Request:
 - Endpoint: `/logout`
 - Header:
   - Accept: "application/json"
-  - Authorization: "bearer token"
+  - Cookies: "token"
 - Body:
 
 Response:
@@ -233,6 +233,164 @@ Response:
 {
   "success": "boolean",
   "message": "string"
+}
+```
+## Homepage
+
+Request:
+
+- Method: GET
+- Endpoint: `/`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "id_event":"number",
+    "nama_event":"string",
+    "tanggal_event":"datetime",
+    "poster_Event":"string"
+  }
+  
+}
+```
+## Detail Event
+
+Request:
+
+- Method: GET
+- Endpoint: `/detail/:id_event`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "event":{
+      "id_event":"number",
+      "nama_event":"string",
+      "tanggal_event":"datetime",
+      "detail_eo":"string",
+      "poster_event":"string",
+      "kategori":"string",
+      "deskripsi_event":"string",
+      "benefits":"string",
+      "registered_people":"number"
+    }
+  }
+  
+}
+```
+
+## Get Profile Mahasiswa
+
+Request:
+
+- Method: GET
+- Endpoint: `/profile`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "data": {
+    "user": {
+      "photo": "string",
+      "email": "string",
+      "nama_lengkap": "string",
+      "password": "string",
+      "nim": "string",
+      "no_hp": "string",
+      "fakultas": "string",
+      "prodi":"string",
+      "angkatan": "string",
+      "Jenis_Kelamin": "string",
+      "tanggal_lahir":"datetime"
+    }
+  }
+}
+```
+## Daftar Event
+
+Request:
+
+- Method: POST
+- Endpoint: `/detail/:id_event/register`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+  - Accept: "application/json"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+## Save Event / Add to Wishlist
+
+Request:
+
+- Method: POST
+- Endpoint: `/detail/:id_event/save`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+  - Accept: "application/json"
+- Body:
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+## Event Saya / History Event saya
+
+Request:
+
+- Method: GET
+- Endpoint: `/profile/history`
+- Header:
+  - Content-Type: "application/json"
+  - Cookies: "token"
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "data":{
+    "id_event":"number",
+    "nama_event":"string",
+    "tanggal_event":"datetime",
+    "poster_Event":"string"
+  }
+  
 }
 ```
 
