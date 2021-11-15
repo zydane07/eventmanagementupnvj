@@ -7,8 +7,8 @@
     typeof exports === "object" && typeof module !== "undefined"
         ? factory(exports, require("jquery"))
         : typeof define === "function" && define.amd
-        ? define(["exports", "jquery"], factory)
-        : ((global = typeof globalThis !== "undefined" ? globalThis : global || self), factory((global.adminlte = {}), global.jQuery));
+            ? define(["exports", "jquery"], factory)
+            : ((global = typeof globalThis !== "undefined" ? globalThis : global || self), factory((global.adminlte = {}), global.jQuery));
 })(this, function (exports, $) {
     "use strict";
 
@@ -51,11 +51,11 @@
         responseType: "",
         overlayTemplate: '<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>',
         errorTemplate: '<span class="text-danger"></span>',
-        onLoadStart: function onLoadStart() {},
+        onLoadStart: function onLoadStart() { },
         onLoadDone: function onLoadDone(response) {
             return response;
         },
-        onLoadFail: function onLoadFail(_jqXHR, _textStatus, _errorThrown) {},
+        onLoadFail: function onLoadFail(_jqXHR, _textStatus, _errorThrown) { },
     };
 
     var CardRefresh = /*#__PURE__*/ (function () {

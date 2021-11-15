@@ -10,6 +10,88 @@
 <script src="plugin/js/bootstrap.bundle.js"></script>
 <!-- overlayScrollbars -->
 <script src="plugin/js/jquery.overlayscroll.js"></script>
-<!-- AdminLTE App -->
+<!-- adminLTE -->
 <script src="dist/js/adminlte.js"></script>
+
+<!-- optional -->
+
+<!-- chart -->
+<script src="plugin/chart.js/chart.js"></script>
+
+<!-- AdminLTE App -->
 <script src="dist/js/demo.js"></script>
+
+<!-- flot chart -->
+<script src="plugin/chart.js/jquery.flot.js"></script>
+
+<!-- flot rezise plugin chart -->
+<script src="plugin/chart.js/jquery.flot.resize.js"></script>
+
+<!-- donut chart -->
+<script src="plugin/chart.js/jquery.flot.pie.js"></script>
+
+<script>
+    $(function () {
+        /*
+         * DONUT CHART
+         * -----------
+         */
+
+        var donutData = [
+            {
+                label: "Webinar",
+                data: 30,
+                color: "#3c8dbc",
+            },
+            {
+                label: "Workshop",
+                data: 40,
+                color: "#0073b7",
+            },
+            {
+                label: "Lomba",
+                data: 50,
+                color: "#00c0ef",
+            },
+            {
+                label: "Lainnya",
+                data: 20,
+                color: "#0490b3",
+            },
+        ];
+        $.plot("#donut-chart", donutData, {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 1,
+                    innerRadius: 0.5,
+                    label: {
+                        show: true,
+                        radius: 2 / 3,
+                        formatter: labelFormatter,
+                        threshold: 0.1,
+                    },
+                },
+            },
+            legend: {
+                show: false,
+            },
+        });
+        /*
+         * END DONUT CHART
+         */
+    });
+
+    /*
+     * Custom Label formatter
+     * ----------------------
+     */
+    function labelFormatter(label, series) {
+        return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' + label + "<br>" + Math.round(series.percent) + "%</div>";
+    }
+</script>
+
+<!-- js kita -->
+
+<!-- active menu -->
+<script src="plugin/js/menuActive.js"></script>
