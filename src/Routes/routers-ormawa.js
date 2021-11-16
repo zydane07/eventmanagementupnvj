@@ -1,6 +1,6 @@
 const express = require('express');
 const routers = express.Router();
-
+const ormawaController = require('../Controller/ormawaController');
 
 routers.get('/login-ormawa', (req, res) => {
     res.render('login-ormawa', {
@@ -23,6 +23,7 @@ routers.get('/event-ormawa', (req, res) => {
         title: 'Event Saya'
     });
 })
+
 routers.get('/editevent-ormawa', (req, res) => {
     res.render('editevent-ormawa', {
         layout: 'layouts/eventOrmawa-layout',
@@ -38,4 +39,5 @@ routers.get('/addevent-ormawa', (req, res) => {
     });
 })
 
+routers.post('/event',ormawaController.createEvent);
 module.exports = routers

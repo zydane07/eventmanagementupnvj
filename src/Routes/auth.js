@@ -104,7 +104,7 @@ router.get("/reset-password/:token", (req, res) => {
   });
 });
 
-router.post('/reset-password/:token',authController.resetPassword);
+router.put('/reset-password/:token',authController.resetPassword);
 
 /**
  * @routes /LupaPass4
@@ -122,6 +122,6 @@ router.get("/LupaPass4", (req, res) => {
  * @routes /logout
  * @description delete user token from cookies and redirect to login.
  */
- router.post('/logout', Auth, authController.logout);
+ router.delete('/logout', Auth, authController.logout);
 
  module.exports = router;
