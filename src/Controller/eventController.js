@@ -1,5 +1,6 @@
 const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
+const Ormawa = require('../Models/ormawa');
 exports.getEvents = async(req,res)=>{
   try {
     const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
@@ -36,11 +37,14 @@ exports.getEventsDetails = async(req,res)=>{
   try{
 		// const event = await Event.findOne({}).select('id_event nama_event tanggal_event detail_eo poster_event kategori deskripsi_event benefits register_people -_id');{
 		const event = await Event.findOne({id_event:req.params.id_event});
+		const namaEo = await Ormawa.findOne({id_ormawa:event.detil_eo});
+		
 		const data = {
 			id_event : event.id_event,
 			nama_event : event.nama_event,
 			tanggal_event : event.tanggal_event,
-			detail_eo : event.detail_eo,
+			id_eo: event.detil_eo,
+			detil_eo : namaEo.nama_ormawa,
 			poster_event : event.poster_event,
 			kategori : event.kategori,
 			deskripsi_event : event.deskripsi_event,
@@ -194,6 +198,39 @@ exports.getEventsSearch = async(req,res)=>{
     return res.send({
       success : false,
       message : `${err}`
+    });
+  }
+}
+
+exports.getEventsOrmawa = async(req,res)=>{
+  try {
+		const {id_ormawa} = req.params;
+    const events = await Event.find({detil_eo:id_ormawa}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
+		const dataEo = await Ormawa.findOne({id_ormawa});
+    // const homePage = await HomePage.find();{
+      /*return res.status(200).send({
+        success : true,
+        message : 'Berhasil get all events',
+        data : {
+            events
+        }
+      })*/
+      // return res.json(homePage)
+			
+			res.render('eventlist', {
+				nama: req.user.nama,
+				layout: 'layouts/main-layout',
+   	 		title: 'Event List',
+    		css: 'styleDetail',
+				events,
+				dataEo
+			});
+    
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : 'Gagal load all events'
     });
   }
 }

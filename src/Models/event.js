@@ -6,11 +6,29 @@ const registered = mongoose.Schema({
 })
 
 const eventSchema = mongoose.Schema({
-  id_event: String,
+  id_event: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   poster_event: String,
-  kategori: String,
-  nama_event: String,
-  tanggal_event: Date,
+  kategori: {
+    type: String,
+    required: true,
+    enum: ['Webinar','Workshop','Lomba','Lainnya'],
+  },
+  nama_event: {
+    type: String,
+    required: true
+  },
+  tanggal_event:{
+    type: Date,
+    required: true,
+  },
+  detil_eo:{
+    type:Number,
+    required: true,
+  },
   deskripsi_event: String,
   benefits: String,
   registered_people: {
