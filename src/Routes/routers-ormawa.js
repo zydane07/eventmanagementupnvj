@@ -23,5 +23,19 @@ routers.get('/event-ormawa', (req, res) => {
         title: 'Event Saya'
     });
 })
+routers.get('/editevent-ormawa', (req, res) => {
+    res.render('editevent-ormawa', {
+        layout: 'layouts/eventOrmawa-layout',
+        css: 'dashboard',
+        title: 'Edit Event'
+    });
+})
+routers.get('/addevent-ormawa', (req, res) => {
+    res.render('addevent-ormawa', {
+        layout: 'layouts/eventOrmawa-layout',
+        css: 'dashboard',
+        title: 'Add Event'
+    });
+})
 
 module.exports = routers
