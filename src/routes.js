@@ -1,6 +1,8 @@
 const auth = require('./Routes/auth');
 const profile = require('./Routes/profile');
 const events = require('./Routes/events');
+const admin = require('./Routes/admin');
+const ormawa = require('./Routes/routers-ormawa');
 
 const routes = [
   {
@@ -15,6 +17,14 @@ const routes = [
     path: '/',
     api: events,
   },
+  {
+    path:'/',
+    api:admin,
+  },
+  {
+    path:'/',
+    api:ormawa,
+  }
 ];
 
 module.exports = routes;

@@ -56,6 +56,6 @@ router.get('/tentang', (req, res) => {
 router.get('/',Identifikasi, eventController.getEvents);
 router.get('/detail/:id_event',Identifikasi,eventController.getEventsDetails);
 router.post('/detail/:id_event',Auth,eventController.daftarEvent);
-
 router.get('/search',Identifikasi,eventController.getEventsSearch);
+router.get('/:id_ormawa/events',Identifikasi,eventController.getEventsOrmawa);
 module.exports = router;
