@@ -15,14 +15,28 @@
 <!-- search button -->
 <div class="container">
     <div class="row box mt-custom text-center">
-        <form action="">
-            <input type="text" placeholder="Cari event yang ingin kamu ikuti..." />
-            <select name="" id="list" class="">
-                <option selected>Kategori</option>
-                <option value="">Webinar</option>
-                <option value="">Workshop</option>
-                <option value="">Lomba</option>
-                <option value="">Lainnya</option>
+        <form action="/search" method="get">
+            <% if (typeof searchQuery != 'undefined') { %>
+                <input type="text" name="event" placeholder="Cari event yang ingin kamu ikuti..." value='<%= searchQuery %>'/>
+            <% } else { %>
+                <input type="text" name="event" placeholder="Cari event yang ingin kamu ikuti..." />
+            <% } %>    
+            <select name="category" id="list" class="">
+                <% if (typeof categoryQuery != 'undefined') { %>
+                    <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %>
+                    <% for( let index = 0; index < tmp.length; index++ ) { %>
+                        <% const selected = (categoryQuery === tmp[index]) ? "selected" : ""; %>
+                        <option value='<%= tmp[index] %>' <%= selected %>><%= tmp[index] %></option>
+                    <% } %>
+                
+                <% } else { %>
+                    <option selected class="disabled">Kategori</option>
+                    <option value="Webinar" name="halo">Webinar</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Lomba">Lomba</option>
+                    <option value="Lainnya">Lainnya</option>
+                <% } %>
+                
             </select>
             <input type="submit" value="Cari" />
         </form>

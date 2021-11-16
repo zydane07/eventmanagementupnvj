@@ -68,7 +68,6 @@
 }
 
 
-
 /* jumbotron */
 .bg-image {
     background-image: url('../img/jumbotron.png');
@@ -309,3 +308,5 @@ input[type="file"] {
     transform: translateY(0px);
     opacity: 1;
   } 
+
+  

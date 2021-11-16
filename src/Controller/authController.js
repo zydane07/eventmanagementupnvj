@@ -75,7 +75,7 @@ exports.login = async (req,res) => {
     };
 
     //Bikin jsonwebtoken, kemudian disimpen di Cookie browser sebagai autentikasi nantinya.
-    const payload = {email,nama:checkDB.nama_lengkap}
+    const payload = {email}
     const tokenUser = jwt.sign(payload,process.env.SECRET_KEY);
     res.cookie('dataUser',tokenUser);
     return res.redirect('/');
