@@ -9,7 +9,7 @@ const logout = async (req , res) => {
 			message : 'Logout Berhasil'
 		});
 	}
-	catch{
+	catch(err){
 		return res.send({
 			success : false,
 			message : 'Logout Gagal'

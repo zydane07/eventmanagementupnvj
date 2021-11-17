@@ -25,6 +25,14 @@ routers.delete('/logout', logoutAcc);
 // const detailEvent = require('../Controller/getDetailEvent');
 // routers.get('/detail',detailEvent);
 
+const saveEvent = require('../Controller/saveEvent');
+routers.post('/detail/:id_event', saveEvent);
+
+const shareEvent = require('../Controller/shareEvent');
+routers.get('/event/:id_event' , shareEvent);
+
+const downloadData = require('../Controller/download');
+routers.get('/download' , downloadData);
 
 //--------------------------------------------------------------------
 /*
