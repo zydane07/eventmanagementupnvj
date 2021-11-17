@@ -1,7 +1,7 @@
 const express = require('express');
 const Auth = require('./verifyToken');
 const profileController = require('../Controller/profileController');
-
+const checkRoleMhs = require('./checkAccessTypeMhs');
 const router = express.Router();
 
 /**
@@ -13,8 +13,8 @@ const router = express.Router();
  * @route /profile
  * @description get profile by user cookie
  */
-router.get('/profile', Auth, profileController.profile);
-router.put('/profile',Auth,profileController.updateProfile);
+router.get('/profile', Auth,checkRoleMhs, profileController.profile);
+router.put('/profile',Auth,checkRoleMhs,profileController.updateProfile);
 router.get('/profile/event',(req,res)=>{
     res.render('eventsaya',{
       nama: "bagas",

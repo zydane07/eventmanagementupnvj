@@ -1,3 +1,4 @@
+const { date } = require('joi');
 const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
 const Ormawa = require('../Models/ormawa');
@@ -52,6 +53,8 @@ exports.getEventsDetails = async(req,res)=>{
 			registered_people : event.registered_people,
 		}
 		const check = await Mahasiswa.findOne({email:req.user.email, "historyEvent.id_event": event.id_event});
+		
+	
 		if(!check){
 			return res.render('eventdetail',{
 				nama: req.user.nama,
@@ -91,7 +94,7 @@ exports.getEventsDetails = async(req,res)=>{
 	catch(err){
 		return res.send({
 			success : false,
-			message : 'Gagal load Detail event'
+			message : `${err}`
 		});
 	}
 }
@@ -233,4 +236,200 @@ exports.getEventsOrmawa = async(req,res)=>{
       message : 'Gagal load all events'
     });
   }
+}
+
+exports.getEventsOrmawaDashboard = async(req,res)=>{
+  try {
+		const dataEo = await Ormawa.findOne({nama_ormawa: req.user.nama});
+		if(!dataEo){
+			return res.send({
+				message:'tidak ada event'
+			})
+		}
+    const events = await Event.find({detil_eo:dataEo.id_ormawa}).sort([['_id',-1]]).limit(9);
+    // const homePage = await HomePage.find();{
+      /*return res.status(200).send({
+        success : true,
+        message : 'Berhasil get all events',
+        data : {
+            events
+        }
+      })*/
+      // return res.json(homePage)
+			const data = await Event.aggregate([
+				/*
+				{ $match: { detil_eo:dataEo.id_ormawa } },
+				{
+          $unwind: {
+            path: '$registered_people',
+          }
+        },
+        {
+          $group: {
+            _id: '$kategori', // This is the selector for the grouping process (in our case it's the id)
+            item: { $first: '$$ROOT.kategori' }, // this is me thinking you'll want access to the item in question for each total.
+            totalCount: { $sum: 1 }, // adds to totalCount EACH $products.count that we have // self explanatory
+          }
+        }
+				*/
+				{
+          $unwind: {
+            path: '$registered_people',
+          }
+        },
+				{
+					$facet: {
+						Webinar: [ // Filter by id meet and status present
+							{ $match: { detil_eo: dataEo.id_ormawa, kategori: 'Webinar' } },
+							{ $count: 'Webinar' },
+						],
+						Workshop: [ // Filter by id meet and status absent
+							{ $match: { detil_eo: dataEo.id_ormawa, kategori: 'Workshop' } },
+							{ $count: 'Workshop' },
+						],
+						Lomba: [ // Filter by id meet and status permission
+							{ $match: { detil_eo: dataEo.id_ormawa, kategori: 'Lomba' } },
+							{ $count: 'Lomba' },
+						],
+						Lainnya: [ // Filter by id meet and status permission
+							{ $match: { detil_eo: dataEo.id_ormawa, status: 'Lainnya' } },
+							{ $count: 'Lainnya' },
+						],
+					},
+				},
+				{
+					$project: { // data output (if status null, set to 0)
+						Webinar: { $ifNull: [{ $arrayElemAt: ['$Webinar.Webinar', 0] }, 0] },
+						Workshop: { $ifNull: [{ $arrayElemAt: ['$Workshop.Workshop', 0] }, 0] },
+						Lomba: { $ifNull: [{ $arrayElemAt: ['$Lomba.Lomba', 0] }, 0] },
+						Lainnya: { $ifNull: [{ $arrayElemAt: ['$Lainnya.Lainnya', 0] }, 0] },
+					},
+				},
+			]);
+			res.render('dashboard-ormawa', {
+        layout: 'layouts/dashboardOrmawa-layout',
+        css: 'dashboard',
+        title: 'dashboard ormawa',
+        nama: req.user.nama,
+				events,
+				jmlWebinar: data[0].Webinar,
+				jmlWorkshop: data[0].Workshop,
+				jmlLomba: data[0].Lomba,
+				jmlLainnya: data[0].Lainnya
+    });
+    
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : `${err}`
+    });
+  }
+}
+
+exports.getEventSayaOrmawa = async(req,res)=>{
+  try {
+		const dataEo = await Ormawa.findOne({nama_ormawa: req.user.nama});
+		
+		if(!dataEo){
+			return res.send({
+				message:'tidak ada event'
+			})
+		}
+    const events = await Event.find({detil_eo:dataEo.id_ormawa}).sort([['_id',-1]]).limit(9);
+    const dateNow = new Date();
+		
+			res.render('event-ormawa', {
+        layout: 'layouts/dashboardOrmawa-layout',
+        css: 'dashboard',
+        title: 'event saya',
+        nama: req.user.nama,
+				events,
+				dateNow
+    });
+    
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : `${err}`
+    });
+  }
+}
+
+exports.getEventEdit = async(req,res)=>{
+  try {
+		const event = await Event.findOne({id_event:req.params.id_event});
+		if(!event){
+			return res.send({
+				message:'event tidak ditemukan'
+			})
+		}
+			res.render('editevent-ormawa', {
+        layout: 'layouts/eventOrmawa-layout',
+        css: 'dashboard',
+        title: 'Edit Event',
+        nama: req.user.nama,
+				event
+    });
+    
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : `${err}`
+    });
+  }
+}
+
+exports.editEvent = async(req,res) =>{
+	try{
+		const event = await Event.findOne({id_event: req.params.id_event});
+    if(!event){
+      return res.send({
+				message: 'id event tidak valid, coba lagi'
+			});
+    }
+    await Event.updateOne({id_event: event.id_event},{
+      $set: {
+        nama_event: req.body.nama_event,
+        deskripsi_event: req.body.deskripsi_event,
+        benefits: req.body.benefits,
+        prodi: req.body.prodi,
+        tanggal_event: req.body.tanggal_event,
+        kategori: req.body.kategori
+      }
+    });
+    return res.redirect('/event-ormawa');
+	}
+	catch(err){
+		return res.send({
+			message: 'Terjadi error saat edit event, coba lagi'
+		})
+	}
+}
+
+exports.deleteEvent = async(req,res) =>{
+	try{
+		const event = await Event.findOne({id_event: req.params.id_event});
+		if(!event){
+      return res.send({
+				message: 'id event tidak valid, coba lagi'
+			});
+    }
+		await Event.deleteOne({id_event: event.id_event});
+		
+		await Mahasiswa.updateMany(
+			{},
+			{$pull: {historyEvent:{id_event: req.params.id_event}}},
+			{multi: true}
+			);
+		return res.redirect('/event-ormawa');
+	}
+	catch(err){
+		return res.send({
+			message: 'Terjadi error saat delete event, coba lagi',
+			err:`${err}`
+		});
+	}
 }

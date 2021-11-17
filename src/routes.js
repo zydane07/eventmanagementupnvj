@@ -21,7 +21,7 @@ const routes = [
     path: '/',
     api: ormawa,
   },
-
+  {
     path:'/',
     api:admin,
   }
