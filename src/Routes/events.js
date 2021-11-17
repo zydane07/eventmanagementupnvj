@@ -48,6 +48,14 @@ router.get('/tentang', (req, res) => {
   });
 })
 
+const saveEvent = require('../Controller/saveEvent');
+router.post('/detail/:id_event', saveEvent);
+
+const shareEvent = require('../Controller/shareEvent');
+router.get('/event/:id_event' , shareEvent);
+
+const myEvent = require('../Controller/getMyEvent');
+router.get('/profile/events', myEvent);
 
 /**
  * @route /api/events
