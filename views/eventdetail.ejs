@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-            <form action="/detail/<%= data.id_event %> " method="post">
+            <form action="/detail/<%= data.id_event %>" method="post">
                 <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
             </form>
@@ -60,14 +60,24 @@
             </div>
             <div class="row">
                     <div class="col pe-5 d-flex justify-content-end" style="margin-top: 100px;">
-                        <% if (typeof tombol != 'undefined') { %>
+                        <% if (tombol !== 'ada') { %>
                             <button type="button" class="btn px-4 py-2 btn-primary btn-custom" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#daftarmodal">Daftar Event</button>
                         
                         <% } else { %>
                             <button type="button" class="btn px-4 py-2 btn-primary btn-custom disabled" style="margin-right: 10px;" aria-disabled="true">Sudah terdaftar!</button>
                         <% } %>
-                        <button type="button" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/share.png" alt="" /></button>
-                        <button type="button" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/bookmark.png" alt="" /></button>
+                        <button onclick="copyToClipboard()" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/share.png" alt="" /></button>
+                        <% if (tombol2 !== 'ada') { %>
+                            <form method="post" action="/detail/<%= data.id_event %>/saved">
+                                <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/save-instagram.png" alt="" style="width: 1em;"></button>
+                            </form>
+
+                        <% } else { %>
+                            <form method="post" action="/detail/<%= data.id_event %>/saved?_method=DELETE">
+                            <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/bookmark.png" alt="" /></button>
+                            </form>
+                        <% } %>
+                        
                     </div>
             </div>
         </div>

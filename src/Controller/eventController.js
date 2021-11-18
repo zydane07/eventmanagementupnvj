@@ -1,4 +1,3 @@
-const { date } = require('joi');
 const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
 const Ormawa = require('../Models/ormawa');
@@ -52,25 +51,24 @@ exports.getEventsDetails = async(req,res)=>{
 			benefits : event.benefits,
 			registered_people : event.registered_people,
 		}
+		let tombol = undefined;
+		let tombol2 = undefined;
 		const check = await Mahasiswa.findOne({email:req.user.email, "historyEvent.id_event": event.id_event});
-		
-	
-		if(!check){
-			return res.render('eventdetail',{
-				nama: req.user.nama,
-				tombol: 'Daftar Event',
-				layout: 'layouts/main-layout',
-				title: 'Detail Event',
-				css: 'styleDetail',
-				data
-			});
+		const checkSaved = await Mahasiswa.findOne({email:req.user.email, "savedEvent.id_event": event.id_event});
+		if(check){
+			tombol = 'ada';
+		}
+		if(checkSaved){
+			tombol2 = 'ada';
 		}
 		return res.render('eventdetail',{
 			nama: req.user.nama,
 			layout: 'layouts/main-layout',
 			title: 'Detail Event',
 			css: 'styleDetail',
-			data
+			data,
+			tombol,
+			tombol2
 		});
 		/*
 		return res.status(200).send({
@@ -143,12 +141,82 @@ exports.daftarEvent = async(req,res) =>{
 	}
 }
 
+exports.wishlistEvent = async(req,res) =>{
+	try{
+		const event = await Event.findOne({id_event:req.params.id_event});
+		if(!event){
+			return res.status(400).send({
+				success:false,
+				message: 'Event tidak ada' 
+			});
+		}
+		const user = await Mahasiswa.findOne({nama_lengkap: req.user.nama});
+		if(!user){
+			return res.status(400).send({
+				success:false,
+				message: 'User tidak valid' 
+			});
+		}
+		const saveEvent = {
+				id_event: event.id_event,
+		}
+		await Mahasiswa.findOneAndUpdate({
+			email: user.email
+		},{
+			$push: {savedEvent:saveEvent}
+		},{ new: true, upsert: true }).exec();
+
+		return res.redirect(`/detail/${req.params.id_event}`);
+	}
+	catch(err){
+		return res.send({
+			success:false,
+			message:`${err}`,
+		})
+	}
+}
+
+exports.wishlistDeleteEvent = async(req,res) =>{
+	try{
+		const event = await Event.findOne({id_event:req.params.id_event});
+		if(!event){
+			return res.status(400).send({
+				success:false,
+				message: 'Event tidak ada' 
+			});
+		}
+		const user = await Mahasiswa.findOne({nama_lengkap: req.user.nama});
+		if(!user){
+			return res.status(400).send({
+				success:false,
+				message: 'User tidak valid' 
+			});
+		}
+		const saveEvent = {
+				id_event: event.id_event,
+		}
+		await Mahasiswa.findOneAndUpdate({
+			email: user.email
+		},{
+			$pull: {savedEvent:saveEvent}
+		},{ new: true, upsert: true }).exec();
+
+		return res.redirect(`/detail/${req.params.id_event}`);
+	}
+	catch(err){
+		return res.send({
+			success:false,
+			message:`${err}`,
+		})
+	}
+}
+
 exports.getEventsSearch = async(req,res)=>{
   try {
 		const {page=1} = req.query;
 		const event = req.query.event;
 		let category = req.query.category;
-		const limit=3;
+		const limit=12;
 		let eventsSum, events;
 		/*
 		if(!event){

@@ -51,10 +51,11 @@
             <div class="form-group">
                 <label for="inputStatus">Kategori: </label>
                 <select id="inputStatus" class="form-control custom-select" name="kategori">
-                  <option>Webinar</option>
-                  <option>Workshop</option>
-                  <option>Lomba</option>
-                  <option selected>Lainnya</option>
+                  <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %>
+                  <% for( let index = 0; index < tmp.length; index++ ) { %>
+                      <% const selected = (event.kategori === tmp[index]) ? "selected" : ""; %>
+                      <option value='<%= tmp[index] %>' <%= selected %>><%= tmp[index] %></option>
+                  <% } %>
                 </select>
               </div>
               <div class="form-group">

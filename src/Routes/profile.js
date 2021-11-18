@@ -15,12 +15,6 @@ const router = express.Router();
  */
 router.get('/profile', Auth,checkRoleMhs, profileController.profile);
 router.put('/profile',Auth,checkRoleMhs,profileController.updateProfile);
-router.get('/profile/event',(req,res)=>{
-    res.render('eventsaya',{
-      nama: "bagas",
-      layout: 'layouts/main-layout',
-      title: 'Event Saya',
-      css: 'styleDetail',
-    });
-  })
+router.get('/profile/event',Auth,checkRoleMhs,profileController.eventSaya);
+router.get('/profile/wishlist',Auth,checkRoleMhs,profileController.eventWishSaya);
 module.exports = router;

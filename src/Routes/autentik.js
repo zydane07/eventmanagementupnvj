@@ -22,7 +22,7 @@ const auth = async(req, res, next) => {
   }
   const verified = jwt.verify(token, process.env.SECRET_KEY);
   req.user = verified
-  console.log(req.user);
+ 
   let checkNama;
     if(req.user.role==='mahasiswa'){
       checkNama = await Mahasiswa.findOne({email:req.user.email});

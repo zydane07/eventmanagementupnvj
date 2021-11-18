@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const savedEvent = mongoose.Schema({
-  id_event: Number
+  id_event: String
 });
 
 const historyEvent = mongoose.Schema({

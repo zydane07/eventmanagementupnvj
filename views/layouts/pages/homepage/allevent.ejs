@@ -7,23 +7,29 @@
     </div>
 
     <div class="row d-flex justify-content-center reveal">
-        <% events.forEach(event =>{ %>
-            <div class="col-lg-4 mt-4">
-                <div class="card-custom my-shadow-2">
-                    <div class="card-body-custom">
-                        <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                        <div class="row pt-2 d-flex align-items-lg-baseline">
-                            <div class="col">
-                                <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
-                            </div>
-                            <div class="col-5 text-center">
-                                <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
+        <% if (events.length > 0) { %>
+            <% events.forEach(event =>{ %>
+                <div class="col-lg-4 mt-4">
+                    <div class="card-custom my-shadow-2">
+                        <div class="card-body-custom">
+                            <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
+                            <div class="row pt-2 d-flex align-items-lg-baseline">
+                                <div class="col">
+                                    <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
+                                </div>
+                                <div class="col-5 text-center">
+                                    <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            <% }) %> 
+        <% } else { %>
+            <div class="col-lg-3 mt-4">
+                <h1>Tidak ada event</h1>
             </div>
-        <% }) %> 
+        <% } %>
     </div>
 
     <div class="row">
