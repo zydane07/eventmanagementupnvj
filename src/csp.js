@@ -11,6 +11,8 @@ let sources = {
         "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js",
         "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js",
         "https://code.jquery.com/jquery-3.5.1.js",
+        "https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js",
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
         "https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js",
         "'unsafe-hashes'",
         "'unsafe-inline'",

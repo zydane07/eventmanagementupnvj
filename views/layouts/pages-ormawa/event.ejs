@@ -24,7 +24,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <a class="btn btn-custom btn-sm" href="#">
+                    <a class="btn btn-custom btn-sm" href="/addevent-ormawa">
                         <i class="fa fa-calendar"> </i>
                         Buat Event Baru
                     </a>
@@ -49,107 +49,65 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% let i = 1 %> <% events.forEach(event =>{ %>
                             <tr>
-                                <td>1</td>
+                                <td><%= i %></td>
                                 <td>
-                                    <a> Lomba Tabligh Akbar Uswah 2021 </a>
+                                    <a><%= event.nama_event %></a>
                                     <br />
-                                    <!-- <small> Created 01.01.2019 </small> -->
+                                    <!-- <medium> Created 01.01.2019 </medium> -->
                                 </td>
-                                <td>11-7-2014</td>
-                                <td>[ • LOMBA ISLAMI GRATIS •]⁣ 📣 Assalamu'alaikum Ikhwah Fillah</td>
+                                <td><%= event.tanggal_event.toISOString().split('T')[0] %></td>
+                                <td><%= event.deskripsi_event %></td>
                                 <td class="project_progress">
-                                    <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                                    </div>
-                                    <small> 120/100 Peserta </small>
+                                    <medium> <%= event.registered_people.length %> Peserta</medium>
                                 </td>
                                 <td class="project-state">
+                                    <% if (dateNow >= event.tanggal_event) { %>
                                     <span class="badge badge-success">Event Selesai</span>
+                                    <% } else if (dateNow === event.tanggal_event) { %>
+                                    <span class="badge bg-warning text-dark">Event Sedang Berlangsung</span>
+                                    <% } else { %>
+                                    <span class="badge bg-danger">Event Belum Mulai</span>
+                                    <% } %>
                                 </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"> </i>
                                         Details
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt"> </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash"> </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <a> AdminLTE v3 </a>
-                                    <br />
-                                    <small> Created 01.01.2019 </small>
-                                </td>
-                                <td>11-7-2014</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, nam....</td>
 
-                                <td class="project_progress">
-                                    <div class="progress progress-sm">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" style="width: 7%"></div>
-                                    </div>
-                                    <small> 20/500 Peserta </small>
-                                </td>
-                                <td class="project-state">
-                                    <span class="badge bg-warning text-dark">Dalam Proses</span>
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder"> </i>
-                                        Details
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="/edit-event/<%= event.id_event %>">
                                         <i class="fas fa-pencil-alt"> </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <!--Modal Delete-->
+                                    <div class="modal fade" id="deletemodal" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="model-header">
+                                                    <div class="row">
+                                                        <div class="col text-center" style="padding: 1rem">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Menghapus Event Ini</b></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer d-flex justify-content-center">
+                                                    <form method="post" action="/delete/<%= event.id_event %>?_method=DELETE">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
                                         <i class="fas fa-trash"> </i>
                                         Delete
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <a> AdminLTE v3 </a>
-                                    <br />
-                                    <small> Created 01.01.2019 </small>
-                                </td>
-                                <td>11-7-2014</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, nam....</td>
-
-                                <td class="project_progress">
-                                    <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-                                    </div>
-                                    <small> 0/300 Peserta </small>
-                                </td>
-                                <td class="project-state">
-                                    <span class="badge bg-danger">Belum Publish</span>
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder"> </i>
-                                        Details
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt"> </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash"> </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                            <% i++ %> <% }) %>
                         </tbody>
                     </table>
                 </div>

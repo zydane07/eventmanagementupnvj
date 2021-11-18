@@ -2,8 +2,6 @@ const express = require("express");
 const adminController = require("../Controller/adminController");
 const router = express.Router();
 
-// router.post('/create', adminController.register);
-
 router.get("/login-admin", (req, res) => {
     res.render("login-admin", {
         layout: "layouts/loginadmin-layout",
@@ -67,5 +65,7 @@ router.get("/tambah-ormawa", (req, res) => {
         title: "Tambah Ormawa",
     });
 });
+
+router.post("/create", adminController.register);
 
 module.exports = router;

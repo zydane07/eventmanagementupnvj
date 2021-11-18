@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const Mahasiswa = require('../Models/mahasiswa');
+const Ormawa = require('../Models/ormawa');
 /**
  * @function auth (for access)
  * @description access denied for anonymous user if access some private endpoint.
@@ -21,8 +22,16 @@ const auth = async(req, res, next) => {
   try {
     const verified = jwt.verify(token, process.env.SECRET_KEY);
     req.user = verified
-    const checkNama = await Mahasiswa.findOne({email:req.user.email});
-    req.user["nama"] = checkNama.nama_lengkap;
+    let checkNama=null;
+    if(req.user.role==='mahasiswa'){
+      checkNama = await Mahasiswa.findOne({email:req.user.email});
+      req.user["nama"] = checkNama.nama_lengkap;
+    }
+    else if(req.user.role==='ormawa'){
+      checkNama = await Ormawa.findOne({email_ormawa:req.user.email});
+      req.user["nama"] = checkNama.nama_ormawa;
+    }
+    
     return next();
   } catch (err) {
     return res.send({ success: false, message: 'Token Invalid' });

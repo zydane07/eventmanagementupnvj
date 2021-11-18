@@ -1,5 +1,6 @@
 const { customAlphabet } = require('nanoid');
 const Mahasiswa = require('../Models/mahasiswa');
+const Ormawa = require('../Models/ormawa');
 const forgetVal = require('../ValidationModel/forgetPasswordVal');
 const Otp = require('../Models/forgotPass');
 const sendEmail = require('../Nodemailer/sendEmail');
@@ -13,7 +14,8 @@ exports.login = async (req,res) => {
     //Menerima input email dan password kemudian divalidasi
     const {email,password} = req.body;
     const result = valLogin.validate(req.body);
-
+    let role = 'mahasiswa';
+    let user = null;
     if(result.error){
       /*
       return res.status(400).send({
@@ -28,8 +30,12 @@ exports.login = async (req,res) => {
       });
     }
     //Database collection Mahasiswa dicheck apakah email sudah terdaftar
-    const checkDB = await Mahasiswa.findOne({email});
-    if(!checkDB){
+    user = await Mahasiswa.findOne({email});
+    if(!user){
+      user = await Ormawa.findOne({email});
+      role = 'ormawa';
+    }
+    if(!user){
       /*
       return res.status(404).send({
         success: false,
@@ -44,7 +50,7 @@ exports.login = async (req,res) => {
     }
 
     //Check apakah password yang diinput benar
-    const checkPass = await bcrypt.compare(password,checkDB.password);
+    const checkPass = await bcrypt.compare(password,user.password);
     if(!checkPass){
       /*
       return res.status(404).send({
@@ -60,7 +66,7 @@ exports.login = async (req,res) => {
     }
 
     //Check apakah akun sudah verified, jika belum akan disuruh untuk verifikasi terlebih dahulu
-    if(checkDB.isVerified===false){
+    if(user.isVerified===false && role==='mahasiswa'){
       /*
       return res.status(404).send({
         success: false,
@@ -75,9 +81,12 @@ exports.login = async (req,res) => {
     };
 
     //Bikin jsonwebtoken, kemudian disimpen di Cookie browser sebagai autentikasi nantinya.
-    const payload = {email}
+    const payload = {email,role}
     const tokenUser = jwt.sign(payload,process.env.SECRET_KEY);
     res.cookie('dataUser',tokenUser);
+    if(role==='ormawa'){
+      return res.redirect('/dashboard-ormawa');
+    }
     return res.redirect('/');
 
   }
