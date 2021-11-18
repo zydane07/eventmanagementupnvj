@@ -8,24 +8,24 @@
 
     <div class="row d-flex justify-content-center reveal">
         <% events.forEach(event =>{ %>
-            <div class="col-lg-4 mt-4">
-                <div class="card-custom my-shadow-2">
-                    <div class="card-body-custom">
-                        <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                        <div class="row pt-2 d-flex align-items-lg-baseline">
-                            <div class="col">
-                                <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
-                            </div>
-                            <div class="col-5 text-center">
-                                <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
-                            </div>
+        <div class="col-lg-4 mt-4">
+            <div class="card-custom my-shadow-2">
+                <div class="card-body-custom">
+                    <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
+                    <div class="row pt-2 d-flex align-items-lg-baseline">
+                        <div class="col">
+                            <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
                         </div>
                     </div>
                 </div>
             </div>
-        <% }) %> 
+        </div>
+        <% }) %>
     </div>
-        <!-- <div class="col-lg-4 mt-4">
+    <!-- <div class="col-lg-4 mt-4">
             <div class="card-custom my-shadow-2">
                 <div class="card-body-custom">
                     <p class="card-font h5 text-white mb-4">Lomba Tabligh Akbar Uswah 2021</p>
@@ -163,7 +163,7 @@
     </div> -->
 
     <div class="row">
-        <div class="col d-flex justify-content-center">
+        <div class="col d-flex justify-content-center mt-5">
             <a class="btn btn-success btn-custom" href="/search" role="button">Lihat Semua Event</a>
         </div>
     </div>

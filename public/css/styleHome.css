@@ -302,8 +302,8 @@ footer {
 }
 input[type="file"] {
     display: none;
-  }
-  
+}
+
 .custom-file-upload {
     border: 1px solid #ccc;
     color: white;
@@ -312,7 +312,7 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-  }
+}
 
 @media (max-width: 991px) {
     .active::after {
@@ -335,21 +335,15 @@ input[type="file"] {
 }
 
 .form-submit-button {
-
-    padding:0; 
-    margin:0;
-    border:0;
-    background-color:transparent;
-
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
 }
 
- 
-
 .form-submit-button:hover {
-
-    padding:0; 
-    margin:0;
-    border:0;
-    background-color:transparent;
-
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
 }
