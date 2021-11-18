@@ -34,6 +34,8 @@
 <!-- flot rezise plugin chart -->
 <script src="/plugin/chart.js/jquery.flot.resize.js"></script>
 
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 <!-- donut chart -->
 <script src="/plugin/chart.js/jquery.flot.pie.js"></script>
 <% if (typeof jmlWebinar !== 'undefined') { %>
@@ -105,3 +107,9 @@
 
 <!-- active menu -->
 <script src="/plugin/js/menuActive.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#example").DataTable();
+    });
+</script>

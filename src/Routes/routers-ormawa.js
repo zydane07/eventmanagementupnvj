@@ -25,6 +25,8 @@ routers.get('/addevent-ormawa', (req, res) => {
         css: 'dashboard',
         title: 'Add Event'
     });
-})
+});
+routers.get("/detail-event/:id_event",checkRole,Auth,eventController.eventDetailOrmawa);
+
 routers.post('/add-event',checkRole,Auth,ormawaController.createEvent);
 module.exports = routers
