@@ -14,10 +14,58 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                 </form>
             </div>
+
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <form action="/detail/<%= data.id_event %>" method="post">
+                <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+            </form>
         </div>
     </div>
-</div>
-<div class="container" style="background-color: #d7f9db; margin-top: 100px; margin-bottom: 80px">
+
+  </div>
+  <div class="modal fade" id="sharemodal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="model-header">
+          <div class="row">
+            <div class="col text-center" style="padding: 1rem;">
+              <h5 class="modal-title" id="exampleModalLongTitle"><b>Share Event Ini Ke Sosial Mediamu</b></h5>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body" style="padding-top: 0rem;">
+            <div class="row">
+                <div class="col d-flex justify-content-center" style="padding: 0rem;">
+                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(61, 106, 214,.1);"><img src="/img/facebook.png" alt="" /></button>
+                </div>
+                <div class="col d-flex justify-content-center" style="padding: 0rem;">
+                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(239, 1, 72,.1);"><img src="/img/instagram.png" alt="" /></button>
+                </div>
+                <div class="col d-flex justify-content-center" style="padding: 0rem;">
+                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(76, 175, 80,.1);"><img src="/img/line.png" alt="" /></button>
+                </div>
+                <div class="col d-flex justify-content-center" style="padding: 0rem;">
+                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(76, 175, 80,.1);"><img src="/img/whatsapp.png" alt="" /></button>
+                </div>
+                <div class="col d-flex justify-content-center" style="padding: 0rem;">
+                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(29, 161, 243,.1);"><img src="/img/twitter.png" alt="" /></button>
+                </div>
+
+            </div>
+          </div>
+        <div class="modal-footer justify-content-center">
+                <p>Atau Copy Link: </p>
+                <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #E4E4E4;color: #2F4858;">https:/sim-u/bagaskontol</p>
+                
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container" style="background-color: #D7F9DB;margin-top: 100px;margin-bottom: 80px;">
+
     <div class="row">
         <div class="col d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px">
             <img src="/img/poster.png" alt="photo profil" width="500" height="600" />
@@ -59,6 +107,7 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col pe-5 d-flex justify-content-end" style="margin-top: 100px">
                     <% if (tombol !== 'ada') { %>
                     <button type="button" class="btn px-4 py-2 btn-primary btn-custom" style="margin-right: 10px" data-bs-toggle="modal" data-bs-target="#daftarmodal">Daftar Event</button>
@@ -78,6 +127,7 @@
                     </form>
                     <% } %>
                 </div>
+
             </div>
         </div>
     </div>
