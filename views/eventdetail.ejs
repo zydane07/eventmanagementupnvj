@@ -1,11 +1,20 @@
 <div class="modal fade" id="daftarmodal" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="model-header">
-          <div class="row">
-            <div class="col text-center" style="padding: 1rem;">
-              <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Mendaftar Event Ini</b></h5>
+        <div class="modal-content">
+            <div class="model-header">
+                <div class="row">
+                    <div class="col text-center" style="padding: 1rem">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Mendaftar Event Ini</b></h5>
+                    </div>
+                </div>
             </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <form action="/detail/<%= data.id_event %>" method="post">
+                    <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                </form>
+            </div>
+
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
@@ -14,8 +23,8 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
             </form>
         </div>
-      </div>
     </div>
+
   </div>
   <div class="modal fade" id="sharemodal" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -56,11 +65,12 @@
     </div>
   </div>
 <div class="container" style="background-color: #D7F9DB;margin-top: 100px;margin-bottom: 80px;">
+
     <div class="row">
-        <div class="col d-flex justify-content-center" style="margin-top: 50px;margin-bottom: 50px;">
-            <img src="/img/poster.png" alt="photo profil" width="500" height="600"/>
+        <div class="col d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px">
+            <img src="/img/poster.png" alt="photo profil" width="500" height="600" />
         </div>
-        <div class="col gap-3" style="margin-top: 50px;margin-bottom: 50px;">
+        <div class="col gap-3" style="margin-top: 50px; margin-bottom: 50px">
             <div class="row">
                 <div class="col mt-3">
                     <h1><b><%= data.nama_event %> </b></h1>
@@ -68,16 +78,16 @@
             </div>
             <div class="row">
                 <div class="col mt-1 d-flex">
-                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #008493;color: white;">Lomba</p>
-                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #00A397;color: white;">Poster</p>
-                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #008493;color: white;">Podcast</p>
+                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #008493; color: white">Lomba</p>
+                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #00a397; color: white">Poster</p>
+                    <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #008493; color: white">Podcast</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col mt-1 d-flex">
-                    <img src="/img/picukm.png" alt="penyelenggara" width="65" height="75">
+                    <img src="/img/picukm.png" alt="penyelenggara" width="65" height="75" />
                     <div class="col ms-4">
-                        <h3><%= data.detil_eo %> </h3>
+                        <h3><%= data.detil_eo %></h3>
                         <a href="/<%= data.id_eo %>/events">Lihat Semua Event</a>
                     </div>
                 </div>
@@ -85,28 +95,39 @@
             <div class="row mt-3">
                 <div class="row mt-1">
                     <div class="col mt-1 d-flex">
-                        <span class="glyphicon glyphicon-off me-2" aria-hidden="true"><img src="/img/date.png" alt="Test"/></span>
-                    <p><%= data.tanggal_event.toISOString().substring(0, 10) %></p>
+                        <span class="glyphicon glyphicon-off me-2" aria-hidden="true"><img src="/img/date.png" alt="Test" /></span>
+                        <p><%= data.tanggal_event.toISOString().substring(0, 10) %></p>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col mt-1 d-flex">
-                        <span class="glyphicon glyphicon-off me-2" aria-hidden="true"><img src="/img/user.png" alt="Test"/></span>
-                    <p><%= data.registered_people.length %>  Orang Terdaftar</p>
+                        <span class="glyphicon glyphicon-off me-2" aria-hidden="true"><img src="/img/user.png" alt="Test" /></span>
+                        <p><%= data.registered_people.length %> Orang Terdaftar</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                    <div class="col pe-5 d-flex justify-content-end" style="margin-top: 100px;">
-                        <% if (typeof tombol != 'undefined') { %>
-                            <button type="button" class="btn px-4 py-2 btn-primary btn-custom" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#daftarmodal">Daftar Event</button>
-                        
-                        <% } else { %>
-                            <button type="button" class="btn px-4 py-2 btn-primary btn-custom disabled" style="margin-right: 10px;" aria-disabled="true">Sudah terdaftar!</button>
-                        <% } %>
-                        <button type="button" class="btn btn-secondary btn-share" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#sharemodal"><img src="/img/share.png" alt="" /></button>
-                        <button type="button" class="btn btn-secondary btn-share" style="margin-right: 10px;"><img src="/img/bookmark.png" alt="" /></button>
-                    </div>
+
+                <div class="col pe-5 d-flex justify-content-end" style="margin-top: 100px">
+                    <% if (tombol !== 'ada') { %>
+                    <button type="button" class="btn px-4 py-2 btn-primary btn-custom" style="margin-right: 10px" data-bs-toggle="modal" data-bs-target="#daftarmodal">Daftar Event</button>
+
+                    <% } else { %>
+                    <button type="button" class="btn px-4 py-2 btn-primary btn-custom disabled" style="margin-right: 10px" aria-disabled="true">Sudah terdaftar!</button>
+                    <% } %>
+                    <button onclick="copyToClipboard()" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/share.png" alt="" /></button>
+                    <% if (tombol2 !== 'ada') { %>
+                    <form method="post" action="/detail/<%= data.id_event %>/saved">
+                        <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" style="width: 1em" /></button>
+                    </form>
+
+                    <% } else { %>
+                    <form method="post" action="/detail/<%= data.id_event %>/saved?_method=DELETE">
+                        <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/bookmark.png" alt="" /></button>
+                    </form>
+                    <% } %>
+                </div>
+
             </div>
         </div>
     </div>
@@ -114,46 +135,35 @@
 <div class="container">
     <div class="row">
         <h2>Deskripsi Event</h2>
-        <pre>
-            <%= data.deskripsi_event %> 
-        </pre>
+        <p><%= data.deskripsi_event %></p>
     </div>
-    <hr>
+    <hr />
 </div>
 <div class="container">
     <div class="row">
         <h2>Benefits Event</h2>
-        <pre>
-            <%= data.benefits %> 
-        </pre>
+        <p><%= data.benefits %></p>
     </div>
-    <hr>
+    <hr />
 </div>
 <div class="container">
     <div class="row">
         <h2 class="mb-4">Prasyarat Event</h2>
         <h4 class="mb-4">1.Follow Instagram @UswahUPNVJ</h4>
-        <div class="form-group d-flex justify-content-start ms-5 mb-4" >
-            <label for="file-upload" class="custom-file-upload">
-              Upload Bukti
-            </label>
-            <input id="file-upload" type="file" accept="image/*"/>
+        <div class="form-group d-flex justify-content-start ms-5 mb-4">
+            <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
+            <input id="file-upload" type="file" accept="image/*" />
         </div>
         <h4 class="mb-4">2.Follow Youtube @UswahUPNVJ</h4>
-        <div class="form-group d-flex justify-content-start ms-5 mb-4" >
-            <label for="file-upload" class="custom-file-upload">
-              Upload Bukti
-            </label>
-            <input id="file-upload" type="file" accept="image/*"/>
+        <div class="form-group d-flex justify-content-start ms-5 mb-4">
+            <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
+            <input id="file-upload" type="file" accept="image/*" />
         </div>
         <h4 class="mb-4">3.Share ke 5 grup WhatsApp Kamu</h4>
-        <div class="form-group d-flex justify-content-start ms-5 mb-4" >
-            <label for="file-upload" class="custom-file-upload">
-              Upload Bukti
-            </label>
-            <input id="file-upload" type="file" accept="image/*"/>
+        <div class="form-group d-flex justify-content-start ms-5 mb-4">
+            <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
+            <input id="file-upload" type="file" accept="image/*" />
         </div>
-        
     </div>
-    <hr>
+    <hr />
 </div>

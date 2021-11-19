@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Event</h3>
@@ -35,7 +35,7 @@
               <div class="form-group">
                 <label for="deskripsi_event">Deskripsi Event</label>
                 <textarea class="summernote" name="deskripsi_event" class="form-control" rows="4">
-                    <%= event.deskripsi %> 
+                    <%= event.deskripsi_event %> 
                 </textarea>
               </div>
               <div class="form-group">
@@ -46,15 +46,16 @@
               </div>
               <div class="form-group">
                 <label for="tgl_lahir"><b>Tanggal Event: </b></label>
-                <input type="date" class="form-control" name="tanggal_event" placeholder="Tanggal Event" value="<%= event.tanggal_event %>">
+                <input type="date" class="form-control" name="tanggal_event" placeholder="Tanggal Event" value="<%= event.tanggal_event.toISOString().substr(0, 10) %>">
             </div>
             <div class="form-group">
                 <label for="inputStatus">Kategori: </label>
                 <select id="inputStatus" class="form-control custom-select" name="kategori">
-                  <option>Webinar</option>
-                  <option>Workshop</option>
-                  <option>Lomba</option>
-                  <option selected>Lainnya</option>
+                  <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %>
+                  <% for( let index = 0; index < tmp.length; index++ ) { %>
+                      <% const selected = (event.kategori === tmp[index]) ? "selected" : ""; %>
+                      <option value='<%= tmp[index] %>' <%= selected %>><%= tmp[index] %></option>
+                  <% } %>
                 </select>
               </div>
               <div class="form-group">
