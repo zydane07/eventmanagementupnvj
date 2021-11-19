@@ -33,6 +33,11 @@
 <!-- flot rezise plugin chart -->
 <script src="/plugin/chart.js/jquery.flot.resize.js"></script>
 
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-colvis-2.0.1/b-html5-2.0.1/b-print-2.0.1/datatables.min.js"></script>
+
 <!-- donut chart -->
 <script src="/plugin/chart.js/jquery.flot.pie.js"></script>
 <% if (typeof jmlWebinar !== 'undefined') { %>
@@ -104,3 +109,18 @@
 
 <!-- active menu -->
 <script src="/plugin/js/menuActive.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var table = $("#example").DataTable({
+            buttons: ["copy", "csv", "print", "excel", "pdf", "colvis"],
+            dom: "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" + "<'row'<'col-md-12'tr>>" + "<'row'<'col-md-5'i><'col-md-7'p>>",
+            // lengthMenu: [
+            //     [5, 10, 25, 50, 100, -1],
+            //     [5, 10, 25, 50, 100, "All"],
+            // ],
+        });
+
+        table.buttons().container().appendTo("#example_wrapper .col-md-5:eq(0)");
+    });
+</script>

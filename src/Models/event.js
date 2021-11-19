@@ -2,7 +2,11 @@ const { date } = require('joi');
 const mongoose = require('mongoose');
 
 const registered = mongoose.Schema({
-  email: String
+  email: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 })
 
 const eventSchema = mongoose.Schema({
