@@ -122,7 +122,6 @@ router.get("/LupaPass4", (req, res) => {
  * @routes /logout
  * @description delete user token from cookies and redirect to login.
  */
-
 router.delete("/logout", Auth, authController.logout);
 
 module.exports = router;

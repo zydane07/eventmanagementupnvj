@@ -519,11 +519,16 @@ exports.eventDetailOrmawa = async(req,res)=>{
 		});
 		const pendaftar2 = await Mahasiswa.aggregate([
 			{"$match": {email: {$in: peserta}}},
+			{"$match": {"historyEvent.id_event": req.params.id_event}},
 			{
-				$addFields:{
-					tanggal_daftar: 'halo'
+				$lookup: {
+					from: "events",
+					localField: "historyEvent.id_event",
+					foreignField: "id_event",
+					as: "events"
 				}
-			}
+			},
+			{ $addFields: { events: { $arrayElemAt: ["$events", 0] } } },
 		]);
 		console.log(pendaftar2);
 		res.render("detailEvent-ormawa", {

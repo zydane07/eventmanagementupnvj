@@ -1,8 +1,8 @@
 const auth = require("./Routes/auth");
 const profile = require("./Routes/profile");
 const events = require("./Routes/events");
-const admin = require("./Routes/admin");
 const ormawa = require("./Routes/routers-ormawa");
+const admin = require("./Routes/admin");
 
 const routes = [
     {
