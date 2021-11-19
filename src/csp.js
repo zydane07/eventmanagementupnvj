@@ -17,11 +17,11 @@ let sources = {
   'connect-src': ['\'self\''],
 }
 
-let csp = Object.keys(sources).map(function(key){
-  return `${key} ${sources[key].join(' ')};`
-})
+let csp = Object.keys(sources).map(function (key) {
+    return `${key} ${sources[key].join(" ")};`;
+});
 
-exports.csp = (req, res, next) =>{
-  res.setHeader('Content-Security-Policy', csp.join(' '))
-  next();
-}
+exports.csp = (req, res, next) => {
+    res.setHeader("Content-Security-Policy", csp.join(" "));
+    next();
+};

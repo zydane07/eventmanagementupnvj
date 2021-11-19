@@ -9,7 +9,7 @@ const router = express.Router();
  * @routes /login
  * @description get and post for endpoint Login
  */
- router.get("/login", (req, res) => {
+router.get("/login", (req, res) => {
   res.render("login", {
     layout: "layouts/login-layout",
     css: "styleLoginUser",
@@ -17,7 +17,7 @@ const router = express.Router();
   });
 });
 
-router.post('/login',authController.login);
+router.post('/login', authController.login);
 
 /**
  * @routes /register
@@ -30,7 +30,7 @@ router.get("/register", (req, res) => {
     title: "register",
   });
 });
-router.post('/register',mahasiswaController.register);
+router.post('/register', mahasiswaController.register);
 
 /**
  * @routes /register2
@@ -56,13 +56,13 @@ router.get("/ResendVerif", (req, res) => {
   });
 });
 
-router.post('/verification',verifyController.resendEmail);
+router.post('/verification', verifyController.resendEmail);
 
 /**
  * @routes /verification/:token
  * @description verify user by clicking link verification by mail.
  */
-router.get('/verification/:token',verifyController.verifUser);
+router.get('/verification/:token', verifyController.verifUser);
 
 /**
  * @routes /LupaPass
@@ -76,7 +76,7 @@ router.get("/LupaPass", (req, res) => {
   });
 });
 
-router.post('/forget-password',authController.forgotPassword);
+router.post('/forget-password', authController.forgotPassword);
 
 /**
  * @routes /LupaPass2
@@ -95,7 +95,7 @@ router.get("/LupaPass2", (req, res) => {
  * @description get and post for render and handling Reset Password user
  */
 router.get("/reset-password/:token", (req, res) => {
-  const {token} = req.params;
+  const { token } = req.params;
   res.render("LupaPass3", {
     layout: "layouts/login-layout",
     css: "styleLoginUser",
@@ -122,6 +122,6 @@ router.get("/LupaPass4", (req, res) => {
  * @routes /logout
  * @description delete user token from cookies and redirect to login.
  */
- router.delete('/logout', Auth, authController.logout);
+router.delete('/logout', Auth, authController.logout);
 
- module.exports = router;
+module.exports = router;
