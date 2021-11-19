@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const savedEvent = mongoose.Schema({
-  id_event: Number,
-  nama_event: String,
-  poster_event: String,
-  tanggal_event: Date,
+  id_event: String
 });
 
 const historyEvent = mongoose.Schema({

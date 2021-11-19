@@ -70,7 +70,7 @@ exports.resendEmail = async(req,res)=>{
         message: 'Email tidak boleh kosong!'
       })
     }
-
+    
     //Check kedatabase apakah user sudah pernah mengirim email verif.
     let link;
     const emailToken = await verifikasiEmail.findOne({email});

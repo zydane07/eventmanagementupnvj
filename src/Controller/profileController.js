@@ -1,5 +1,5 @@
 const Mahasiswa = require('../Models/mahasiswa');
-
+const Event = require('../Models/event');
 exports.profile = async(req,res)=>{
   try{
     //Mencari profile di database collection Mahasiswa email yang ada di cookie
@@ -89,4 +89,52 @@ exports.updateProfile = async(req,res) =>{
       });
     }
   }
+}
+
+exports.eventSaya = async(req,res) =>{
+  const mhs = await Mahasiswa.findOne({email:req.user.email});
+  
+  const ids = mhs.historyEvent.map(el => el.id_event);
+
+  const events = await Event.find({
+    id_event: { $in: ids }
+  });
+  return res.render('eventsaya',{
+    judul: 'Event Saya',
+    nama: req.user.nama,
+    layout: 'layouts/main-layout',
+    title: 'Event Saya',
+    css: 'styleDetail',
+    events
+  });
+  
+}
+
+exports.eventWishSaya = async(req,res) =>{
+  const mhs = await Mahasiswa.findOne({email:req.user.email});
+  
+  const ids = mhs.savedEvent.map(el => el.id_event);
+
+  const events = await Event.find({
+    id_event: { $in: ids }
+  });
+
+  if(events.length===0){
+    return res.render('eventsaya',{
+      judul: 'Event Wishlist Saya',
+      nama: req.user.nama,
+      layout: 'layouts/main-layout',
+      title: 'Event Saya',
+      css: 'styleDetail',
+    });
+  }
+  return res.render('eventsaya',{
+    judul: 'Event Wishlist Saya',
+    nama: req.user.nama,
+    layout: 'layouts/main-layout',
+    title: 'Event Saya',
+    css: 'styleDetail',
+    events
+  });
+  
 }

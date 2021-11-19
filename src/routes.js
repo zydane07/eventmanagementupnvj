@@ -22,9 +22,10 @@ const routes = [
     api: ormawa,
   },
   {
-    path: '/',
-    api: admin,
-  },
+    path:'/',
+    api:admin,
+  }
+
 ];
 
 module.exports = routes;

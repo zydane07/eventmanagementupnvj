@@ -104,7 +104,7 @@ router.get("/reset-password/:token", (req, res) => {
   });
 });
 
-router.post('/reset-password/:token', authController.resetPassword);
+router.put('/reset-password/:token',authController.resetPassword);
 
 /**
  * @routes /LupaPass4

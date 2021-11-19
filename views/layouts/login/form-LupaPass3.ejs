@@ -2,7 +2,7 @@
   <p class="h1 m-ctm">Buat Kata Sandi Baru</p>
   <p class="ctm-font">Kata sandi baru anda harus berbeda dengan kata sandi yang digunakan sebelumnya</p>
 
-  <form action="/reset-password/<%= token %> " method="post">
+  <form action="/reset-password/<%= token %>?_method=PUT" method="post">
     <div class="form-group mt-5 mb-4">
       <input type="password" class="form-control" id="password" placeholder="Kata Sandi" name="password" />
       <span class="lock-log"><i class="fa fa-lock"></i></span>

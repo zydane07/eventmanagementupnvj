@@ -68,4 +68,8 @@ router.get("/tambah-ormawa", (req, res) => {
     });
 });
 
+
+router.post('/create',adminController.register);
+
 module.exports = router;
+
