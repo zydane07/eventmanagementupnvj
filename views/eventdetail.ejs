@@ -26,6 +26,29 @@
     </div>
 
   </div>
+
+  <div class="share-btn-container shareBlock">
+    <a href="#" class="facebook-btn">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="#" class="twitter-btn">
+      <i class="fab fa-twitter"></i>
+    </a>
+
+
+    <!-- <a href="#" class="linkedin-btn">
+      <i class="fab fa-linkedin"></i>
+    </a> -->
+
+    <a href="#" class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" class="copy-btn"  onclick="copyToClipboard()">
+        <i class="fa fa-clone"></i>
+    </a>
+  </div>
+
   <div class="modal fade" id="sharemodal" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -58,7 +81,7 @@
           </div>
         <div class="modal-footer justify-content-center">
                 <p>Atau Copy Link: </p>
-                <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #E4E4E4;color: #2F4858;">https:/sim-u/bagaskontol</p>
+                <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #E4E4E4;color: #2F4858;">https:/sim-u/bagasssss</p>
                 
         </div>
       </div>
@@ -115,10 +138,10 @@
                     <% } else { %>
                     <button type="button" class="btn px-4 py-2 btn-primary btn-custom disabled" style="margin-right: 10px" aria-disabled="true">Sudah terdaftar!</button>
                     <% } %>
-                    <button onclick="copyToClipboard()" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/share.png" alt="" /></button>
+                    <!-- <button onclick="copyToClipboard()"  class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/share.png" alt="" /></button> -->
                     <% if (tombol2 !== 'ada') { %>
                     <form method="post" action="/detail/<%= data.id_event %>/saved">
-                        <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" style="width: 1em" /></button>
+                        <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" /></button>
                     </form>
 
                     <% } else { %>
