@@ -1,0 +1,131 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Pengaturan Akun</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Pengaturan AKun</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center form-group">
+                                <!-- <label for="inputName">Nama Event</label> -->
+                                <div class="profile-pic-div">
+                                    <img src="/img/LOGO BEMU.png" id="photo" class="profile-user-img img-fluid img-circle" />
+                                    <input type="file" id="file" />
+                                    <label for="file" id="uploadBtn">Pilih Poto</label>
+                                </div>
+                            </div>
+                            <p>&nbsp</p>
+                            <p>&nbsp</p>
+                            <p>&nbsp</p>
+                            <h3 class="profile-username text-center">BEM UPNVJ</h3>
+                            <p class="text-muted text-center">bem@upnvj.ac.id</p>
+
+                            <!-- <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item"><b>Followers</b> <a class="float-right">1,322</a></li>
+                                <li class="list-group-item"><b>Following</b> <a class="float-right">543</a></li>
+                                <li class="list-group-item"><b>Friends</b> <a class="float-right">13,287</a></li>
+                            </ul> -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Deskripsi Ormawa</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Pengaturan Akun</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                    <div class="form-group">
+                                        <label for="inputName">Nama Ormawa</label>
+                                        <input type="text" id="inputName" class="form-control" value="BEM UPNVJ" name="nama_event" disabled />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deskripsi_event">Deskripsi Ormawa</label>
+                                        <textarea id="inputDescription" class="form-control" rows="10"></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <form method="post">
+                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                            <button type="submit" class="btn btn-secondary">Kembali</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="timeline">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-6">
+                                                <input type="email" class="form-control" id="inputEmail3" placeholder="bem@upnvj.ac.id" name="email_ormawa" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control mb-2" id="myInput" value="ini password" name="repassword" />
+                                                <input type="checkbox" onclick="myFunction()" />Show Password
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword4" class="col-sm-2 col-form-label">Confirm Password</label>
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password" name="repassword" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <form method="post">
+                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                            <button type="submit" class="btn btn-secondary">Kembali</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block"><b>Version</b> 3.1.0</div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
