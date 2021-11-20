@@ -8,9 +8,9 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Silahkan masukkan email dan kata sandi yang terdaftar</p>
 
-            <form action="/dashboard-ormawa" method="POST">
+            <form action="/login-admin" method="POST">
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email" />
+                    <input type="email" class="form-control" placeholder="Email" name="email"/>
                     <div class="input-group-append">
                         <div class="input-group-text text-center">
                             <span class="fas fa-envelope"></span>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" />
+                    <input type="password" class="form-control" placeholder="Password" name="password"/>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

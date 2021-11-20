@@ -48,54 +48,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>USWAH UPNVJ</td>
-                                            <td>
-                                                <a>5</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>uswah@upnvj.ac.id</td>
-
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>USWAH UPNVJ</td>
-                                            <td>
-                                                <a>5</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>uswah@upnvj.ac.id</td>
-
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>USWAH UPNVJ</td>
-                                            <td>
-                                                <a>5</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>uswah@upnvj.ac.id</td>
-
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <% let i = 1 %>
+                                            <% ormawas.forEach(ormawa =>{ %>
+                                                <tr>
+                                                    <td><%= i %> </td>
+                                                    <td><%= ormawa.nama_ormawa %></td>
+                                                    <td>
+                                                    <a> <%= ormawa.event %></a>
+                                                    <!-- <small> Created 01.01.2019 </small> -->
+                                                    </td>
+                                                    <td><%= ormawa.email_ormawa %></td>
+                                                    <td>
+                                                    <form method="post" action="/pengguna-ormawa/<%= ormawa.id_ormawa %>?_method=DELETE">
+                                                        <button class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"> </i>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                    </td>
+                                                </tr>         
+                                            <% i++ %>
+                                        <% }) %> 
+                                        
                                     </tbody>
                                 </table>
                             </div>

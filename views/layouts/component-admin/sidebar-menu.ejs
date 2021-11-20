@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="img/logo.png" alt="SIM-U" class="brand-image" />
+        <img src="/img/logo.png" alt="SIM-U" class="brand-image" />
         <span class="brand-text font-weight-normal">SIM-U</span>
     </a>
 
@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/event" class="nav-link">
+                            <a href="/event-admin" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Event</p>
                             </a>
@@ -94,10 +94,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/login-admin" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
-                        <p>Keluar</p>
-                    </a>
+                    <form action="/logout-admin?_method=DELETE" method="POST">
+                        <a class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <button type="submit" class="form-submit-button">Log out</button>
+                        </a>
+                    </form>
                 </li>
             </ul>
         </nav>

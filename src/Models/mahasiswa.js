@@ -5,7 +5,11 @@ const savedEvent = mongoose.Schema({
 });
 
 const historyEvent = mongoose.Schema({
-  id_event: String
+  id_event: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const mahasiswaSchema = mongoose.Schema({

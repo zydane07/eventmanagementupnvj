@@ -49,10 +49,10 @@
             </thead>
             <tbody>
               <% let i = 1 %>
-              <% pendaftar.forEach(orang => { %>
+              <% pendaftar2.forEach(orang => { %>
                 <tr>
                   <td><%= i %> </td>
-                  <td>12-11-2021</td>
+                  <td><%= orang.historyEvent.createdAt.toISOString().substring(0, 10) %> </td>
                   <td>
                     <a><%= orang.nama_lengkap %></a>
                     <br />

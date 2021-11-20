@@ -47,57 +47,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Bagas Prabaswara Wira Notokusumo</td>
-                                            <td>
-                                                <a> 1910511124</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>081234122355</td>
-                                            <td>Ilmu Komputer</td>
-                                            <td>Informatika</td>
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Bagas Prabaswara Wira Notokusumo</td>
-                                            <td>
-                                                <a> 1910511124</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>081234122355</td>
-                                            <td>Ilmu Komputer</td>
-                                            <td>Informatika</td>
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Bagas Prabaswara Wira Notokusumo</td>
-                                            <td>
-                                                <a> 1910511124</a>
-                                                <!-- <small> Created 01.01.2019 </small> -->
-                                            </td>
-                                            <td>081234122355</td>
-                                            <td>Ilmu Komputer</td>
-                                            <td>Informatika</td>
-                                            <td>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"> </i>
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <% let i = 1 %>
+                                            <% mahasiswas.forEach(mahasiswa =>{ %>
+                                                <tr>
+                                                    <td><%= i %> </td>
+                                                    <td><%= mahasiswa.nama_lengkap %></td>
+                                                    <td>
+                                                    <a> <%= mahasiswa.nim %></a>
+                                                    <!-- <small> Created 01.01.2019 </small> -->
+                                                    </td>
+                                                    <td><%= mahasiswa.no_hp %></td>
+                                                    <td><%= mahasiswa.fakultas %> </td>
+                                                    <td><%= mahasiswa.prodi %> </td>
+                                                    <td>
+                                                    <form method="post" action="/pengguna-mahasiswa/<%= mahasiswa.email %>?_method=DELETE">
+                                                        <button class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"> </i>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                    </td>
+                                                </tr>         
+                                            <% i++ %>
+                                        <% }) %> 
                                     </tbody>
                                 </table>
                             </div>
