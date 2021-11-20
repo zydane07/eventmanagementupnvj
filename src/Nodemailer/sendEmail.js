@@ -18,7 +18,9 @@ module.exports = async (email, subject, text) => {
       from: process.env.GMAIL,
       to: email,
       subject,
-      text: `${text}`,
+      generateTextFromHTML: true,
+      html: text
+      
     });
     console.log('Email berhasil dikirim');
   } catch (err) {

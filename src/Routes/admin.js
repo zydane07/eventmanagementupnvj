@@ -1,6 +1,11 @@
 const express = require("express");
 const adminController = require("../Controller/adminController");
+const eventController = require("../Controller/eventController");
 const router = express.Router();
+
+const authAdmin = require('./verifyAdmin');
+// router.post('/create', adminController.register);
+
 
 router.get("/login-admin", (req, res) => {
     res.render("login-admin", {
@@ -10,53 +15,31 @@ router.get("/login-admin", (req, res) => {
     });
 });
 
-router.get("/dashboard-admin", (req, res) => {
-    res.render("dashboard-admin", {
-        layout: "layouts/dashboardadmin-layout",
-        css: "admin",
-        title: "dashboard admin",
-    });
-});
+router.post('/login-admin', adminController.login);
 
-router.get("/pengguna-mahasiswa", (req, res) => {
-    res.render("penggunaMahasiswa", {
-        layout: "layouts/penggunaMahasiswa-layout",
-        css: "admin",
-        title: "Pengguna Mahasiswa",
-    });
-});
+router.get("/dashboard-admin", authAdmin, adminController.dashboardAdmin);
 
-router.get("/pengguna-Ormawa", (req, res) => {
-    res.render("penggunaOrmawa", {
-        layout: "layouts/penggunaMahasiswa-layout",
-        css: "admin",
-        title: "Pengguna Mahasiswa",
-    });
-});
+router.get("/event-admin", authAdmin, adminController.getAllEvents);
 
-router.get("/event", (req, res) => {
-    res.render("event-admin", {
-        layout: "layouts/eventAdmin-layout",
-        css: "admin",
-        title: "Event",
-    });
-});
+router.delete("/event-delete/:id_event",authAdmin, eventController.deleteEvent);
 
-router.get("/event-details", (req, res) => {
-    res.render("eventDetails-admin", {
-        layout: "layouts/eventAdmin-layout",
-        css: "admin",
-        title: "Event Details",
-    });
-});
+router.put('/event-accept/:id_event',authAdmin, adminController.accEvent);
 
-router.get("/lp-management", (req, res) => {
-    res.render("lpManagemenet-admin", {
-        layout: "layouts/eventAdmin-layout",
-        css: "admin",
-        title: "Landing Page Management",
-    });
-});
+router.get("/event-details/:id_event", authAdmin, adminController.getEventDetail);
+
+router.get("/pengguna-mahasiswa", authAdmin, adminController.getMahasiswa);
+
+router.delete("/pengguna-mahasiswa/:email", authAdmin, adminController.deleteMahasiswa);
+
+router.get("/pengguna-Ormawa", authAdmin, adminController.getOrmawa);
+
+router.delete("/pengguna-ormawa/:id_ormawa", authAdmin, adminController.deleteOrmawa);
+
+router.get("/lp-management", authAdmin, adminController.landingPage);
+
+router.put("/lp-management",authAdmin, adminController.editLandingPage);
+
+router.post('/lp-management',authAdmin, adminController.postLandingPage);
 
 router.get("/tambah-ormawa", (req, res) => {
     res.render("tambahOrmawa-admin", {
@@ -66,6 +49,10 @@ router.get("/tambah-ormawa", (req, res) => {
     });
 });
 
-router.post("/create", adminController.register);
+
+router.post('/tambah-ormawa',adminController.register);
+
+router.delete('/logout-admin',adminController.logout);
+
 
 module.exports = router;

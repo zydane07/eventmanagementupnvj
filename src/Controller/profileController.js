@@ -99,6 +99,15 @@ exports.eventSaya = async(req,res) =>{
   const events = await Event.find({
     id_event: { $in: ids }
   });
+  if(events.length===0){
+    return res.render('eventsaya',{
+      judul: 'Event Saya',
+      nama: req.user.nama,
+      layout: 'layouts/main-layout',
+      title: 'Event Saya',
+      css: 'styleDetail',
+    });
+  }
   return res.render('eventsaya',{
     judul: 'Event Saya',
     nama: req.user.nama,

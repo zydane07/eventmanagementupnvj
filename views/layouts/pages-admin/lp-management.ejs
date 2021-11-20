@@ -30,28 +30,28 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group">
-                                    <!-- <label for="inputName">Nama Event</label> -->
-                                    <div class="profile-pic-div">
-                                        <img src="img/pict 1.png" id="photo" class="img-fluid mx-auto d-block" />
-                                        <input type="file" id="file" />
-                                        <label for="file" id="uploadBtn">Pilih Poto</label>
+                                <form method="post" action="/lp-management?_method=PUT">
+                                    <div class="form-group">
+                                        <!-- <label for="inputName">Nama Event</label> -->
+                                        <div class="profile-pic-div">
+                                            <img src="/img/pict 1.png" id="photo" class="img-fluid mx-auto d-block" />
+                                            <input type="file" id="file" />
+                                            <label for="file" id="uploadBtn">Pilih Poto</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName">Masukkan Judul</label>
-                                    <input type="text" id="inputName" class="form-control form-control-lg" value="Motivasi Hari Ini" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="deskripsi_event">Deskripsi Event</label>
-                                    <textarea id="inputDescription" class="form-control" rows="8">
-Calon orang sukses adalah orang yang mau menunda kesenangan. Asal yang berat udah bisa kita lewati, hal-hal yang menyenangkan pasti bakal mengikuti</textarea
-                                    >
-                                </div>
-                                <div class="text-right">
-                                    <a type="submit" class="btn btn-primary">Simpan Perubahan</a>
-                                    <a href="/event" class="btn btn-secondary">Kembali</a>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="inputName">Masukkan Judul</label>
+                                        <input type="text" id="inputName" class="form-control form-control-lg" name="judul" value="<%= landing.judul %>" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deskripsi_event">Deskripsi</label>
+                                        <textarea id="inputDescription" class="form-control" rows="8" name="deskripsi_lp"><%= landing.deskripsi_lp %></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                        <a href="/event-admin" class="btn btn-secondary">Kembali</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

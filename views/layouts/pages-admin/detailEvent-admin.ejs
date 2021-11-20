@@ -29,7 +29,7 @@
                             <div class="card-body box-profile">
                                 <label for="inputName">Poster Event</label>
                                 <div class="text-center">
-                                    <img class="img-fluid" src="img/poster.png" alt="User profile picture" />
+                                    <img class="img-fluid" src="/img/poster.png" alt="User profile picture" />
                                 </div>
                             </div>
                         </div>
@@ -45,73 +45,42 @@
                             <fieldset disabled>
                                 <div class="form-group">
                                     <label for="inputName">Nama Event</label>
-                                    <input type="text" id="inputName" class="form-control" value="Lomba Tabligh Akbar Uswah 2021" />
+                                    <input type="text" id="inputName" class="form-control" value="<%= event.nama_event %>" />
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi_event">Deskripsi Event</label>
-                                    <textarea id="inputDescription" class="form-control" rows="25">
-[ • LOMBA ISLAMI GRATIS •]⁣
-⁣
-📣 Assalamu'alaikum Ikhwah Fillah⁣
-⁣
-Kamu Mahasiswa/i aktif? Atau Pelajar SMA/sederajat. Pengen ikut lomba gratis? ⁣
-⁣
-Yuk ikut lomba dari Uswah UPN Veteran Jakarta⁣
-⁣
-📌 Kategori Perlombaan:⁣
-1. Lomba Podcast Islami dengan tema "Perjalanan Hijrahku"⁣
-2. Poster Edukatif dengan tema "Menata Hati Menuju Muslim Sejati"⁣
-⁣
-🗓️ TIMELINE 🗓️⁣
-• Pendaftaran & Pengumpulan Karya : 29 September - 29 Oktober ⁣
-• Penjurian : 30 Oktober 2021⁣
-• Pengumuman : 5 November 2021⁣
-⁣
-🎁 HADIAH⁣
-Uang Pembinaan + E - Sertifikat, bagi pemenang juara 1, 2, dan 3⁣
-⁣
-🌎 Link Pendaftaran :⁣
-bit.ly/Daftar-lombapodcastposterTA2021⁣
-⁣
-📍 Panduan Lomba:⁣
-https://bit.ly/BookletLombaTA2021⁣
-⁣
-📞 Contact Person ⁣
-https://bit.ly/CP-Lomba-Uswah2021⁣
-________⁣
-© Uswah UPN Veteran Jakarta⁣
-⁣
-#TebarKebaikan #LDKUswah #UswahUPNVJ #UPNVeteranJakarta #podcastuswah2021 #posteruswah2021 #lombaislami #podcastislami #podcast #lombaposter #lomba
-                </textarea
-                                    >
+                                    <textarea id="inputDescription" class="form-control" rows="25"><%= event.deskripsi_event %></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="benefit_event">Benefit Event</label>
-                                    <textarea id="inputDescription" class="form-control" rows="5">
-1. menambahkan pengalaman
-2. seluruh peserta mendapatkan sertifikat
-3. hadiah sampai dengan 2 juta rupiah
-                                  </textarea
+                                    <textarea id="inputDescription" class="form-control" rows="5"><%= event.benefits %></textarea
                                     >
                                 </div>
                                 <div class="form-group">
                                     <label for="tgl_lahir"><b>Tanggal Event: </b></label>
-                                    <input type="text" class="form-control" name="tgl_event" placeholder="07/11/2021" />
+                                    <input type="text" class="form-control" name="tgl_event" placeholder="Tanggal Event" value="<%= event.tanggal_event.toISOString().substring(0, 10) %>"/>
                                 </div>
                                 <div class="form-group mb-5">
                                     <label for="inputStatus">Kategori: </label>
                                     <select id="inputStatus" class="form-control custom-select">
-                                        <option selected>Webinar</option>
-                                        <option>Workshop</option>
-                                        <option>Lomba</option>
-                                        <option>Lainnya</option>
+                                        <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %>
+                                        <% for( let index = 0; index < tmp.length; index++ ) { %>
+                                            <% const selected = (event.kategori === tmp[index]) ? "selected" : ""; %>
+                                            <option value='<%= tmp[index] %>' <%= selected %>><%= tmp[index] %></option>
+                                        <% } %>
                                     </select>
                                 </div>
                             </fieldset>
                             <div class="text-right">
-                                <a type="submit" class="btn btn-success">Konfirmasi</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <a href="/event" class="btn btn-secondary">Kembali</a>
+                                <% if (event.isVerified === false) { %>
+                                    <form method="post" action="/event-accept/<%= event.id_event %>?_method=PUT">
+                                        <a type="submit" class="btn btn-success">Konfirmasi</a>
+                                    </form>
+                                <% } %>
+                                <form method="post" action="/event-delete/<%= event.id_event %>?_method=DELETE">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a href="/event-admin" class="btn btn-secondary">Kembali</a>
+                                </form>
                             </div>
                         </div>
                         <!-- /.card-body -->

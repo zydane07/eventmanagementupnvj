@@ -67,40 +67,58 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                                            <td>USWAH UPNVJ</td>
-                                                            <td>11-7-2014</td>
-                                                            <td>150 Orang</td>
-                                                            <td class="project-actions text-right">
-                                                                <a class="btn btn-primary btn-sm" href="/event-details">
-                                                                    <i class="fas fa-folder"> </i>
-                                                                    Details
-                                                                </a>
-                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
-                                                                    <i class="fas fa-trash"> </i>
-                                                                    Delete
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                                            <td>USWAH UPNVJ</td>
-                                                            <td>11-7-2014</td>
-                                                            <td>150 Orang</td>
-                                                            <td class="project-actions text-right">
-                                                                <a class="btn btn-primary btn-sm" href="#">
-                                                                    <i class="fas fa-folder"> </i>
-                                                                    Details
-                                                                </a>
-                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
-                                                                    <i class="fas fa-trash"> </i>
-                                                                    Delete
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        <% let i = 1 %>
+                                                        <% events.forEach(event =>{ %>
+                                                            <tr>
+                                                                <td> <%= i %>  </td>
+                                                                <td>
+                                                                    <a><%= event.nama_event %></a>
+                                                                    <br />
+                                                                    <!-- <medium> Created 01.01.2019 </medium> -->
+                                                                </td>
+                                                                <td><%=  event.detil_eo %></td>
+                                                                <td><%=  event.tanggal_event.toISOString().split('T')[0] %></td>
+                                                                
+                                                                <td class="project_progress">
+                                                                    <medium> <%= event.registered_people.length %> Peserta</medium>
+                                                                </td>
+                                                                
+                                                                <td class="project-actions text-right">
+                                                                    <a class="btn btn-primary btn-sm" href="/event-details/<%= event.id_event %>">
+                                                                        <i class="fas fa-folder"> </i>
+                                                                        Details
+                                                                    </a>
+    
+                                                                    <!--Modal Delete-->
+                                                                    <div class="modal fade" id="deletemodal" role="dialog">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="model-header">
+                                                                            <div class="row">
+                                                                                <div class="col text-center" style="padding: 1rem;">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Menghapus Event Ini</b></h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="modal-footer d-flex justify-content-center">
+                                                                                <form method="post" action="/event-delete/<%= event.id_event %>?_method=DELETE">
+                                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                
+                                                                        <i class="fas fa-trash"> </i>
+                                                                        Delete
+                                                                    </a>
+
+                                                                </td>
+                                                            </tr> 
+                                                            <% i++ %>
+                                                        <% }) %> 
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -131,48 +149,83 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                                            <td>USWAH UPNVJ</td>
-                                                            <td>11-7-2014</td>
-                                                            <td>150 Orang</td>
-                                                            <td class="project-actions text-right">
-                                                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#konfirmasimodal">
-                                                                    <i class="fa fa-check"> </i>
-                                                                    Konfirmasi
-                                                                </a>
-                                                                <a class="btn btn-primary btn-sm" href="#">
-                                                                    <i class="fas fa-folder"> </i>
-                                                                    Details
-                                                                </a>
-                                                                <a class="btn btn-danger btn-sm" href="#">
-                                                                    <i class="fas fa-trash"> </i>
-                                                                    Delete
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                                            <td>USWAH UPNVJ</td>
-                                                            <td>11-7-2014</td>
-                                                            <td>150 Orang</td>
-                                                            <td class="project-actions text-right">
-                                                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#konfirmasimodal">
-                                                                    <i class="fa fa-check"> </i>
-                                                                    Konfirmasi
-                                                                </a>
-                                                                <a class="btn btn-primary btn-sm" href="#">
-                                                                    <i class="fas fa-folder"> </i>
-                                                                    Details
-                                                                </a>
-                                                                <a class="btn btn-danger btn-sm" href="#">
-                                                                    <i class="fas fa-trash"> </i>
-                                                                    Delete
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        <% let j = 1 %>
+                                                        <% events2.forEach(event =>{ %>
+                                                            <tr>
+                                                                <td> <%= i %>  </td>
+                                                                <td>
+                                                                    <a><%= event.nama_event %></a>
+                                                                    <br />
+                                                                    <!-- <medium> Created 01.01.2019 </medium> -->
+                                                                </td>
+                                                                <td><%=  event.detil_eo %></td>
+                                                                <td><%=  event.tanggal_event.toISOString().split('T')[0] %></td>
+                                                                
+                                                                <td class="project_progress">
+                                                                    <medium> <%= event.registered_people.length %> Peserta</medium>
+                                                                </td>
+                                                                
+                                                                <td class="project-actions text-right">
+                                                                    <div class="modal fade" id="konfirmasimodal" role="dialog">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="model-header">
+                                                                                    <div class="row">
+                                                                                        <div class="col text-center" style="padding: 1rem">
+                                                                                            <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Mengkonfirmasi Event ini</b></h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer d-flex justify-content-center">
+                                                                                    <form method="post" action="/event-accept/<%= event.id_event %>?_method=PUT">
+                                                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.content -->
+                                                                    <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#konfirmasimodal">
+                                                                        <i class="fa fa-check"> </i>
+                                                                        Konfirmasi
+                                                                    </a>
+                                                                    <a class="btn btn-primary btn-sm" href="/event-details/<%= event.id_event %>">
+                                                                        <i class="fas fa-folder"> </i>
+                                                                        Details
+                                                                    </a>
+    
+                                                                    <!--Modal Delete-->
+                                                                    <div class="modal fade" id="deletemodal" role="dialog">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="model-header">
+                                                                            <div class="row">
+                                                                                <div class="col text-center" style="padding: 1rem;">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Menghapus Event Ini</b></h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="modal-footer d-flex justify-content-center">
+                                                                                <form method="post" action="/event-delete/<%= event.id_event %>?_method=DELETE">
+                                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                
+                                                                        <i class="fas fa-trash"> </i>
+                                                                        Delete
+                                                                    </a>
+
+                                                                </td>
+                                                            </tr> 
+                                                            <% j++ %>
+                                                        <% }) %>
+                                    
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -197,43 +250,9 @@
             <!-- /.container-fluid -->
         </div>
 
-        <!--Modal Delete-->
-        <div class="modal fade" id="deletemodal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="model-header">
-                        <div class="row">
-                            <div class="col text-center" style="padding: 1rem">
-                                <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Menghapus Event Ini</b></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!--Modal Konfirmasi-->
-        <div class="modal fade" id="konfirmasimodal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="model-header">
-                        <div class="row">
-                            <div class="col text-center" style="padding: 1rem">
-                                <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Mengkonfirmasi Event ini</b></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Ya</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.content -->
+        
     </div>
     <!-- /.content-wrapper -->
 

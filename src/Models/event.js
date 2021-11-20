@@ -39,6 +39,10 @@ const eventSchema = mongoose.Schema({
     type: [registered],
     require:false
   },
+  isVerified: {
+    type:Boolean,
+    required: true,
+  }
 });
 
 module.exports = mongoose.model('Event', eventSchema);

@@ -1,10 +1,11 @@
 const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
 const Ormawa = require('../Models/ormawa');
+const LandingPage = require('../Models/landingPage');
 exports.getEvents = async(req,res)=>{
   try {
-    const events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
-		const newestEvents = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort({'_id':-1}).limit(3);
+    const events = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
+		const newestEvents = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort({'_id':-1}).limit(3);
     // const homePage = await HomePage.find();{
       /*return res.status(200).send({
         success : true,
@@ -14,14 +15,15 @@ exports.getEvents = async(req,res)=>{
         }
       })*/
       // return res.json(homePage)
-			
+			const landing = await LandingPage.findOne({id:1});
 			res.render('index', {
 				nama: req.user.nama,
 				layout: 'layouts/main-layout',
 				title: 'Home',
 				css: 'styleHome',
 				events,
-				newestEvents
+				newestEvents,
+				landing
 			});
     
   }
@@ -232,12 +234,13 @@ exports.getEventsSearch = async(req,res)=>{
 				category = ['Webinar','Workshop','Lomba','Lainnya'];
 			}
 			const _query = {
+				isVerified: true,
 				kategori: {
 						$in: category
 				},
 				'$and': [{
 						"nama_event": {
-								"$regex": new RegExp('^'+event+'.*'),
+								"$regex": new RegExp('.*'+event+'.*'),
 								"$options": "i"
 						}
 				}, {
@@ -248,8 +251,8 @@ exports.getEventsSearch = async(req,res)=>{
 			events = await Event.find(_query).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
 		}
 		else{
-			eventsSum = await Event.find({});
-			events = await Event.find({}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
+			eventsSum = await Event.find({isVerified: true});
+			events = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
 		}
 
 		const sumPage = Math.ceil(eventsSum.length/limit);
@@ -492,7 +495,10 @@ exports.deleteEvent = async(req,res) =>{
 			{$pull: {historyEvent:{id_event: req.params.id_event}}},
 			{multi: true}
 			);
-		return res.redirect('/event-ormawa');
+		if(req.user.role==='ormawa'){
+			return res.redirect('/event-ormawa');
+		}
+		return res.redirect('/event-admin');
 	}
 	catch(err){
 		return res.send({
@@ -512,32 +518,31 @@ exports.eventDetailOrmawa = async(req,res)=>{
 			})
 		}
     const peserta = event.registered_people.map(el => el.email);
+		/*
 		const peserta2 = event.registered_people.map(el => el.createdAt);
-		console.log(peserta2);
+		
 		const pendaftar = await Mahasiswa.find({
 			email: {$in: peserta}
 		});
+		
+		const pendaftar2 = await Mahasiswa.find({
+			//	email: {$in: peserta},
+			historyEvent: {$elemMatch: {id_event: 'lswjq3k'}}
+				//"historyEvent.id_event": req.params.id_event
+			
+		
+		});*/
 		const pendaftar2 = await Mahasiswa.aggregate([
-			{"$match": {email: {$in: peserta}}},
-			{"$match": {"historyEvent.id_event": req.params.id_event}},
-			{
-				$lookup: {
-					from: "events",
-					localField: "historyEvent.id_event",
-					foreignField: "id_event",
-					as: "events"
-				}
-			},
-			{ $addFields: { events: { $arrayElemAt: ["$events", 0] } } },
-		]);
-		console.log(pendaftar2);
+			{$unwind: "$historyEvent"},
+    	{$match: {'historyEvent.id_event': req.params.id_event}}
+		])
 		res.render("detailEvent-ormawa", {
       layout: "layouts/EventOrmawa-layout",
       css: "dashboard",
       title: "Detail Event",
 			nama: req.user.nama,
 			event,
-			pendaftar
+			pendaftar2
     });
     
   }

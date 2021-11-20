@@ -1,7 +1,7 @@
 <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="img/logo.png" alt="AdminLTELogo" height="60" width="60" />
+        <img class="animation__shake" src="/img/logo.png" alt="AdminLTELogo" height="60" width="60" />
     </div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -35,14 +35,18 @@
                         <!-- small box -->
                         <div class="small-box bg-lightblue">
                             <div class="inner">
-                                <h3>172.000</h3>
-
+                                <% if (typeof jumlahMhs != 'undefined') { %>
+                                    <h3><%= jumlahMhs %></h3>
+                                
+                                <% } else { %>
+                                    <h3>0</h3>
+                                <% } %>
                                 <p>Mahasiswa Terdaftar</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -50,7 +54,12 @@
                         <!-- small box -->
                         <div class="small-box bg-fuchsia">
                             <div class="inner">
-                                <h3>28</h3>
+                                <% if (typeof jumlahMhs != 'undefined') { %>
+                                    <h3><%= jumlahOrm %></h3>
+                                
+                                <% } else { %>
+                                    <h3>0</h3>
+                                <% } %>
                                 <p>Ormawa Terdaftar</p>
                             </div>
                             <div class="icon">
@@ -64,7 +73,11 @@
                         <!-- small box -->
                         <div class="small-box bg-teal">
                             <div class="inner">
-                                <h3>32</h3>
+                                <% if (typeof jumlahMhs != 'undefined') { %>
+                                    <h3><%= jumlahEvent2.length %></h3>
+                                <% } else { %>
+                                    <h3>0</h3>
+                                <% } %>
 
                                 <p>Event Tersedia</p>
                             </div>
@@ -77,43 +90,37 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header border-0">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">Statistik Pendaftar Event</h3>
-                                    <!-- <a href="javascript:void(0);">View Report</a> -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="far fa-chart-bar"></i>
+                                    Statistik Event berdasarkan Kategori
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button> -->
                                 </div>
                             </div>
+                            
                             <div class="card-body">
-                                <!-- <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">$18,230.00</span>
-                                        <span>Sales Over Time</span>
-                                    </p>
-                                    <p class="ml-auto d-flex flex-column text-right">
-                                        <span class="text-success"> <i class="fas fa-arrow-up"></i> 33.1% </span>
-                                        <span class="text-muted">Since last month</span>
-                                    </p>
-                                </div> -->
-                                <!-- /.d-flex -->
-
-                                <div class="position-relative mb-4">
-                                    <div class="chartjs-size-monitor">
-                                        <div class="chartjs-size-monitor-expand"><div class=""></div></div>
-                                        <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
-                                        <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
-                                    </div>
-                                    <canvas id="sales-chart" height="400" style="display: block; height: 200px; width: 560px" width="1120" class="chartjs-render-monitor"></canvas>
-                                </div>
-
-                                <div class="d-flex flex-row justify-content-end">
-                                    <span class="mr-2"> <i class="fas fa-square text-1"></i> Webinar </span>
-                                    <span class="mr-2"> <i class="fas fa-square text-2"></i> Workshop </span>
-                                    <span class="mr-2"> <i class="fas fa-square text-3"></i> Lomba </span>
-
-                                    <span> <i class="fas fa-square text-4"></i> Lainnya </span>
+                                <div id="donut-chart" style="height: 300px; padding: 0px; position: relative">
+                                    <canvas class="flot-base" width="830" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 415px; height: 300px"></canvas
+                                    ><canvas class="flot-overlay" width="830" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 415px; height: 300px"></canvas
+                                    ><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 69.8px; left: 265.456px"
+                                        ><div style="font-size: 13px; text-align: center; padding: 2px; color: #fff; font-weight: 600">Series2<br />30%</div></span
+                                    ><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 209.8px; left: 243.456px"
+                                        ><div style="font-size: 13px; text-align: center; padding: 2px; color: #fff; font-weight: 600">Series3<br />20%</div></span
+                                    ><span class="pieLabel" id="pieLabel2" style="position: absolute; top: 128.8px; left: 84.4562px"
+                                        ><div style="font-size: 13px; text-align: center; padding: 2px; color: #fff; font-weight: 600">Series4<br />50%</div></span
+                                    >
                                 </div>
                             </div>
+                            <!-- /.card-body-->
                         </div>
                         <!-- /.card -->
                     </div>
@@ -140,18 +147,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                            <td>USWAH UPNVJ</td>
-                                            <td>11-7-2014</td>
-                                            <td>150 Orang</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lomba Tabligh Akbar Uswah 2021</td>
-                                            <td>USWAH UPNVJ</td>
-                                            <td>11-7-2014</td>
-                                            <td>150 Orang</td>
-                                        </tr>
+                                        
+                            <% jumlahEvent2.forEach(event =>{ %>
+                                <tr>
+                                    <td>
+                                        <a><%= event.nama_event %></a>
+                                        <br />
+                                        <!-- <medium> Created 01.01.2019 </medium> -->
+                                    </td>
+                                    <td><%=  event.detil_eo %></td>
+                                    <td><%=  event.tanggal_event.toISOString().split('T')[0] %></td>
+                
+                                    <td class="project_progress">
+                                         <medium> <%= event.registered_people.length %> Peserta</medium>
+                                    </td>
+                                </tr> 
+                             
+                            <% }) %> 
                                     </tbody>
                                 </table>
                             </div>

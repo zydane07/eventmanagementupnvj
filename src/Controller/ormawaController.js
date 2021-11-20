@@ -35,7 +35,8 @@ exports.createEvent = async(req,res) =>{
       tanggal_event,
       detil_eo: ormawa.id_ormawa,
       deskripsi_event,
-      benefits
+      benefits,
+      isVerified: false
     }).save();
     return res.redirect('/event-ormawa');
   }
