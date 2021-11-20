@@ -15,7 +15,7 @@
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard-admin">Dashboard</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -36,17 +36,17 @@
                         <div class="small-box bg-lightblue">
                             <div class="inner">
                                 <% if (typeof jumlahMhs != 'undefined') { %>
-                                    <h3><%= jumlahMhs %></h3>
-                                
+                                <h3><%= jumlahMhs %></h3>
+
                                 <% } else { %>
-                                    <h3>0</h3>
+                                <h3>0</h3>
                                 <% } %>
                                 <p>Mahasiswa Terdaftar</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="fas fa-user-check"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/pengguna-mahasiswa" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -55,17 +55,17 @@
                         <div class="small-box bg-fuchsia">
                             <div class="inner">
                                 <% if (typeof jumlahMhs != 'undefined') { %>
-                                    <h3><%= jumlahOrm %></h3>
-                                
+                                <h3><%= jumlahOrm %></h3>
+
                                 <% } else { %>
-                                    <h3>0</h3>
+                                <h3>0</h3>
                                 <% } %>
                                 <p>Ormawa Terdaftar</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/pengguna-Ormawa" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -74,17 +74,17 @@
                         <div class="small-box bg-teal">
                             <div class="inner">
                                 <% if (typeof jumlahMhs != 'undefined') { %>
-                                    <h3><%= jumlahEvent2.length %></h3>
+                                <h3><%= jumlahEvent2.length %></h3>
                                 <% } else { %>
-                                    <h3>0</h3>
+                                <h3>0</h3>
                                 <% } %>
 
                                 <p>Event Tersedia</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="fas fa-calendar-check"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/event-admin" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                                     </button> -->
                                 </div>
                             </div>
-                            
+
                             <div class="card-body">
                                 <div id="donut-chart" style="height: 300px; padding: 0px; position: relative">
                                     <canvas class="flot-base" width="830" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 415px; height: 300px"></canvas
@@ -129,9 +129,12 @@
                             <div class="card-header border-0">
                                 <h3 class="card-title">Event Tersedia</h3>
                                 <div class="card-tools">
-                                    <div id="example1_filter" class="dataTables_filter">
-                                        <label><input type="search" class="form-control form-control-sm" placeholder="Cari Event" aria-controls="example1" /></label>
-                                    </div>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button> -->
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0">
@@ -139,7 +142,7 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 35%">Nama Event</th>
-                                            <th style="width: 35%">Ormawa Penyelenggara</th>
+                                            <th style="width: 20%">Ormawa</th>
                                             <th style="width: 23%">Tanggal Event</th>
                                             <!-- <th>Jumlah Pendaftar</th> -->
                                             <th style="width: 7%">Pendaftar</th>
@@ -147,23 +150,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                            <% jumlahEvent2.forEach(event =>{ %>
-                                <tr>
-                                    <td>
-                                        <a><%= event.nama_event %></a>
-                                        <br />
-                                        <!-- <medium> Created 01.01.2019 </medium> -->
-                                    </td>
-                                    <td><%=  event.detil_eo %></td>
-                                    <td><%=  event.tanggal_event.toISOString().split('T')[0] %></td>
-                
-                                    <td class="project_progress">
-                                         <medium> <%= event.registered_people.length %> Peserta</medium>
-                                    </td>
-                                </tr> 
-                             
-                            <% }) %> 
+                                        <% jumlahEvent2.forEach(event =>{ %>
+                                        <tr>
+                                            <td>
+                                                <a><%= event.nama_event %></a>
+                                                <br />
+                                                <!-- <medium> Created 01.01.2019 </medium> -->
+                                            </td>
+                                            <td><%= event.detil_eo %></td>
+                                            <td><%= event.tanggal_event.toISOString().split('T')[0] %></td>
+
+                                            <td class="project_progress">
+                                                <medium> <%= event.registered_people.length %> Peserta</medium>
+                                            </td>
+                                        </tr>
+
+                                        <% }) %>
                                     </tbody>
                                 </table>
                             </div>

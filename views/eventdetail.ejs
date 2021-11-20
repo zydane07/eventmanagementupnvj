@@ -17,12 +17,12 @@
 
           </div>
         </div>
-        <div class="modal-footer d-flex justify-content-center">
+        <!-- <div class="modal-footer d-flex justify-content-center">
             <form action="/detail/<%= data.id_event %>" method="post">
-                <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
+                <button type="submit" class="btn btn-primary btn-custom" id>Daftar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
             </form>
-        </div>
+        </div> -->
     </div>
 
   </div>
@@ -45,72 +45,41 @@
       <i class="fab fa-whatsapp"></i>
     </a>
     <a href="#" class="copy-btn"  onclick="copyToClipboard()">
-        <i class="fa fa-clone"></i>
+        <i class="far fa-copy"></i>
     </a>
   </div>
 
-  <div class="modal fade" id="sharemodal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="model-header">
-          <div class="row">
-            <div class="col text-center" style="padding: 1rem;">
-              <h5 class="modal-title" id="exampleModalLongTitle"><b>Share Event Ini Ke Sosial Mediamu</b></h5>
-            </div>
-          </div>
-        </div>
-        <div class="modal-body" style="padding-top: 0rem;">
-            <div class="row">
-                <div class="col d-flex justify-content-center" style="padding: 0rem;">
-                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(61, 106, 214,.1);"><img src="/img/facebook.png" alt="" /></button>
-                </div>
-                <div class="col d-flex justify-content-center" style="padding: 0rem;">
-                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(239, 1, 72,.1);"><img src="/img/instagram.png" alt="" /></button>
-                </div>
-                <div class="col d-flex justify-content-center" style="padding: 0rem;">
-                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(76, 175, 80,.1);"><img src="/img/line.png" alt="" /></button>
-                </div>
-                <div class="col d-flex justify-content-center" style="padding: 0rem;">
-                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(76, 175, 80,.1);"><img src="/img/whatsapp.png" alt="" /></button>
-                </div>
-                <div class="col d-flex justify-content-center" style="padding: 0rem;">
-                    <button type="button" class="btn btn-light rounded-circle " style="margin-right: 10px;background-color: rgba(29, 161, 243,.1);"><img src="/img/twitter.png" alt="" /></button>
-                </div>
 
-            </div>
-          </div>
-        <div class="modal-footer justify-content-center">
-                <p>Atau Copy Link: </p>
-                <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #E4E4E4;color: #2F4858;">https:/sim-u/bagasssss</p>
-                
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="container" style="background-color: #D7F9DB;margin-top: 100px;margin-bottom: 80px;">
+<div class="container bg-event shadow ">
 
     <div class="row">
         <div class="col d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px">
+
             <img src="<%= data.photo.avatar %>" alt="photo profil" width="500" height="600" />
+
         </div>
-        <div class="col gap-3" style="margin-top: 50px; margin-bottom: 50px">
+        <div class="col" style="margin-top: 50px; margin-bottom: 50px">
             <div class="row">
                 <div class="col mt-3">
-                    <h1><b><%= data.nama_event %></b></h1>
+
+                    <p class="head-event"><%= data.nama_event %></p>
+
                 </div>
             </div>
             <div class="row">
-                <div class="col mt-1 d-flex">
+                <div class="col d-flex mb-4">
                     <p class="border me-4 px-4 py-2 rounded-pill text-wrap" style="background-color: #008493; color: white"><%= data.kategori %> </p>
                     
                 </div>
             </div>
             <div class="row">
                 <div class="col mt-1 d-flex">
+
                     <img src="<%= data.photoOrmawa.avatar %>" alt="penyelenggara" width="65" height="75" />
-                    <div class="col ms-4">
-                        <h3><%= data.detil_eo %></h3>
-                        <a href="/<%= data.id_eo %>/events">Lihat Semua Event</a>
+                    <div class="col ms-3">
+                        <p class="head-ukm"><%= data.detil_eo %></p>
+                        <a class="p-event" href="/<%= data.id_eo %>/events">Lihat Semua Event</a>
+
                     </div>
                 </div>
             </div>
@@ -140,7 +109,7 @@
                     <!-- <button onclick="copyToClipboard()"  class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/share.png" alt="" /></button> -->
                     <% if (tombol2 !== 'ada') { %>
                     <form method="post" action="/detail/<%= data.id_event %>/saved">
-                        <button type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" /></button>
+                        <button  type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" /></button>
                     </form>
 
                     <% } else { %>
@@ -156,32 +125,32 @@
 </div>
 <div class="container">
     <div class="row">
-        <h2>Deskripsi Event</h2>
-        <p><%= data.deskripsi_event %></p>
+        <p class="sub-event">Deskripsi Event</p>
+        <p class="p-detail"><%= data.deskripsi_event %></p>
     </div>
     <hr />
 </div>
 <div class="container">
     <div class="row">
-        <h2>Benefits Event</h2>
-        <p><%= data.benefits %></p>
+        <p class="sub-event">Benefits Event</p>
+        <p class="p-detail"><%= data.benefits %></p>
     </div>
     <hr />
 </div>
 <div class="container">
     <div class="row">
-        <h2 class="mb-4">Prasyarat Event</h2>
-        <h4 class="mb-4">1.Follow Instagram @UswahUPNVJ</h4>
+        <p class="mb-4 sub-event">Prasyarat Event</p>
+        <h4 class="mb-4 p-detail-2">1.Follow Instagram @UswahUPNVJ</h4>
         <div class="form-group d-flex justify-content-start ms-5 mb-4">
             <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
             <input id="file-upload" type="file" accept="image/*" />
         </div>
-        <h4 class="mb-4">2.Follow Youtube @UswahUPNVJ</h4>
+        <h4 class="mb-4 p-detail-2">2.Follow Youtube @UswahUPNVJ</h4>
         <div class="form-group d-flex justify-content-start ms-5 mb-4">
             <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
             <input id="file-upload" type="file" accept="image/*" />
         </div>
-        <h4 class="mb-4">3.Share ke 5 grup WhatsApp Kamu</h4>
+        <h4 class="mb-4 p-detail-2">3.Share ke 5 grup WhatsApp Kamu</h4>
         <div class="form-group d-flex justify-content-start ms-5 mb-4">
             <label for="file-upload" class="custom-file-upload"> Upload Bukti </label>
             <input id="file-upload" type="file" accept="image/*" />

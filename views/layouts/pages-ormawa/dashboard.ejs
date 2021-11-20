@@ -1,4 +1,8 @@
 <div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="/img/logo.png" alt="AdminLTELogo" height="60" width="60" />
+    </div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -11,7 +15,7 @@
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard-ormawa">Home</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -33,12 +37,12 @@
                             <div class="inner">
                                 <h3>Selamat Datang</h3>
 
-                                <p><%= nama %> </p>
+                                <p><%= nama %></p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-plus-circle"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Buat Event Sekarang! <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/addevent-ormawa" class="small-box-footer">Buat Event Sekarang! <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -48,12 +52,9 @@
                             <div class="card-header border-0">
                                 <h3 class="card-title">Event Saya</h3>
                                 <div class="card-tools">
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-download"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-bars"></i>
-                                    </a>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0">
@@ -68,16 +69,15 @@
                                     </thead>
                                     <tbody>
                                         <% events.forEach(event =>{ %>
-                                            <tr>
-                                                <td><%= event.nama_event %> </td>
-                                                
-                                                <td class="project_progress">
-                                                    <medium> <%= event.registered_people.length %> Peserta </medium>
-                                                </td>
-                                            </tr>
-                                            
-                                        <% }) %> 
-                                        
+                                        <tr>
+                                            <td><%= event.nama_event %></td>
+
+                                            <td class="project_progress">
+                                                <medium> <%= event.registered_people.length %> Peserta </medium>
+                                            </td>
+                                        </tr>
+
+                                        <% }) %>
                                     </tbody>
                                 </table>
                             </div>
@@ -101,7 +101,7 @@
                                     </button> -->
                                 </div>
                             </div>
-                            
+
                             <div class="card-body">
                                 <div id="donut-chart" style="height: 300px; padding: 0px; position: relative">
                                     <canvas class="flot-base" width="830" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 415px; height: 300px"></canvas
@@ -141,4 +141,3 @@
         <div class="float-right d-none d-sm-inline-block"><b>Version</b> 3.2.0-rc</div>
     </footer>
 </div>
-

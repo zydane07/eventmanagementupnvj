@@ -1,27 +1,25 @@
-<div class="ctm-margin">
-  <p class="h1 m-ctm">Buat Kata Sandi Baru</p>
-  <p class="ctm-font">Kata sandi baru anda harus berbeda dengan kata sandi yang digunakan sebelumnya</p>
+<div class="ctm-margin-4">
+    <p class="h1">Buat Kata Sandi Baru</p>
+    <p class="ctm-font">Kata sandi baru anda harus berbeda dengan kata sandi yang digunakan sebelumnya</p>
 
-  <form action="/reset-password/<%= token %>?_method=PUT" method="post">
-    <div class="form-group mt-5 mb-4">
-      <input type="password" class="form-control" id="password" placeholder="Kata Sandi" name="password" />
-      <span class="lock-log"><i class="fa fa-lock"></i></span>
-      <span class="eye"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
-    </div>
-    <div class="form-group mb-5">
-      <input type="password" class="form-control" id="password" placeholder="Konfirmasi Kata Sandi" name="confirmPassword" />
-      <span class="lock-log"><i class="fa fa-lock"></i></span>
-      <span class="eye"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
-    </div>
-    <% if (typeof err != 'undefined') { %>
-      <div class="alert alert-danger" role="alert">
-        <%= err %> 
-      </div>
-    <% } %>
-    <div class="row">
-      <div class="col">
-        <button type="submit" class="btn btn-primary btn-block">Reset Kata Sandi</button>
-      </div>
-    </div>
-  </form>
+    <form action="/reset-password/<%= token %>?_method=PUT" method="post">
+        <div class="form-group mt-5 mb-4">
+            <input type="password" class="form-control" id="password" placeholder="Kata Sandi" name="password" />
+            <span class="lock-log"><i class="fa fa-lock"></i></span>
+            <span class="eye"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
+        </div>
+        <div class="form-group mb-5">
+            <input type="password" class="form-control" id="password1" placeholder="Konfirmasi Kata Sandi" name="confirmPassword" />
+            <span class="lock-log"><i class="fa fa-lock"></i></span>
+            <span class="eye"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle2()"></i></span>
+        </div>
+        <% if (typeof err != 'undefined') { %>
+        <div class="alert alert-danger" role="alert"><%= err %></div>
+        <% } %>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary btn-block">Reset Kata Sandi</button>
+            </div>
+        </div>
+    </form>
 </div>

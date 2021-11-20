@@ -6,6 +6,23 @@
     box-shadow: 0 0.5rem 1rem rgba(42, 72, 88, 0.35) !important;
 }
 
+ul li a {
+    list-style: none;
+    text-decoration: none;
+}
+.form-submit-button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.form-submit-button:hover {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
 .nav-font {
     font-family: "PT Serif", serif;
     font-size: 1.2rem;
@@ -292,7 +309,7 @@ input[type="file"] {
     border-radius: 8px;
     background-color: #008493;
     display: inline-block;
-    padding: 10px 40px 10px 40px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
@@ -350,7 +367,7 @@ input[type="file"] {
     color: #1da1f2;
 }
 
-.share-btn-container .fa-clone {
+.share-btn-container .fa-copy {
     color: #9e9ea7;
 }
 
@@ -380,4 +397,84 @@ input[type="file"] {
     .share-btn-container a {
         margin: 0 32px;
     }
+}
+
+/* button logout */
+.ctm-font-head {
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    color: #2f4858;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* img event saya & wishlist */
+.img-noEvent {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* STYLE DETAIL EVENT */
+
+.bg-event {
+    background-color: #d7f9db;
+    border-radius: 20px;
+    margin-top: 10rem;
+    margin-bottom: 80px;
+}
+
+.img-poster {
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.head-event {
+    font-family: "Century Gothic", sans-serif;
+    color: #2f4858;
+    font-weight: bold;
+    font-size: 2.25rem;
+}
+
+.head-ukm {
+    font-family: "Century Gothic", sans-serif;
+    color: #2f4858;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.p-event {
+    font-family: "Century Gothic", sans-serif;
+    color: #008493;
+    font-size: 1.2rem;
+}
+
+.sub-event {
+    font-family: "Work Sans", serif;
+    color: #2f4858;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.p-detail {
+    font-family: "Work Sans", serif;
+    color: #2f4858;
+    font-size: 1rem;
+}
+
+.p-detail-2 {
+    font-family: "Work Sans", serif;
+    color: #2f4858;
+    font-size: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2f4858;
 }

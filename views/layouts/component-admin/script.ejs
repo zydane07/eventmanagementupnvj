@@ -19,7 +19,6 @@
 <script src="/plugin/chart.js/chart.js"></script>
 
 <!-- AdminLTE App -->
-<script src="/dist/js/demo.js"></script>
 
 <!-- ds 3 App -->
 <script src="/dist/js/dashboard3.js"></script>
@@ -70,7 +69,6 @@
 <script src="/plugin/chart.js/chart.js"></script>
 
 <!-- AdminLTE App -->
-<script src="/dist/js/demo.js"></script>
 
 <!-- flot chart -->
 <script src="/plugin/chart.js/jquery.flot.js"></script>
@@ -83,13 +81,13 @@
 <!-- donut chart -->
 <script src="/plugin/chart.js/jquery.flot.pie.js"></script>
 <% if (typeof jmlWebinar !== 'undefined') { %>
-    <script>
+<script>
         $(function () {
       /*
        * DONUT CHART
        * -----------
        */
-    
+
       var donutData = [
           {
               label: "Webinar",
@@ -134,7 +132,7 @@
        * END DONUT CHART
        */
     });
-    
+
     /*
     * Custom Label formatter
     * ----------------------
@@ -142,7 +140,7 @@
     function labelFormatter(label, series) {
       return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' + label + "<br>" + Math.round(series.percent) + "%</div>";
     }
-    </script>
+</script>
 <% } %>
 
 <!-- active menu -->
