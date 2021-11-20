@@ -1,5 +1,8 @@
 const Mahasiswa = require('../Models/mahasiswa');
 const Event = require('../Models/event');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
+
 exports.profile = async(req,res)=>{
   try{
     //Mencari profile di database collection Mahasiswa email yang ada di cookie
@@ -37,13 +40,15 @@ exports.profile = async(req,res)=>{
       fakultas: profileMhs.fakultas,
       angkatan: profileMhs.angkatan,
       no_hp:profileMhs.no_hp,
-      photo: profileMhs.photo
+      photo: profileMhs.photo.avatar
     }
+    
     return res.render("profile", {
       layout: "layouts/main-layout",
       title: "Profile",
       css: "styleProfile",
       nama: req.user.nama,
+      photo: req.user.photo,
       user
     });
   }
@@ -57,6 +62,7 @@ exports.profile = async(req,res)=>{
 
 exports.updateProfile = async(req,res) =>{
   try{
+    
     const userProfile = await Mahasiswa.findOne({email:req.user.email});
     if(!userProfile){
       return res.render("login", {
@@ -66,6 +72,12 @@ exports.updateProfile = async(req,res) =>{
         error: 'User tidak ada, silahkan login kembali'
       });
     }
+    
+    
+    if(userProfile.photo.cloudinary_id !== 'ifpbpwuf5yrtlgbexgf1'){
+      await cloudinary.uploader.destroy(userProfile.photo.cloudinary_id);
+    }
+    const result = await cloudinary.uploader.upload(req.file.path);
     await Mahasiswa.updateOne({email: userProfile.email},{
       $set: {
         nama_lengkap: req.body.nama,
@@ -73,7 +85,9 @@ exports.updateProfile = async(req,res) =>{
         fakultas: req.body.fakultas,
         prodi: req.body.prodi,
         jenis_kelamin: req.body.jenis_kelamin,
-        tanggal_lahir: req.body.tgl_lahir
+        tanggal_lahir: req.body.tgl_lahir,
+        'photo.avatar': result.secure_url,
+        'photo.cloudinary_id': result.public_id
       }
     });
     return res.redirect('/profile');
@@ -103,6 +117,7 @@ exports.eventSaya = async(req,res) =>{
     return res.render('eventsaya',{
       judul: 'Event Saya',
       nama: req.user.nama,
+      photo: req.user.photo,
       layout: 'layouts/main-layout',
       title: 'Event Saya',
       css: 'styleDetail',
@@ -111,6 +126,7 @@ exports.eventSaya = async(req,res) =>{
   return res.render('eventsaya',{
     judul: 'Event Saya',
     nama: req.user.nama,
+    photo: req.user.photo,
     layout: 'layouts/main-layout',
     title: 'Event Saya',
     css: 'styleDetail',
@@ -132,6 +148,7 @@ exports.eventWishSaya = async(req,res) =>{
     return res.render('eventsaya',{
       judul: 'Event Wishlist Saya',
       nama: req.user.nama,
+      photo: req.user.photo,
       layout: 'layouts/main-layout',
       title: 'Event Saya',
       css: 'styleDetail',
@@ -140,6 +157,7 @@ exports.eventWishSaya = async(req,res) =>{
   return res.render('eventsaya',{
     judul: 'Event Wishlist Saya',
     nama: req.user.nama,
+    photo: req.user.photo,
     layout: 'layouts/main-layout',
     title: 'Event Saya',
     css: 'styleDetail',

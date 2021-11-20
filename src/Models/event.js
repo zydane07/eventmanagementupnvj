@@ -42,7 +42,17 @@ const eventSchema = mongoose.Schema({
   isVerified: {
     type:Boolean,
     required: true,
-  }
+  },
+  photo: {
+    avatar: { 
+      type:  String,
+      default: 'https://res.cloudinary.com/dz1q2dbty/image/upload/v1637411143/ifpbpwuf5yrtlgbexgf1.png'
+    },
+    cloudinary_id: {
+      type: String,
+      default: 'ifpbpwuf5yrtlgbexgf1'
+    }
+  },
 });
 
 module.exports = mongoose.model('Event', eventSchema);

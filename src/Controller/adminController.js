@@ -90,6 +90,7 @@ exports.login = async (req,res) => {
     }
     //Cek apakah akun admin valid
     const checkPass = await bcrypt.compare(password,process.env.ADMIN_BPASS);
+  
     if(email!==process.env.ADMIN_GMAIL || !checkPass){
       
       return res.status(404).send({
@@ -171,7 +172,7 @@ exports.dashboardAdmin = async(req,res) =>{
             { $count: 'Lomba' },
           ],
           Lainnya: [ // Filter by id meet and status permission
-            { $match: { status: 'Lainnya' } },
+            { $match: { kategori: 'Lainnya' } },
             { $count: 'Lainnya' },
           ],
         },

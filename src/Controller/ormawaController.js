@@ -3,6 +3,8 @@ const valEvent = require('../ValidationModel/createEventVal');
 const { customAlphabet } = require('nanoid');
 const { model } = require('mongoose');
 const Ormawa = require('../Models/ormawa');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
 
 exports.createEvent = async(req,res) =>{
   try{
@@ -19,6 +21,7 @@ exports.createEvent = async(req,res) =>{
         message: result.error.details[0].message
       });
     }
+    
     const ormawa = await Ormawa.findOne({nama_ormawa: req.user.nama});
     if(!ormawa){
       return res.status(400).send({
@@ -26,6 +29,8 @@ exports.createEvent = async(req,res) =>{
         message: 'Detail ormawa tidak ditemukan, coba lagi'
       });
     }
+    
+    const resultPhoto = await cloudinary.uploader.upload(req.file.path);
     const token = customAlphabet('1234567890abcdefghijklmnopqrstuvwxyz', 7); // create 7 digit token
     model.id = token();
     await new Event({
@@ -36,14 +41,17 @@ exports.createEvent = async(req,res) =>{
       detil_eo: ormawa.id_ormawa,
       deskripsi_event,
       benefits,
-      isVerified: false
+      isVerified: false,
+      'photo.avatar': resultPhoto.secure_url,
+      'photo.cloudinary_id': resultPhoto.public_id
+
     }).save();
     return res.redirect('/event-ormawa');
   }
   catch(err){
     return res.status(400).send({
       success: false,
-      message: err
+      message: `${err}`
     });
   }
 }

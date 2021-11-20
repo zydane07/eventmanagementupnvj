@@ -3,6 +3,8 @@ const routers = express.Router();
 const ormawaController = require('../Controller/ormawaController');
 const eventController = require('../Controller/eventController');
 const checkRole = require('./checkAccessType');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
 const Auth = require('./verifyToken');
 routers.get('/login-ormawa', (req, res) => {
     res.render('login-ormawa', {
@@ -28,5 +30,5 @@ routers.get('/addevent-ormawa', (req, res) => {
 });
 routers.get("/detail-event/:id_event",checkRole,Auth,eventController.eventDetailOrmawa);
 
-routers.post('/add-event',checkRole,Auth,ormawaController.createEvent);
+routers.post('/add-event',upload.single('image'),checkRole,Auth,ormawaController.createEvent);
 module.exports = routers
