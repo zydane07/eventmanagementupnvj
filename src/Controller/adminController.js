@@ -85,15 +85,19 @@ exports.login = async (req, res) => {
         css: "login",
         title: "login admin",
     });*/
-        }
-        //Cek apakah akun admin valid
-        const checkPass = await bcrypt.compare(password, process.env.ADMIN_BPASS);
-        if (email !== process.env.ADMIN_GMAIL || !checkPass) {
-            return res.status(404).send({
-                success: false,
-                message: "User dengan email tersebut tidak ada!",
-            });
-            /*
+
+    }
+    //Cek apakah akun admin valid
+    const checkPass = await bcrypt.compare(password,process.env.ADMIN_BPASS);
+  
+    if(email!==process.env.ADMIN_GMAIL || !checkPass){
+      
+      return res.status(404).send({
+        success: false,
+        message: 'User dengan email tersebut tidak ada!'
+      });
+      /*
+
       return res.render("login-admin", {
         layout: "layouts/loginadmin-layout",
         css: "login",
@@ -121,159 +125,162 @@ exports.login = async (req, res) => {
       css: "login",
       title: "login admin",
   });*/
-    }
-};
 
-exports.dashboardAdmin = async (req, res) => {
-    try {
-        const jumlahMhs = await Mahasiswa.countDocuments({});
-        const jumlahOrm = await Ormawa.countDocuments({});
-        const jumlahEvent2 = await Event.aggregate([
-            {
-                $lookup: {
-                    from: "ormawas",
-                    localField: "detil_eo",
-                    foreignField: "id_ormawa",
-                    as: "ormawa",
-                },
-            },
-            {
-                $addFields: {
-                    detil_eo: { $arrayElemAt: ["$ormawa.nama_ormawa", 0] },
-                },
-            },
-            { $sort: { _id: -1 } },
-        ]);
+  }
+}
 
-        const data = await Event.aggregate([
-            {
-                $unwind: {
-                    path: "$registered_people",
-                },
-            },
-            {
-                $facet: {
-                    Webinar: [
-                        // Filter by id meet and status present
-                        { $match: { kategori: "Webinar" } },
-                        { $count: "Webinar" },
-                    ],
-                    Workshop: [
-                        // Filter by id meet and status absent
-                        { $match: { kategori: "Workshop" } },
-                        { $count: "Workshop" },
-                    ],
-                    Lomba: [
-                        // Filter by id meet and status permission
-                        { $match: { kategori: "Lomba" } },
-                        { $count: "Lomba" },
-                    ],
-                    Lainnya: [
-                        // Filter by id meet and status permission
-                        { $match: { status: "Lainnya" } },
-                        { $count: "Lainnya" },
-                    ],
-                },
-            },
-            {
-                $project: {
-                    // data output (if status null, set to 0)
-                    Webinar: { $ifNull: [{ $arrayElemAt: ["$Webinar.Webinar", 0] }, 0] },
-                    Workshop: { $ifNull: [{ $arrayElemAt: ["$Workshop.Workshop", 0] }, 0] },
-                    Lomba: { $ifNull: [{ $arrayElemAt: ["$Lomba.Lomba", 0] }, 0] },
-                    Lainnya: { $ifNull: [{ $arrayElemAt: ["$Lainnya.Lainnya", 0] }, 0] },
-                },
-            },
-        ]);
+exports.dashboardAdmin = async(req,res) =>{
+  try{
+    const jumlahMhs = await Mahasiswa.countDocuments({});
+    const jumlahOrm = await Ormawa.countDocuments({});
+    const jumlahEvent2 = await Event.aggregate([
+      {
+        $lookup: {
+          from: 'ormawas',
+          localField: 'detil_eo',
+          foreignField: 'id_ormawa',
+          as: 'ormawa'
+        }
+      },
+     {
+      $addFields: {
+        "detil_eo": { $arrayElemAt: ["$ormawa.nama_ormawa",0] }
+      }
+     },
+     { $sort : { _id: -1 } }
+    ])
+    
+    const data = await Event.aggregate([
+      {
+        $unwind: {
+          path: '$registered_people',
+        }
+      },
+      {
+        $facet: {
+          Webinar: [ // Filter by id meet and status present
+            { $match: { kategori: 'Webinar' } },
+            { $count: 'Webinar' },
+          ],
+          Workshop: [ // Filter by id meet and status absent
+            { $match: { kategori: 'Workshop' } },
+            { $count: 'Workshop' },
+          ],
+          Lomba: [ // Filter by id meet and status permission
+            { $match: { kategori: 'Lomba' } },
+            { $count: 'Lomba' },
+          ],
+          Lainnya: [ // Filter by id meet and status permission
+            { $match: { kategori: 'Lainnya' } },
+            { $count: 'Lainnya' },
+          ],
+        },
+      },
+      {
+        $project: { // data output (if status null, set to 0)
+          Webinar: { $ifNull: [{ $arrayElemAt: ['$Webinar.Webinar', 0] }, 0] },
+          Workshop: { $ifNull: [{ $arrayElemAt: ['$Workshop.Workshop', 0] }, 0] },
+          Lomba: { $ifNull: [{ $arrayElemAt: ['$Lomba.Lomba', 0] }, 0] },
+          Lainnya: { $ifNull: [{ $arrayElemAt: ['$Lainnya.Lainnya', 0] }, 0] },
+        },
+      },
+    ])
+   
+    return  res.render("dashboard-admin", {
+      layout: "layouts/dashboardadmin-layout",
+      css: "admin",
+      title: "dashboard admin",
+      jumlahMhs,
+      jumlahOrm,
+      jumlahEvent2,
+      jmlWebinar: data[0].Webinar,
+			jmlWorkshop: data[0].Workshop,
+			jmlLomba: data[0].Lomba,
+			jmlLainnya: data[0].Lainnya
+  });
+  }
+  catch(err){
+    return res.status(400).send({
+      success: false,
+      message: `test ${err}`
+    })
+  }
+}
 
-        return res.render("dashboard-admin", {
-            layout: "layouts/dashboardadmin-layout",
-            css: "admin",
-            title: "dashboard admin",
-            jumlahMhs,
-            jumlahOrm,
-            jumlahEvent2,
-            jmlWebinar: data[0].Webinar,
-            jmlWorkshop: data[0].Workshop,
-            jmlLomba: data[0].Lomba,
-            jmlLainnya: data[0].Lainnya,
-        });
-    } catch (err) {
-        return res.status(400).send({
-            success: false,
-            message: `test ${err}`,
-        });
-    }
-};
+exports.getAllEvents = async(req,res)=>{
+  try{
+    const events = await Event.aggregate([
+      {$match: {'isVerified': true}},
+      {
+        $lookup: {
+          from: 'ormawas',
+          localField: 'detil_eo',
+          foreignField: 'id_ormawa',
+          as: 'ormawa'
+        }
+      },
+     {
+      $addFields: {
+        "detil_eo": { $arrayElemAt: ["$ormawa.nama_ormawa",0] }
+      }
+     },
+     { $sort : { _id: -1 } }
+    ]);
+    
+    const events2 = await Event.aggregate([
+      {$match: {'isVerified': false}},
+      {
+        $lookup: {
+          from: 'ormawas',
+          localField: 'detil_eo',
+          foreignField: 'id_ormawa',
+          as: 'ormawa'
+        }
+      },
+     {
+      $addFields: {
+        "detil_eo": { $arrayElemAt: ["$ormawa.nama_ormawa",0] }
+      }
+     },
+     { $sort : { _id: -1 } }
+    ]);
+    
+    
+     
+    return res.render("event-admin", {
+      layout: "layouts/eventAdmin-layout",
+      css: "admin",
+      title: "Event",
+      events,
+      events2
+  });
+  }
+  catch(err){
+    return res.status(400).send({
+      success: false,
+      message: `test ${err}`
+    })
+  }
+}
 
-exports.getAllEvents = async (req, res) => {
-    try {
-        const events = await Event.aggregate([
-            { $match: { isVerified: true } },
-            {
-                $lookup: {
-                    from: "ormawas",
-                    localField: "detil_eo",
-                    foreignField: "id_ormawa",
-                    as: "ormawa",
-                },
-            },
-            {
-                $addFields: {
-                    detil_eo: { $arrayElemAt: ["$ormawa.nama_ormawa", 0] },
-                },
-            },
-            { $sort: { _id: -1 } },
-        ]);
+exports.logout = async(req,res) =>{
+  try{
+    await res.clearCookie("dataUser");
+    return res.redirect('/login-admin');
+  }
+  catch(err){
+    return res.status(400).send({
+      success: false,
+      message: `${err}`
+    })
+  }
 
-        const events2 = await Event.aggregate([
-            { $match: { isVerified: false } },
-            {
-                $lookup: {
-                    from: "ormawas",
-                    localField: "detil_eo",
-                    foreignField: "id_ormawa",
-                    as: "ormawa",
-                },
-            },
-            {
-                $addFields: {
-                    detil_eo: { $arrayElemAt: ["$ormawa.nama_ormawa", 0] },
-                },
-            },
-            { $sort: { _id: -1 } },
-        ]);
+}
 
-        return res.render("event-admin", {
-            layout: "layouts/eventAdmin-layout",
-            css: "admin",
-            title: "Event",
-            events,
-            events2,
-        });
-    } catch (err) {
-        return res.status(400).send({
-            success: false,
-            message: `test ${err}`,
-        });
-    }
-};
+exports.accEvent = async(req,res) =>{
+  try{
+    /*
 
-exports.logout = async (req, res) => {
-    try {
-        await res.clearCookie("dataUser");
-        return res.redirect("/login-admin");
-    } catch (err) {
-        return res.status(400).send({
-            success: false,
-            message: `${err}`,
-        });
-    }
-};
-
-exports.accEvent = async (req, res) => {
-    try {
-        /*
     const event = await Event.findOne({id_event:req.params.id_event});
 		if(!event){
 			return res.status(400).send({

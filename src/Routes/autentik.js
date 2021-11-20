@@ -27,6 +27,7 @@ const auth = async(req, res, next) => {
     if(req.user.role==='mahasiswa'){
       checkNama = await Mahasiswa.findOne({email:req.user.email});
       req.user["nama"] = checkNama.nama_lengkap;
+      req.user["photo"] = checkNama.photo.avatar;
     }
     else if(req.user.role==='ormawa'){
       checkNama = await Ormawa.findOne({email_ormawa:req.user.email});

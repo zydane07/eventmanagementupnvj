@@ -18,6 +18,7 @@ exports.getEvents = async(req,res)=>{
 			const landing = await LandingPage.findOne({id:1});
 			res.render('index', {
 				nama: req.user.nama,
+				photo: req.user.photo,
 				layout: 'layouts/main-layout',
 				title: 'Home',
 				css: 'styleHome',
@@ -52,6 +53,8 @@ exports.getEventsDetails = async(req,res)=>{
 			deskripsi_event : event.deskripsi_event,
 			benefits : event.benefits,
 			registered_people : event.registered_people,
+			photo : event.photo,
+			photoOrmawa: namaEo.photo
 		}
 		let tombol = undefined;
 		let tombol2 = undefined;
@@ -65,6 +68,7 @@ exports.getEventsDetails = async(req,res)=>{
 		}
 		return res.render('eventdetail',{
 			nama: req.user.nama,
+			photo: req.user.photo,
 			layout: 'layouts/main-layout',
 			title: 'Detail Event',
 			css: 'styleDetail',
@@ -258,6 +262,7 @@ exports.getEventsSearch = async(req,res)=>{
 		const sumPage = Math.ceil(eventsSum.length/limit);
 		return	res.render('search', {
 			nama: req.user.nama,
+			photo: req.user.photo,
 			layout: 'layouts/main-layout',
 			title: 'search',
 			css: 'styleHome',
@@ -363,7 +368,7 @@ exports.getEventsOrmawaDashboard = async(req,res)=>{
 							{ $count: 'Lomba' },
 						],
 						Lainnya: [ // Filter by id meet and status permission
-							{ $match: { detil_eo: dataEo.id_ormawa, status: 'Lainnya' } },
+							{ $match: { detil_eo: dataEo.id_ormawa, kategori: 'Lainnya' } },
 							{ $count: 'Lainnya' },
 						],
 					},
@@ -377,6 +382,7 @@ exports.getEventsOrmawaDashboard = async(req,res)=>{
 					},
 				},
 			]);
+			
 			res.render('dashboard-ormawa', {
         layout: 'layouts/dashboardOrmawa-layout',
         css: 'dashboard',

@@ -3,6 +3,7 @@ const profile = require("./Routes/profile");
 const events = require("./Routes/events");
 const ormawa = require("./Routes/routers-ormawa");
 const admin = require("./Routes/admin");
+const test = require('./Routes/testRouter');
 
 const routes = [
     {
@@ -24,6 +25,10 @@ const routes = [
     {
         path: "/",
         api: admin,
+    },
+    {
+        path: "/",
+        api: test,
     },
 ];
 

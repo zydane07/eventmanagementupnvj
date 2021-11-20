@@ -1,14 +1,19 @@
 const express = require("express");
 const routers = express.Router();
-const ormawaController = require("../Controller/ormawaController");
-const eventController = require("../Controller/eventController");
-const checkRole = require("./checkAccessType");
-const Auth = require("./verifyToken");
-routers.get("/login-ormawa", (req, res) => {
-    res.render("login-ormawa", {
-        layout: "layouts/loginOrmawa-layout",
-        css: "login",
-        title: "login ormawa",
+
+const ormawaController = require('../Controller/ormawaController');
+const eventController = require('../Controller/eventController');
+const checkRole = require('./checkAccessType');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
+const Auth = require('./verifyToken');
+routers.get('/login-ormawa', (req, res) => {
+    res.render('login-ormawa', {
+        layout: 'layouts/loginOrmawa-layout',
+        css: 'login',
+        title: 'login ormawa',
+       
+
     });
 });
 
@@ -36,5 +41,7 @@ routers.get("/PerngaturanAkun-ormawa", (req, res) => {
     });
 });
 
-routers.post("/add-event", checkRole, Auth, ormawaController.createEvent);
-module.exports = routers;
+
+routers.post('/add-event',upload.single('image'),checkRole,Auth,ormawaController.createEvent);
+module.exports = routers
+
