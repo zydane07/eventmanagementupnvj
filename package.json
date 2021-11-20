@@ -21,6 +21,7 @@
     "express-ejs-layouts": "^2.5.1",
     "helmet": "^4.6.0",
     "joi": "^17.4.2",
+    "jquery-plugin-c-share": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.11",

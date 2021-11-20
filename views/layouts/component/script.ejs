@@ -32,8 +32,7 @@
 <script src="/js/showPass.js"></script>
 <script src="/js/modal.js"></script>
 <script src="/js/nav.js"></script>
-
-
+<script src="/js/sharebtn.js"></script>
 
 <!--<script>
     $(".carousel").owlCarousel({
@@ -47,12 +46,12 @@
 -->
 <script>
     function copyToClipboard(text) {
-    var inputc = document.body.appendChild(document.createElement("input"));
-    inputc.value = window.location.href;
-    inputc.focus();
-    inputc.select();
-    document.execCommand('copy');
-    inputc.parentNode.removeChild(inputc);
-    alert("URL Copied.");
+        var inputc = document.body.appendChild(document.createElement("input"));
+        inputc.value = window.location.href;
+        inputc.focus();
+        inputc.select();
+        document.execCommand("copy");
+        inputc.parentNode.removeChild(inputc);
+        alert("URL Copied.");
     }
 </script>

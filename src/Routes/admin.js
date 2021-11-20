@@ -2,8 +2,10 @@ const express = require("express");
 const adminController = require("../Controller/adminController");
 const eventController = require("../Controller/eventController");
 const router = express.Router();
+
 const authAdmin = require('./verifyAdmin');
 // router.post('/create', adminController.register);
+
 
 router.get("/login-admin", (req, res) => {
     res.render("login-admin", {
@@ -52,5 +54,5 @@ router.post('/tambah-ormawa',adminController.register);
 
 router.delete('/logout-admin',adminController.logout);
 
-module.exports = router;
 
+module.exports = router;
