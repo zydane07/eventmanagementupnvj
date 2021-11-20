@@ -10,20 +10,19 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <form action="/detail/<%= data.id_event %>" method="post">
-                    <button type="submit" class="btn btn-primary btn-custom" id="daftar-event">Daftar</button>
+                    <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                 </form>
             </div>
 
           </div>
         </div>
-        <!-- ini sama gas? -->
-        <div class="modal-footer d-flex justify-content-center">
+        <!-- <div class="modal-footer d-flex justify-content-center">
             <form action="/detail/<%= data.id_event %>" method="post">
                 <button type="submit" class="btn btn-primary btn-custom" id>Daftar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
             </form>
-        </div>
+        </div> -->
     </div>
 
   </div>
@@ -104,7 +103,7 @@
                     <!-- <button onclick="copyToClipboard()"  class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/share.png" alt="" /></button> -->
                     <% if (tombol2 !== 'ada') { %>
                     <form method="post" action="/detail/<%= data.id_event %>/saved">
-                        <button id="addwish" type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" /></button>
+                        <button  type="submit" class="btn btn-secondary btn-share" style="margin-right: 10px"><img src="/img/save-instagram.png" alt="" /></button>
                     </form>
 
                     <% } else { %>
