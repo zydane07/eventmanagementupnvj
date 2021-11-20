@@ -28,7 +28,7 @@
             </div>
             
             <div class="card-body">
-              <form method="post" action="/edit-event/<%= event.id_event %>?_method=PUT">
+              <form method="post" action="/edit-event/<%= event.id_event %>?_method=PUT" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="inputName">Nama Event</label>
                 <input type="text" id="inputName" class="form-control" value="<%= event.nama_event %>" name="nama_event">
@@ -61,7 +61,7 @@
               </div>
               <div class="form-group">
                 <label for="imageEvent">Poster Event: </label>
-                <input type="file" class="form-control-file" id="imageEvent" accept="image/*">
+                <input type="file" class="form-control-file" id="imageEvent" accept="image/png, image/jpeg" name="image">
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-custom">Edit</button>

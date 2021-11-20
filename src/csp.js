@@ -27,9 +27,9 @@ let sources = {
         "'self'",
         "https://www.upnvj.ac.id/id/files/large/09d66b5fab4ed182e93ae8bb276692c1.html",
         "data:",
-
         "https://cdn.datatables.net/DataTables-1.11.3/images/sort_both.png",
         "https://cdn.datatables.net/DataTables-1.11.3/images/sort_asc.png",
+        "https://res.cloudinary.com/",
     ],
     "style-src": ["'self'", "https:", "'unsafe-inline'"],
     "font-src": ["'self'", "https:"],

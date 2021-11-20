@@ -23,7 +23,20 @@ const mahasiswaSchema = mongoose.Schema({
   fakultas: String,
   prodi: String,
   angkatan: String,
-  photo: String,
+  photo: {
+    avatar: { 
+      type:  String,
+      default: 'https://res.cloudinary.com/dz1q2dbty/image/upload/v1637411143/ifpbpwuf5yrtlgbexgf1.png'
+    },
+    cloudinary_id: {
+      type: String,
+      default: 'ifpbpwuf5yrtlgbexgf1'
+    },
+    path: {
+      type: String,
+      default: '/img/PP/pp.png'
+    }
+  },
   isVerified: Boolean,
   savedEvent: {
     type:[savedEvent],

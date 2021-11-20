@@ -54,12 +54,16 @@
 
     <div class="row">
         <div class="col d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px">
-            <img src="/img/poster.png" class="img-poster shadow" alt="photo profil" />
+
+            <img src="<%= data.photo.avatar %>" alt="photo profil" width="500" height="600" />
+
         </div>
         <div class="col" style="margin-top: 50px; margin-bottom: 50px">
             <div class="row">
                 <div class="col mt-3">
+
                     <p class="head-event"><%= data.nama_event %></p>
+
                 </div>
             </div>
             <div class="row">
@@ -70,10 +74,12 @@
             </div>
             <div class="row">
                 <div class="col mt-1 d-flex">
-                    <img src="/img/picukm.png" alt="penyelenggara" width="65" height="65" />
+
+                    <img src="<%= data.photoOrmawa.avatar %>" alt="penyelenggara" width="65" height="75" />
                     <div class="col ms-3">
                         <p class="head-ukm"><%= data.detil_eo %></p>
                         <a class="p-event" href="/<%= data.id_eo %>/events">Lihat Semua Event</a>
+
                     </div>
                 </div>
             </div>

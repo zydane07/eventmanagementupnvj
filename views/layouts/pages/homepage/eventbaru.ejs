@@ -6,6 +6,7 @@
         </div>
     </div>
     <div class="row carousel d-flex justify-content-center">
+
         <% if (newestEvents.length > 0) { %> <% newestEvents.forEach(event =>{ %>
         <div class="col-lg-4 mt-4">
             <div class="card-custom my-shadow-2" style="width: 23rem">
@@ -19,6 +20,7 @@
                         </div>
                         <div class="col-5 text-center">
                             <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
+
                         </div>
                     </div>
                 </div>

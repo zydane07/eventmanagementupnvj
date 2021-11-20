@@ -11,7 +11,9 @@ const helmet = require('helmet');
 const cookieparser = require('cookie-parser');
 const methodOverride = require('method-override');
 
-require('dotenv/config');
+//require('dotenv/config');
+require('dotenv').config();
+
 app.use(helmet());
 app.use(cspMiddleware.csp);
 app.use(cookieparser());
