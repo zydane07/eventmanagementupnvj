@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="/dashboard-admin" class="brand-link">
         <img src="/img/logo.png" alt="SIM-U" class="brand-image" />
         <span class="brand-text font-weight-normal">SIM-U</span>
     </a>
@@ -14,89 +14,41 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-header">MENU</li>
-                <li class="nav-item menu-open">
-                    <a href="/dashboard-admin" class="nav-link active">
+                <li class="nav-item">
+                    <a href="/dashboard-admin" class="nav-link nav__link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
-                    <!-- <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v3</p>
-                            </a>
-                        </li>
-                    </ul> -->
+                </li>
+                <li class="nav-item">
+                    <a href="/lp-management" class="nav-link nav__link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>Landing Page</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/event-admin" class="nav-link nav__link">
+                        <i class="nav-icon fa fa-calendar"></i>
+                        <p>Event Management</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/pengguna-mahasiswa" class="nav-link nav__link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Pengguna Mahasiswa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/pengguna-Ormawa" class="nav-link nav__link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Pengguna Ormawa</p>
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Managemen Web
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/lp-management" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Landing Page</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/event-admin" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Event</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                            Managemen Pengguna
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/pengguna-mahasiswa" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Mahasiswa</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pengguna-Ormawa" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ormawa</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link nav__link">
-                        <i class="nav-icon fa fa-cog"></i>
-                        <p>Site Setting</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <form action="/logout-admin?_method=DELETE" method="POST">
                         <a class="nav-link">
-                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <i class="nav-icon fas fa-sign-out-alt form-submit-button"></i>
                             <button type="submit" class="form-submit-button">Log out</button>
                         </a>
                     </form>

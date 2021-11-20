@@ -9,7 +9,9 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard-admin">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/event-admin">Event Tersedia</a></li>
+
                         <li class="breadcrumb-item active">Detail Event</li>
                     </ol>
                 </div>
@@ -53,29 +55,27 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="benefit_event">Benefit Event</label>
-                                    <textarea id="inputDescription" class="form-control" rows="5"><%= event.benefits %></textarea
-                                    >
+                                    <textarea id="inputDescription" class="form-control" rows="5"><%= event.benefits %></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="tgl_lahir"><b>Tanggal Event: </b></label>
-                                    <input type="text" class="form-control" name="tgl_event" placeholder="Tanggal Event" value="<%= event.tanggal_event.toISOString().substring(0, 10) %>"/>
+                                    <input type="text" class="form-control" name="tgl_event" placeholder="Tanggal Event" value="<%= event.tanggal_event.toISOString().substring(0, 10) %>" />
                                 </div>
                                 <div class="form-group mb-5">
                                     <label for="inputStatus">Kategori: </label>
                                     <select id="inputStatus" class="form-control custom-select">
-                                        <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %>
-                                        <% for( let index = 0; index < tmp.length; index++ ) { %>
-                                            <% const selected = (event.kategori === tmp[index]) ? "selected" : ""; %>
-                                            <option value='<%= tmp[index] %>' <%= selected %>><%= tmp[index] %></option>
+                                        <% const tmp = ['Kategori','Webinar','Workshop','Lomba','Lainnya'] %> <% for( let index = 0; index < tmp.length; index++ ) { %> <% const selected = (event.kategori === tmp[index]) ? "selected" : "";
+                                        %>
+                                        <option value="<%= tmp[index] %>" <%="selected" %>><%= tmp[index] %></option>
                                         <% } %>
                                     </select>
                                 </div>
                             </fieldset>
                             <div class="text-right">
                                 <% if (event.isVerified === false) { %>
-                                    <form method="post" action="/event-accept/<%= event.id_event %>?_method=PUT">
-                                        <button type="submit" class="btn btn-success">Konfirmasi</button>
-                                    </form>
+                                <form method="post" action="/event-accept/<%= event.id_event %>?_method=PUT">
+                                    <button type="submit" class="btn btn-success">Konfirmasi</button>
+                                </form>
                                 <% } %>
                                 <form method="post" action="/event-delete/<%= event.id_event %>?_method=DELETE">
                                     <button type="submit" class="btn btn-danger">Delete</button>

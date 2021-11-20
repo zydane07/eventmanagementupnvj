@@ -11,7 +11,7 @@
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard-admin">Dashboard</a></li>
                             <li class="breadcrumb-item active">Pengguna Mahasiswa</li>
                         </ol>
                     </div>
@@ -47,32 +47,49 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <% let i = 1 %>
-                                            <% mahasiswas.forEach(mahasiswa =>{ %>
-                                                <tr>
-                                                    <td><%= i %> </td>
-                                                    <td><%= mahasiswa.nama_lengkap %></td>
-                                                    <td>
-                                                    <a> <%= mahasiswa.nim %></a>
-                                                    <!-- <small> Created 01.01.2019 </small> -->
-                                                    </td>
-                                                    <td><%= mahasiswa.no_hp %></td>
-                                                    <td><%= mahasiswa.fakultas %> </td>
-                                                    <td><%= mahasiswa.prodi %> </td>
-                                                    <td>
-                                                    <form method="post" action="/pengguna-mahasiswa/<%= mahasiswa.email %>?_method=DELETE">
-                                                        <button class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash"> </i>
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                    </td>
-                                                </tr>         
-                                            <% i++ %>
-                                        <% }) %> 
+                                        <% let i = 1 %> <% mahasiswas.forEach(mahasiswa =>{ %>
+                                        <tr>
+                                            <td><%= i %></td>
+                                            <td><%= mahasiswa.nama_lengkap %></td>
+                                            <td>
+                                                <a> <%= mahasiswa.nim %></a>
+                                                <!-- <small> Created 01.01.2019 </small> -->
+                                            </td>
+                                            <td><%= mahasiswa.no_hp %></td>
+                                            <td><%= mahasiswa.fakultas %></td>
+                                            <td><%= mahasiswa.prodi %></td>
+                                            <td>
+                                                <!--Modal Delete-->
+                                                <div class="modal fade" id="deletemodal" role="dialog">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="model-header">
+                                                                <div class="row">
+                                                                    <div class="col text-center" style="padding: 1rem">
+                                                                        <h5 class="modal-title" id="exampleModalLongTitle"><b>Apakah Anda ingin Menghapus Data Mahasiswa Ini</b></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer d-flex justify-content-center">
+                                                                <form method="post" action="/pengguna-mahasiswa/<%= mahasiswa.email %>?_method=DELETE">
+                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                                    <i class="fas fa-trash"> </i>
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <% i++ %> <% }) %>
                                     </tbody>
                                 </table>
                             </div>
+
                             <!-- /.card-body -->
                         </div>
                     </div>

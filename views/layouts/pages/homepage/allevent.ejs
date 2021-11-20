@@ -1,31 +1,30 @@
 <!-- Semua Event -->
-<div class="container mb-5 pb-3">
+<div class="container mb-5 pb-4">
     <div class="row">
-        <div class="col mb-3">
+        <div class="col">
             <p class="sub-font mb-1 mt-5 reveal">Semua Event</p>
         </div>
     </div>
 
     <div class="row d-flex justify-content-center reveal">
-        <% if (events.length > 0) { %>
-            <% events.forEach(event =>{ %>
-                <div class="col-lg-4 mt-4">
-                    <div class="card-custom my-shadow-2">
-                        <div class="card-body-custom">
-                            <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                            <div class="row pt-2 d-flex align-items-lg-baseline">
-                                <div class="col">
-                                    <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
-                                </div>
-                            </div>
+        <% if (events.length > 0) { %> <% events.forEach(event =>{ %>
+        <div class="col-lg-4 mt-4 mb-5">
+            <div class="card-custom my-shadow-2" style="width: 23rem">
+                <img src="/img/poster.png" alt="" class="img-event" />
+                <div class="card-body-custom">
+                    <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
+                    <div class="row pt-2 d-flex align-items-lg-baseline">
+                        <div class="col-6">
+                            <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
                         </div>
                     </div>
                 </div>
-            <% }) %>
-        <% } else { %>
+            </div>
+        </div>
+        <% }) %> <% } else { %>
         <div class="col-lg-3 mt-4">
             <h1>Tidak ada event</h1>
         </div>
@@ -33,7 +32,7 @@
     </div>
 
     <div class="row">
-        <div class="col mt-5 d-flex justify-content-center">
+        <div class="col mt-3 d-flex justify-content-center">
             <a class="btn btn-success btn-custom" href="/search" role="button">Lihat Semua Event</a>
         </div>
     </div>
