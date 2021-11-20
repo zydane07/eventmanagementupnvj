@@ -32,6 +32,10 @@ const ormawaSchema = mongoose.Schema({
     cloudinary_id: {
       type: String,
       default: 'vj0fx9vvdlv6zziqdxzm'
+    },
+    path: {
+      type: String,
+      default: '/img/PP/DefaultPhoto.png'
     }
   },
 });

@@ -2,6 +2,8 @@ const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
 const Ormawa = require('../Models/ormawa');
 const LandingPage = require('../Models/landingPage');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
 exports.getEvents = async(req,res)=>{
   try {
     const events = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
@@ -461,12 +463,17 @@ exports.getEventEdit = async(req,res)=>{
 
 exports.editEvent = async(req,res) =>{
 	try{
+		console.log(req.file.path)
 		const event = await Event.findOne({id_event: req.params.id_event});
     if(!event){
       return res.send({
 				message: 'id event tidak valid, coba lagi'
 			});
     }
+		if(event.photo.cloudinary_id !== 'ifpbpwuf5yrtlgbexgf1'){
+      await cloudinary.uploader.destroy(event.photo.cloudinary_id);
+    }
+    const result = await cloudinary.uploader.upload(req.file.path);
     await Event.updateOne({id_event: event.id_event},{
       $set: {
         nama_event: req.body.nama_event,
@@ -474,14 +481,16 @@ exports.editEvent = async(req,res) =>{
         benefits: req.body.benefits,
         prodi: req.body.prodi,
         tanggal_event: req.body.tanggal_event,
-        kategori: req.body.kategori
+        kategori: req.body.kategori,
+				'photo.avatar': result.secure_url,
+        'photo.cloudinary_id': result.public_id
       }
     });
     return res.redirect('/event-ormawa');
 	}
 	catch(err){
 		return res.send({
-			message: 'Terjadi error saat edit event, coba lagi'
+			message: `${err}`
 		})
 	}
 }

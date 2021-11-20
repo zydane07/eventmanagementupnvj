@@ -31,6 +31,10 @@ const mahasiswaSchema = mongoose.Schema({
     cloudinary_id: {
       type: String,
       default: 'ifpbpwuf5yrtlgbexgf1'
+    },
+    path: {
+      type: String,
+      default: '/img/PP/pp.png'
     }
   },
   isVerified: Boolean,

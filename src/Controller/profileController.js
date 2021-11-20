@@ -40,7 +40,8 @@ exports.profile = async(req,res)=>{
       fakultas: profileMhs.fakultas,
       angkatan: profileMhs.angkatan,
       no_hp:profileMhs.no_hp,
-      photo: profileMhs.photo.avatar
+      photo: profileMhs.photo.avatar,
+      path: profileMhs.photo.path
     }
     
     return res.render("profile", {
@@ -77,7 +78,10 @@ exports.updateProfile = async(req,res) =>{
     if(userProfile.photo.cloudinary_id !== 'ifpbpwuf5yrtlgbexgf1'){
       await cloudinary.uploader.destroy(userProfile.photo.cloudinary_id);
     }
+    console.log('test',req.file.path);
+    
     const result = await cloudinary.uploader.upload(req.file.path);
+    
     await Mahasiswa.updateOne({email: userProfile.email},{
       $set: {
         nama_lengkap: req.body.nama,
@@ -86,8 +90,9 @@ exports.updateProfile = async(req,res) =>{
         prodi: req.body.prodi,
         jenis_kelamin: req.body.jenis_kelamin,
         tanggal_lahir: req.body.tgl_lahir,
-        'photo.avatar': result.secure_url,
-        'photo.cloudinary_id': result.public_id
+        'photo.avatar': result.secure_url || userProfile.photo.avatar,
+        'photo.cloudinary_id': result.public_id || userProfile.photo.cloudinary_id,
+        'photo.path' : req.file.path
       }
     });
     return res.redirect('/profile');

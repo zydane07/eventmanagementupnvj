@@ -16,17 +16,18 @@
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <label for="file-upload" class="custom-file-upload"> Upload </label>
-                            <input id="file-upload" type="file" name="image" accept="image/png, image/jpeg"/>
+                            <input id="file-upload" type="file" name="image" accept="image/png, image/jpeg" value="<%= user.path %>"/>
+                            
                         </div>
                     </div>
                     <div class="container">
                         <div class="form-group">
                             <label for="nama"><b>Nama: </b></label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= user.nama_lengkap %> " />
+                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= user.nama_lengkap %>" />
                         </div>
                         <div class="form-group">
                             <label for="nim"><b>NIM: </b></label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM" value="<%= user.nim %> " />
+                            <input type="text" class="form-control" name="nim" placeholder="NIM" value="<%= user.nim %>" />
                         </div>
                         <div class="form-group">
                             <label for="fakultas"><b>Fakultas: </b></label>
@@ -68,6 +69,7 @@
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
+            <script>document.image.submit();</script>
         </div>
     </div>
 </div>
