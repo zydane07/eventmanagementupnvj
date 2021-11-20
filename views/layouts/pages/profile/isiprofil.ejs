@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tgl_lahir"><b>Tanggal Lahir: </b></label>
-                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= event.tanggal_event.toISOString().substr(0, 10) %>" />
+                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= user.tanggal_lahir.toISOString().substr(0, 10) %>" />
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
     <h5>Jenis-Kelamin:</h5>
     <p><%= user.Jenis_Kelamin %></p>
     <h5>Tanggal Lahir:</h5>
-    <p><%= user.tanggal_lahir %></p>
+    <p><%= user.tanggal_lahir.toISOString().substr(0, 10) %></p>
 </div>
 <div
     id="dpengaturan"

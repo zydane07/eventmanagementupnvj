@@ -517,7 +517,7 @@ exports.eventDetailOrmawa = async(req,res)=>{
 				message:'tidak ada event'
 			})
 		}
-    const peserta = event.registered_people.map(el => el.email);
+    //const peserta = event.registered_people.map(el => el.email);
 		/*
 		const peserta2 = event.registered_people.map(el => el.createdAt);
 		
@@ -532,7 +532,7 @@ exports.eventDetailOrmawa = async(req,res)=>{
 			
 		
 		});*/
-		const pendaftar2 = await Mahasiswa.aggregate([
+		const pendaftar = await Mahasiswa.aggregate([
 			{$unwind: "$historyEvent"},
     	{$match: {'historyEvent.id_event': req.params.id_event}}
 		])
@@ -542,7 +542,7 @@ exports.eventDetailOrmawa = async(req,res)=>{
       title: "Detail Event",
 			nama: req.user.nama,
 			event,
-			pendaftar2
+			pendaftar
     });
     
   }
