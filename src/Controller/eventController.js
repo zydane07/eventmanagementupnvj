@@ -6,8 +6,8 @@ const cloudinary = require('../utils/cloudinary');
 const upload = require('../utils/multer');
 exports.getEvents = async(req,res)=>{
   try {
-    const events = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
-		const newestEvents = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort({'_id':-1}).limit(3);
+    const events = await Event.find({isVerified: true}).sort([['_id',-1]]).limit(9);
+		const newestEvents = await Event.find({isVerified: true}).sort({'_id':-1}).limit(3);
     // const homePage = await HomePage.find();{
       /*return res.status(200).send({
         success : true,
@@ -254,11 +254,11 @@ exports.getEventsSearch = async(req,res)=>{
 				}]
 		};
 			eventsSum = await Event.find(_query);
-			events = await Event.find(_query).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
+			events = await Event.find(_query).sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
 		}
 		else{
 			eventsSum = await Event.find({isVerified: true});
-			events = await Event.find({isVerified: true}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
+			events = await Event.find({isVerified: true}).sort([['_id',-1]]).limit(limit*1).skip((page-1)*limit);
 		}
 
 		const sumPage = Math.ceil(eventsSum.length/limit);

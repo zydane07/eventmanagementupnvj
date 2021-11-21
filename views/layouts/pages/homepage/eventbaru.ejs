@@ -10,7 +10,7 @@
         <% if (newestEvents.length > 0) { %> <% newestEvents.forEach(event =>{ %>
         <div class="col-lg-4 mt-4">
             <div class="card-custom my-shadow-2" style="width: 23rem">
-                <img src="/img/poster.png" alt="" class="img-event" />
+                <img src="<%= event.photo.avatar %>" alt="" class="img-event" />
 
                 <div class="card-body-custom">
                     <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>

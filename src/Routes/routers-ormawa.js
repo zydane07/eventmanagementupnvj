@@ -32,15 +32,9 @@ routers.get("/addevent-ormawa", (req, res) => {
 });
 routers.get("/detail-event/:id_event", checkRole, Auth, eventController.eventDetailOrmawa);
 
-routers.get("/PerngaturanAkun-ormawa", (req, res) => {
-    res.render("pengaturanOrmawa-ormawa", {
-        layout: "layouts/dashboardOrmawa-layout",
-        css: "dashboard",
-        title: "Pengaturan Akun Ormawa",
-    });
-});
+routers.get("/PerngaturanAkun-ormawa", checkRole, Auth, ormawaController.pengaturanOrmawa);
 
-
+routers.put("/PerngaturanAkun-ormawa", upload.single('image'),checkRole, Auth, ormawaController.editPengaturanOrmawa);
 routers.post('/add-event',upload.single('image'),checkRole,Auth,ormawaController.createEvent);
 module.exports = routers
 

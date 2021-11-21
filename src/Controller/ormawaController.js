@@ -55,3 +55,42 @@ exports.createEvent = async(req,res) =>{
     });
   }
 }
+
+exports.pengaturanOrmawa = async(req,res) =>{
+  const dataEo = await Ormawa.findOne({nama_ormawa: req.user.nama});
+  if(!dataEo){
+    return res.send({
+      message:'Akun tidak valid'
+    });
+  }
+
+  return res.render("pengaturanOrmawa-ormawa", {
+    layout: "layouts/dashboardOrmawa-layout",
+    css: "dashboard",
+    title: "Pengaturan Akun Ormawa",
+    dataEo
+});
+}
+
+exports.editPengaturanOrmawa = async(req,res)=>{
+  const dataEo = await Ormawa.findOne({nama_ormawa: req.user.nama});
+  if(!dataEo){
+    return res.send({
+      message:'Akun tidak valid'
+    });
+  }
+  if(dataEo.photo.cloudinary_id !== 'ifpbpwuf5yrtlgbexgf1'){
+    await cloudinary.uploader.destroy(dataEo.photo.cloudinary_id);
+  }
+  const result = await cloudinary.uploader.upload(req.file.path);
+  console.log(result);
+  await Ormawa.updateOne({email_ormawa: dataEo.email_ormawa},{
+    $set: {
+      deskripsi: req.body.deskripsi,
+      'photo.avatar': result.secure_url || userProfile.photo.avatar,
+      'photo.cloudinary_id': result.public_id || userProfile.photo.cloudinary_id,
+      'photo.path' : req.file.path
+    }
+  });
+  return res.redirect('/PerngaturanAkun-ormawa');
+}

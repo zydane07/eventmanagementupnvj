@@ -32,7 +32,7 @@ exports.login = async (req,res) => {
     //Database collection Mahasiswa dicheck apakah email sudah terdaftar
     user = await Mahasiswa.findOne({email});
     if(!user){
-      user = await Ormawa.findOne({email});
+      user = await Ormawa.findOne({email_ormawa: email});
       role = 'ormawa';
     }
     if(!user){

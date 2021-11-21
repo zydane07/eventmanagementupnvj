@@ -6,28 +6,31 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <% if (events.length > 0) { %>
-            <% events.forEach(event =>{ %>
-                <div class="col-lg-4 mt-4">
-                    <div class="card-custom my-shadow-2">
-                        <div class="card-body-custom">
-                            <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                            <div class="row pt-2 d-flex align-items-lg-baseline">
-                                <div class="col">
-                                    <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
-                                </div>
-                            </div>
+        <% if (events.length > 0) { %> <% events.forEach(event =>{ %>
+        <div class="col-lg-4 mt-4 mb-5">
+            <div class="card-custom my-shadow-2" style="width: 23rem">
+                <img src="<%= event.photo.avatar %>" alt="" class="img-event" />
+
+                <div class="card-body-custom">
+                    <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
+                    <div class="row pt-2 d-flex align-items-lg-baseline">
+                        <div class="col">
+                            <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
                         </div>
                     </div>
                 </div>
-            <% }) %> 
-        <% } else { %>
-            <div class="col-lg-3 mt-4">
-                <h1>Tidak ada event</h1>
             </div>
+        </div>
+        <% }) %> <% } else { %>
+        <div class="col-lg-3 mt-4">
+            <div class="bd-highlight align-items-center">
+                <img src="/img/no event.png" class="img-noEvent" alt="Responsive image" />
+                <p class="ctm-font-head pt-3">Event yang kamu cari tidak ada</p>
+            </div>
+        </div>
         <% } %>
     </div>
 </div>

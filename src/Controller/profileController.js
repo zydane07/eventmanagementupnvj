@@ -108,13 +108,14 @@ exports.updateProfile = async(req,res) =>{
         title: "login",
         error: 'Terjadi kesalahan saat update, silahkan login kembali!'
       });
-
     }
+  }
 };
 
-exports.eventSaya = async (req, res) => {
-    const mhs = await Mahasiswa.findOne({ email: req.user.email });
-
+exports.eventSaya = async(req,res) =>{
+  const mhs = await Mahasiswa.findOne({email:req.user.email});
+  
+  const ids = mhs.historyEvent.map(el => el.id_event);
 
   const events = await Event.find({
     id_event: { $in: ids }
@@ -141,16 +142,14 @@ exports.eventSaya = async (req, res) => {
   
 }
 
+exports.eventWishSaya = async(req,res) =>{
+  const mhs = await Mahasiswa.findOne({email:req.user.email});
+  
+  const ids = mhs.savedEvent.map(el => el.id_event);
 
-exports.eventWishSaya = async (req, res) => {
-    const mhs = await Mahasiswa.findOne({ email: req.user.email });
-
-    const ids = mhs.savedEvent.map((el) => el.id_event);
-
-
-    const events = await Event.find({
-        id_event: { $in: ids },
-    });
+  const events = await Event.find({
+    id_event: { $in: ids }
+  });
 
   if(events.length===0){
     return res.render('eventsaya',{
@@ -171,6 +170,4 @@ exports.eventWishSaya = async (req, res) => {
     css: 'styleDetail',
     events
   });
-  
 }
-

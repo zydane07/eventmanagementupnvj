@@ -362,3 +362,18 @@ input[type="file"] {
     top: 30px;
     left: 50px;
 }
+
+/* img event saya & wishlist */
+.img-noEvent {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ctm-font-head {
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    color: #2f4858;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
