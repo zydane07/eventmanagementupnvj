@@ -27,7 +27,7 @@
               <h3 class="card-title">Event</h3>
             </div>
             <div class="card-body">
-              <form method="post" action="/add-event">
+              <form method="post" action="/add-event" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="inputName">Nama Event</label>
                 <input type="text" id="inputName" class="form-control" value="" name="nama_event">
@@ -59,7 +59,7 @@
               </div>
               <div class="form-group">
                 <label for="imageEvent">Poster Event: </label>
-                <input type="file" class="form-control-file" id="imageEvent" accept="image/*">
+                <input id="file-upload" type="file" name="image" accept="image/png, image/jpeg"/>
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-custom">Buat Event</button>

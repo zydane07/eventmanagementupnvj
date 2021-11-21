@@ -1,7 +1,7 @@
 <div class="modal fade" id="editmodal" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form method="post" action="/profile?_method=PUT">
+            <form method="post" action="/profile?_method=PUT" enctype="multipart/form-data">
                 <div class="model-header">
                     <div class="row">
                         <div class="col text-center" style="padding: 1rem">
@@ -12,21 +12,22 @@
                 <div class="modal-body" style="padding-top: 0rem">
                     <div class="row">
                         <div class="col d-flex justify-content-center">
-                            <img src="img/profil 1.png" alt="photo profil" />
+                            <img src="<%= user.photo %>" alt="photo profil" style="width: 10em; height: 10em;"/>
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <label for="file-upload" class="custom-file-upload"> Upload </label>
-                            <input id="file-upload" type="file" accept="image/*" />
+                            <input id="file-upload" type="file" name="image" accept="image/png, image/jpeg" value="<%= user.path %>"/>
+                            
                         </div>
                     </div>
                     <div class="container">
                         <div class="form-group">
                             <label for="nama"><b>Nama: </b></label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= user.nama_lengkap %> " />
+                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= user.nama_lengkap %>" />
                         </div>
                         <div class="form-group">
                             <label for="nim"><b>NIM: </b></label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM" value="<%= user.nim %> " />
+                            <input type="text" class="form-control" name="nim" placeholder="NIM" value="<%= user.nim %>" />
                         </div>
                         <div class="form-group">
                             <label for="fakultas"><b>Fakultas: </b></label>
@@ -54,7 +55,12 @@
                         </div>
                         <div class="form-group">
                             <label for="tgl_lahir"><b>Tanggal Lahir: </b></label>
-                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= user.tanggal_lahir.toISOString().substr(0, 10) %>" />
+                            <% if (user.tanggal_lahir === 'undefined') { %>
+                                <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= user.tanggal_lahir.toISOString().substr(0, 10) %>" />
+                            
+                            <% } else { %>
+                                <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= user.tanggal_lahir %>" />
+                            <% } %>
                         </div>
                     </div>
                 </div>
@@ -63,6 +69,7 @@
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
+            <script>document.image.submit();</script>
         </div>
     </div>
 </div>
@@ -70,7 +77,7 @@
 <div class="jumbotron jumbotron-fluid shadow">
     <div class="container backgroundphoto"></div>
     <div class="container user">
-        <img src="img/profil 1.png" class="rounded nav-pict photoprofile" alt="photo profil" />
+        <img src="<%= user.photo %>" class="rounded nav-pict photoprofile" alt="photo profil" />
         <h1 class="display-4 nama"><%= user.nama_lengkap %></h1>
         <p class="lead deskripsi"><%= user.email %></p>
     </div>
@@ -114,7 +121,13 @@
     <h5>Jenis-Kelamin:</h5>
     <p><%= user.Jenis_Kelamin %></p>
     <h5>Tanggal Lahir:</h5>
-    <p><%= user.tanggal_lahir.toISOString().substr(0, 10) %></p>
+    <% if (user.tanggal_lahir === 'undefined') { %>
+        <p><%= user.tanggal_lahir.toISOString().substr(0, 10) %></p>
+    
+    <% } else { %>
+        <p><%= user.tanggal_lahir %></p>
+    <% } %>
+    
 </div>
 <div
     id="dpengaturan"

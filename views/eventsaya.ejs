@@ -6,9 +6,11 @@
     </div>
     <div class="row d-flex justify-content-center">
         <% if (typeof events != 'undefined') { %> <% events.forEach(event =>{ %>
-        <div class="col-lg-4 mt-4 mb-5">
-            <div class="card-custom my-shadow-2" style="width: 23rem">
-                <img src="/img/poster.png" alt="" class="img-event" />
+
+            <div class="col-lg-4 mt-4 mb-5">
+                <div class="card-custom my-shadow-2" style="width: 23rem">
+                    <img src="<%= event.photo.avatar %>" alt="" class="img-event" />
+
                 <div class="card-body-custom">
                     <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
                     <div class="row pt-2 d-flex align-items-lg-baseline">

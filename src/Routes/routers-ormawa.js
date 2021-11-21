@@ -1,14 +1,18 @@
 const express = require("express");
 const routers = express.Router();
-const ormawaController = require("../Controller/ormawaController");
-const eventController = require("../Controller/eventController");
-const checkRole = require("./checkAccessType");
-const Auth = require("./verifyToken");
-routers.get("/login-ormawa", (req, res) => {
-    res.render("login-ormawa", {
-        layout: "layouts/loginOrmawa-layout",
-        css: "login",
-        title: "login ormawa",
+const ormawaController = require('../Controller/ormawaController');
+const eventController = require('../Controller/eventController');
+const checkRole = require('./checkAccessType');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
+const Auth = require('./verifyToken');
+routers.get('/login-ormawa', (req, res) => {
+    res.render('login-ormawa', {
+        layout: 'layouts/loginOrmawa-layout',
+        css: 'login',
+        title: 'login ormawa',
+       
+
     });
 });
 
@@ -17,7 +21,7 @@ routers.get("/dashboard-ormawa", checkRole, Auth, eventController.getEventsOrmaw
 routers.get("/event-ormawa", checkRole, Auth, eventController.getEventSayaOrmawa);
 
 routers.get("/edit-event/:id_event", checkRole, Auth, eventController.getEventEdit);
-routers.put("/edit-event/:id_event", checkRole, Auth, eventController.editEvent);
+routers.put("/edit-event/:id_event", checkRole, Auth,upload.single('image'), eventController.editEvent);
 routers.delete("/delete/:id_event", checkRole, Auth, eventController.deleteEvent);
 routers.get("/addevent-ormawa", (req, res) => {
     res.render("addevent-ormawa", {
@@ -28,13 +32,9 @@ routers.get("/addevent-ormawa", (req, res) => {
 });
 routers.get("/detail-event/:id_event", checkRole, Auth, eventController.eventDetailOrmawa);
 
-routers.get("/PerngaturanAkun-ormawa", (req, res) => {
-    res.render("pengaturanOrmawa-ormawa", {
-        layout: "layouts/dashboardOrmawa-layout",
-        css: "dashboard",
-        title: "Pengaturan Akun Ormawa",
-    });
-});
+routers.get("/PerngaturanAkun-ormawa", checkRole, Auth, ormawaController.pengaturanOrmawa);
 
-routers.post("/add-event", checkRole, Auth, ormawaController.createEvent);
-module.exports = routers;
+routers.put("/PerngaturanAkun-ormawa", upload.single('image'),checkRole, Auth, ormawaController.editPengaturanOrmawa);
+routers.post('/add-event',upload.single('image'),checkRole,Auth,ormawaController.createEvent);
+module.exports = routers
+

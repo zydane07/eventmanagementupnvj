@@ -58,7 +58,7 @@
                                     <!-- <medium> Created 01.01.2019 </medium> -->
                                 </td>
                                 <td><%= event.tanggal_event.toISOString().split('T')[0] %></td>
-                                <td><%= event.deskripsi_event %></td>
+                                <td><%= event.deskripsi_event.substring(0,10) %></td>
                                 <td class="project_progress">
                                     <medium> <%= event.registered_people.length %> Peserta</medium>
                                 </td>
