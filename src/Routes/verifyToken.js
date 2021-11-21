@@ -17,7 +17,7 @@ const auth = async(req, res, next) => {
   const token = req.cookies.dataUser
   
   if (!token) {
-    return res.send({ success: false, message: 'Access Denied' });
+    return res.redirect('/login');
   }
   try {
     const verified = jwt.verify(token, process.env.SECRET_KEY);
