@@ -1,52 +1,51 @@
 <!-- Event Terbaru -->
-<div class="container mb-5 pb-5">
+<div class="container mb-3 pb-5">
     <div class="row">
         <div class="col mb-3">
             <p class="sub-font mb-1 mt-5">Hasil Pencarian</p>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <% if (events.length > 0) { %>
-            <% events.forEach(event =>{ %>
-                <div class="col-lg-4 mt-4">
-                    <div class="card-custom my-shadow-2">
-                        <div class="card-body-custom">
-                            <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                            <div class="row pt-2 d-flex align-items-lg-baseline">
-                                <div class="col">
-                                    <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
-                                </div>
-                            </div>
+        <% if (events.length > 0) { %> <% events.forEach(event =>{ %>
+        <div class="col-lg-4 mt-4 mb-5">
+            <div class="card-custom my-shadow-2" style="width: 23rem">
+                <img src="/img/poster.png" alt="" class="img-event" />
+
+                <div class="card-body-custom">
+                    <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
+                    <div class="row pt-2 d-flex align-items-lg-baseline">
+                        <div class="col">
+                            <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
                         </div>
                     </div>
                 </div>
-            <% }) %> 
-        <% } else { %>
-            <div class="col-lg-3 mt-4">
-                <h1>Tidak ada event</h1>
             </div>
+        </div>
+        <% }) %> <% } else { %>
+        <div class="col-lg-4 mt-4">
+            <div class="bd-highlight align-items-center">
+                <img src="/img/no event.png" class="img-noEvent" alt="Responsive image" />
+                <p class="ctm-font-head pt-3">Event yang kamu cari tidak ada</p>
+            </div>
+        </div>
         <% } %>
     </div>
 </div>
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <% if (typeof searchQuery !='undefined') { %>
-        <% for( let index = 0; index < sumPage; index++ ) { %>
-            <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>&event=<%= searchQuery %>&category=<%= categoryQuery %>"><%= index+1 %></a></li>
-          <% } %>
-      <% } else { %>
-        <% for( let index = 0; index < sumPage; index++ ) { %>
-            <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>"><%= index+1 %></a></li>
-          <% } %>
-      <% } %>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
+        <li class="page-item">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <% if (typeof searchQuery !='undefined') { %> <% for( let index = 0; index < sumPage; index++ ) { %>
+        <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>&event=<%= searchQuery %>&category=<%= categoryQuery %>"><%= index+1 %></a></li>
+        <% } %> <% } else { %> <% for( let index = 0; index < sumPage; index++ ) { %>
+        <li class="page-item"><a class="page-link" href="http://localhost:3000/search?page=<%= index+1 %>"><%= index+1 %></a></li>
+        <% } %> <% } %>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
     </ul>
-  </nav>
+</nav>

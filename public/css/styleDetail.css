@@ -213,10 +213,10 @@ ul li a {
 
 /* event */
 .card-custom {
-    background-image: url(../img/poster.png);
-    background-size: cover;
-    padding: 10rem 0 0;
-    border-radius: 15px;
+    /* padding: 10rem 0 0; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
     width: 24rem;
     /* max-width: 352px;
     max-height: 269px; */
@@ -228,9 +228,10 @@ ul li a {
 }
 
 .card-body-custom {
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: #008493;
-    border-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .date {
@@ -477,4 +478,28 @@ a {
 
 a:hover {
     color: #2f4858;
+}
+
+.img-event {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* img pict carousel*/
+.container-2 {
+    left: 130px;
+    width: 50%;
+    position: relative;
+    text-align: center;
+    color: rgb(8, 4, 4);
+}
+
+.top-left {
+    position: absolute;
+    top: 30px;
+    left: 50px;
 }
