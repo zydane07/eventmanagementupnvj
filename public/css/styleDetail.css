@@ -490,6 +490,7 @@ a:hover {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
 /* img pict carousel*/
 .container-2 {
     left: 130px;
@@ -503,4 +504,6 @@ a:hover {
     position: absolute;
     top: 30px;
     left: 50px;
+
 }
+
