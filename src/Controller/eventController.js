@@ -114,7 +114,7 @@ exports.daftarEvent = async(req,res) =>{
 				message: 'Event tidak ada' 
 			});
 		}
-		const user = await Mahasiswa.findOne({nama_lengkap: req.user.nama});
+		const user = await Mahasiswa.findOne({email: req.user.email});
 		if(!user){
 			return res.status(400).send({
 				success:false,
@@ -158,7 +158,7 @@ exports.wishlistEvent = async(req,res) =>{
 				message: 'Event tidak ada' 
 			});
 		}
-		const user = await Mahasiswa.findOne({nama_lengkap: req.user.nama});
+		const user = await Mahasiswa.findOne({email: req.user.email});
 		if(!user){
 			return res.status(400).send({
 				success:false,
@@ -193,7 +193,7 @@ exports.wishlistDeleteEvent = async(req,res) =>{
 				message: 'Event tidak ada' 
 			});
 		}
-		const user = await Mahasiswa.findOne({nama_lengkap: req.user.nama});
+		const user = await Mahasiswa.findOne({email: req.user.email});
 		if(!user){
 			return res.status(400).send({
 				success:false,
@@ -300,6 +300,7 @@ exports.getEventsOrmawa = async(req,res)=>{
 			
 			res.render('eventlist', {
 				nama: req.user.nama,
+				photo: req.user.photo,
 				layout: 'layouts/main-layout',
    	 		title: 'Event List',
     		css: 'styleDetail',

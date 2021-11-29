@@ -460,13 +460,14 @@ exports.getOrmawa = async (req, res) => {
                 $addFields: { event: { $size: "$event" } },
             },
         ]);
-
+        console.log(ormawas[0].id_ormawa);
         return res.render("penggunaOrmawa", {
             layout: "layouts/penggunaMahasiswa-layout",
             css: "admin",
             title: "Pengguna Mahasiswa",
             ormawas,
         });
+        
     } catch (err) {
         return res.status(400).send({
             success: false,
@@ -477,7 +478,9 @@ exports.getOrmawa = async (req, res) => {
 
 exports.deleteOrmawa = async (req, res) => {
     try {
+      console.log(req.params.id_ormawa);
         const ormawa = await Ormawa.findOne({ id_ormawa: req.params.id_ormawa });
+        console.log('yg dihapus:',ormawa)
         if (!ormawa) {
             return res.send({
                 message: "Ormawa tidak ada",

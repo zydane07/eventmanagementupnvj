@@ -59,7 +59,7 @@
                                             <td><%= ormawa.email_ormawa %></td>
                                             <td>
                                                 <!--Modal Delete-->
-                                                <div class="modal fade" id="deletemodal" role="dialog">
+                                                <div class="modal fade" id="deletemodal-<%= i %>" role="dialog">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="model-header">
@@ -78,7 +78,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal-<%= i %>">
                                                     <i class="fas fa-trash"> </i>
                                                     Delete
                                                 </a>

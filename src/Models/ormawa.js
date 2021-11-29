@@ -27,11 +27,11 @@ const ormawaSchema = mongoose.Schema({
   photo: {
     avatar: { 
       type:  String,
-      default: 'https://res.cloudinary.com/dz1q2dbty/image/upload/v1637421094/vj0fx9vvdlv6zziqdxzm.png'
+      default: 'https://res.cloudinary.com/dz1q2dbty/image/upload/v1637459346/ypbzy68mzifwb6oezrcu.png'
     },
     cloudinary_id: {
       type: String,
-      default: 'vj0fx9vvdlv6zziqdxzm'
+      default: 'ypbzy68mzifwb6oezrcu'
     },
     path: {
       type: String,
