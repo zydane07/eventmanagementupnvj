@@ -82,7 +82,7 @@
                                                                 </a>
 
                                                                 <!--Modal Delete-->
-                                                                <div class="modal fade" id="deletemodal" role="dialog">
+                                                                <div class="modal fade" id="deletemodal-<%= i %>" role="dialog">
                                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="model-header">
@@ -101,7 +101,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal-<%= i %>">
                                                                     <i class="fas fa-trash"> </i>
                                                                     Delete
                                                                 </a>
@@ -147,7 +147,7 @@
                                                             </td>
 
                                                             <td class="project-actions text-right">
-                                                                <div class="modal fade" id="konfirmasimodal" role="dialog">
+                                                                <div class="modal fade" id="konfirmasimodal-<%= j %>" role="dialog">
                                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="model-header">
@@ -167,7 +167,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.content -->
-                                                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#konfirmasimodal">
+                                                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#konfirmasimodal-<%= j %>">
                                                                     <i class="fa fa-check"> </i>
                                                                     Konfirmasi
                                                                 </a>
@@ -177,7 +177,7 @@
                                                                 </a>
 
                                                                 <!--Modal Delete-->
-                                                                <div class="modal fade" id="deletemodal" role="dialog">
+                                                                <div class="modal fade" id="deletemodal-<%= j %>" role="dialog">
                                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="model-header">
@@ -196,7 +196,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal">
+                                                                <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#deletemodal-<%= j %>">
                                                                     <i class="fas fa-trash"> </i>
                                                                     Delete
                                                                 </a>

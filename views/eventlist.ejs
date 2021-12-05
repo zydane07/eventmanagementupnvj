@@ -1,38 +1,38 @@
-<div class="jumbotron jumbotron-fluid  d-flex justify-content-center" style="background-color: #D7F9DB;margin-top: 80px;margin-bottom: 10px;">
+<div class="jumbotron jumbotron-fluid d-flex justify-content-center" style="background-color: #d7f9db; margin-top: 80px; margin-bottom: 10px">
     <div class="container px-5 py-5">
         <div class="col mt-4 d-flex">
-            <img src="/img/picukm.png" alt="penyelenggara" width="160" height="160">
+            <img src="<%= dataEo.photo.avatar %> " alt="penyelenggara" class="border border-secondary rounded-circle" width="160" height="160" />
             <div class="col ms-4">
-                <h1><%= dataEo.nama_ormawa %> </h1>
-                <p><%= dataEo.deskripsi %> </p>
+                <h1><%= dataEo.nama_ormawa %></h1>
+                <p><%= dataEo.deskripsi %></p>
             </div>
         </div>
     </div>
-
 </div>
 <div class="container mb-5 pb-5">
     <div class="row">
-      <div class="col mb-3">
-        <p class="sub-font mb-1 mt-5">Semua Event</p>
-      </div>
+        <div class="col mb-3">
+            <p class="sub-font mb-1 mt-5">Semua Event</p>
+        </div>
     </div>
     <div class="row d-flex justify-content-center">
-      <% events.forEach(event =>{ %>
-          <div class="col-lg-4 mt-4">
-              <div class="card-custom my-shadow-2">
-                  <div class="card-body-custom">
-                      <p class="card-font h5 text-white mb-4"><%= event.nama_event %> </p>
-                      <div class="row pt-2 d-flex align-items-lg-baseline">
-                          <div class="col">
-                              <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %> </p>
-                          </div>
-                          <div class="col-5 text-center">
-                              <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      <% }) %> 
-  </div>
+        <% events.forEach(event =>{ %>
+        <div class="col-lg-4 mt-4 mb-5">
+            <div class="card-custom my-shadow-2" style="width: 23rem">
+                <img src="<%= event.photo.avatar %>" alt="" class="img-event" />
+                <div class="card-body-custom">
+                    <p class="card-font h5 text-white mb-4"><%= event.nama_event %></p>
+                    <div class="row pt-2 d-flex align-items-lg-baseline">
+                        <div class="col">
+                            <p class="date text-white"><%= event.tanggal_event.toISOString().substring(0, 10) %></p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <a href="/detail/<%= event.id_event %> " class="btn-custom-2">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
 </div>

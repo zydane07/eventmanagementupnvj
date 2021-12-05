@@ -10,7 +10,8 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <form action="/detail/<%= data.id_event %>" method="post">
-                    <button type="submit" class="btn btn-primary btn-custom">Daftar</button>
+                    <button type="submit" class="btn btn-primary btn-custom"
+                    >Daftar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                 </form>
             </div>
@@ -55,7 +56,7 @@
     <div class="row">
         <div class="col d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px">
 
-            <img src="<%= data.photo.avatar %>" alt="photo profil" width="500" height="600" />
+            <img src="<%= data.photo.avatar %>" alt="photo profil" class="img-poster shadow" />
 
         </div>
         <div class="col" style="margin-top: 50px; margin-bottom: 50px">
@@ -75,7 +76,7 @@
             <div class="row">
                 <div class="col mt-1 d-flex">
 
-                    <img src="<%= data.photoOrmawa.avatar %>" alt="penyelenggara" width="65" height="75" />
+                    <img src="<%= data.photoOrmawa.avatar %>" alt="penyelenggara" class="rounded-circle" width="65" height="65" />
                     <div class="col ms-3">
                         <p class="head-ukm"><%= data.detil_eo %></p>
                         <a class="p-event" href="/<%= data.id_eo %>/events">Lihat Semua Event</a>
