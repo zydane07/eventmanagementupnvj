@@ -1,17 +1,16 @@
-const Event = require("../Models/event");
-const Mahasiswa = require("../Models/mahasiswa");
-const Ormawa = require("../Models/ormawa");
-const LandingPage = require("../Models/landingPage");
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
-exports.getEvents = async (req, res) => {
-    try {
-        const events = await Event.find({ isVerified: true })
-            .sort([["_id", -1]])
-            .limit(9);
-        const newestEvents = await Event.find({ isVerified: true }).sort({ _id: -1 }).limit(3);
-        // const homePage = await HomePage.find();{
-        /*return res.status(200).send({
+const Event = require('../Models/event');
+const Mahasiswa = require('../Models/mahasiswa');
+const Ormawa = require('../Models/ormawa');
+const LandingPage = require('../Models/landingPage');
+const Prasyarat = require('../Models/prasyarat');
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
+exports.getEvents = async(req,res)=>{
+  try {
+    const events = await Event.find({isVerified: true}).sort([['_id',-1]]).limit(9);
+		const newestEvents = await Event.find({isVerified: true}).sort({'_id':-1}).limit(3);
+    // const homePage = await HomePage.find();{
+      /*return res.status(200).send({
         success : true,
         message : 'Berhasil get all events',
         data : {
@@ -193,35 +192,30 @@ exports.wishlistEvent = async (req, res) => {
     }
 };
 
-exports.wishlistDeleteEvent = async (req, res) => {
-    try {
-        const event = await Event.findOne({ id_event: req.params.id_event });
-        if (!event) {
-            return res.status(400).send({
-                success: false,
-                message: "Event tidak ada",
-            });
-        }
-        const user = await Mahasiswa.findOne({ nama_lengkap: req.user.nama });
-        if (!user) {
-            return res.status(400).send({
-                success: false,
-                message: "User tidak valid",
-            });
-        }
-        const saveEvent = {
-            id_event: event.id_event,
-        };
-        await Mahasiswa.findOneAndUpdate(
-            {
-                email: user.email,
-            },
-            {
-                $pull: { savedEvent: saveEvent },
-            },
-            { new: true, upsert: true }
-        ).exec();
-
+exports.wishlistDeleteEvent = async(req,res) =>{
+	try{
+		const event = await Event.findOne({id_event:req.params.id_event});
+		if(!event){
+			return res.status(400).send({
+				success:false,
+				message: 'Event tidak ada' 
+			});
+		}
+		const user = await Mahasiswa.findOne({email: req.user.email});
+		if(!user){
+			return res.status(400).send({
+				success:false,
+				message: 'User tidak valid' 
+			});
+		}
+		const saveEvent = {
+				id_event: event.id_event,
+		}
+		await Mahasiswa.findOneAndUpdate({
+			email: user.email
+		},{
+			$pull: {savedEvent:saveEvent}
+		},{ new: true, upsert: true }).exec();
         return res.redirect(`/detail/${req.params.id_event}`);
     } catch (err) {
         return res.send({
@@ -301,6 +295,7 @@ exports.getEventsSearch = async (req, res) => {
     }
 };
 
+
 exports.getEventsOrmawa = async (req, res) => {
     try {
         const { id_ormawa } = req.params;
@@ -316,24 +311,26 @@ exports.getEventsOrmawa = async (req, res) => {
             events
         }
       })*/
-        // return res.json(homePage)
-
-        res.render("eventlist", {
-            nama: req.user.nama,
-            photo: req.user.photo,
-            layout: "layouts/main-layout",
-            title: "Event List",
-            css: "styleDetail",
-            events,
-            dataEo,
-        });
-    } catch (err) {
-        return res.send({
-            success: false,
-            message: "Gagal load all events",
-        });
-    }
-};
+      // return res.json(homePage)
+			
+			res.render('eventlist', {
+				nama: req.user.nama,
+				photo: req.user.photo,
+				layout: 'layouts/main-layout',
+   	 		title: 'Event List',
+    		css: 'styleDetail',
+				events,
+				dataEo
+			});
+    
+  }
+  catch (err){
+    return res.send({
+      success : false,
+      message : 'Gagal load all events'
+    });
+  }
+}
 
 exports.getEventsOrmawaDashboard = async (req, res) => {
     try {

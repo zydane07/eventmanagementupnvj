@@ -2,6 +2,7 @@ const { date } = require("joi");
 const mongoose = require("mongoose");
 
 const ormawaSchema = mongoose.Schema({
+
     id_ormawa: {
         type: Number,
         required: true,
