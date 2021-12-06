@@ -2,6 +2,7 @@ const Event = require('../Models/event');
 const Mahasiswa = require('../Models/mahasiswa');
 const Ormawa = require('../Models/ormawa');
 const LandingPage = require('../Models/landingPage');
+const Prasyarat = require('../Models/prasyarat');
 const cloudinary = require('../utils/cloudinary');
 const upload = require('../utils/multer');
 exports.getEvents = async(req,res)=>{
@@ -124,6 +125,7 @@ exports.daftarEvent = async(req,res) =>{
 		const regisEvent = {
 				id_event: event.id_event,
 		}
+
 		await Mahasiswa.findOneAndUpdate({
 			email: user.email
 		},{
@@ -286,7 +288,7 @@ exports.getEventsSearch = async(req,res)=>{
 exports.getEventsOrmawa = async(req,res)=>{
   try {
 		const {id_ormawa} = req.params;
-    const events = await Event.find({detil_eo:id_ormawa}).select('id_event nama_event tanggal_event poster_event kategori -_id').sort([['_id',-1]]).limit(9);
+    const events = await Event.find({detil_eo:id_ormawa}).sort([['_id',-1]]);
 		const dataEo = await Ormawa.findOne({id_ormawa});
     // const homePage = await HomePage.find();{
       /*return res.status(200).send({

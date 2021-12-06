@@ -227,7 +227,7 @@ exports.forgotPassword = async(req,res) =>{
       }).save();
       const link = `http://localhost:3000/reset-password/${saveotp.otp}`;
       // ngirim kode otp ke email forgot password, untuk sekarang masih make email dummy 
-      await sendEmail(process.env.TEST_GMAIL, 'Lupa password?', `Gunakan link ini untuk mereset password anda:${link}`);
+      await sendEmail(saveotp.email, 'Lupa password?', `Gunakan link ini untuk mereset password anda:${link}`);
       // Kode OTP berhasil dikirim
       return res.redirect('/LupaPass2');
     }

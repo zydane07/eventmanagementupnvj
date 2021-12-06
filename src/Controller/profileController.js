@@ -76,7 +76,6 @@ exports.updateProfile = async(req,res) =>{
       });
     }
     
-    
     if(userProfile.photo.cloudinary_id !== 'ifpbpwuf5yrtlgbexgf1'){
       await cloudinary.uploader.destroy(userProfile.photo.cloudinary_id);
     }
@@ -109,6 +108,9 @@ exports.updateProfile = async(req,res) =>{
         error: 'Terjadi kesalahan saat update, silahkan login kembali!'
       });
     }
+    return res.send({
+      message:`${err}`
+    })
   }
 };
 
