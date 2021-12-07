@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const routers = require('./src/routes');
 const cspMiddleware = require('./src/csp');
