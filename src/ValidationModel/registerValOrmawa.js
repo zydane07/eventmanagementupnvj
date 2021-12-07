@@ -1,4 +1,4 @@
-const Joi = require('Joi');
+const Joi = require('joi');
 
 const valRegisOrm = Joi.object({
   email_ormawa: Joi.string().email().required(),
