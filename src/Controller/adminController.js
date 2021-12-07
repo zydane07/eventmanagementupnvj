@@ -191,7 +191,7 @@ exports.dashboardAdmin = async (req, res) => {
         ]);
 
         return res.render("dashboard-admin", {
-            layout: "layouts/dashboardadmin-layout",
+            layout: "layouts/dashboardAdmin-layout",
             css: "admin",
             title: "dashboard admin",
             jumlahMhs,
@@ -330,7 +330,7 @@ exports.accEvent = async (req, res) => {
         <p>Event ${event[0].nama_event} telah berhasil di acc!</p>
 
     `;
-        await sendEmail(process.env.TEST_GMAIL, "Event Confirmation", message);
+        await sendEmail(event.email, "Event Confirmation", message);
 
         return res.redirect("/event-admin");
     } catch (err) {
