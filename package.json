@@ -2,10 +2,10 @@
   "name": "eventmanagement",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && nodemon server.js",
+    "start": "npm run build && nodemon app.js",
     "watch": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 1 --no-ui --no-inject-changes",
     "build": "npm i"
   },
