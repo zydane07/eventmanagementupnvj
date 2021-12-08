@@ -88,12 +88,14 @@ exports.register = async (req,res) =>{
       email,
       emailToken:nanoid(10)
     }).save()
-
+    console.log(regisMahasiswa.email);
     //Link untuk verifikasi yang akan dikirimkan ke email
-    const link = `http://localhost:3000/verification/${saveVerif.emailToken}`
+    /*const link = `http://localhost:5000/verification/${saveVerif.emailToken}`
+    await sendEmail(regisMahasiswa.email,'Verifikasi Email',
+    `Use this link to verif your SIM-U Account: ${link} `)*/
+    const link = `https://sim-u.herokuapp.com/${saveVerif.emailToken}`
     await sendEmail(regisMahasiswa.email,'Verifikasi Email',
     `Use this link to verif your SIM-U Account: ${link} `)
-    
     return res.status(200).redirect('/register2');
   }
 
