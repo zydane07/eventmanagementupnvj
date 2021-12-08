@@ -121,7 +121,7 @@
     <h5>Jenis-Kelamin:</h5>
     <p><%= user.Jenis_Kelamin %></p>
     <h5>Tanggal Lahir:</h5>
-    <% if (user.tanggal_lahir === 'undefined') { %>
+    <% if (user.tanggal_lahir !== 'undefined') { %>
         <p><%= user.tanggal_lahir.toISOString().substr(0, 10) %></p>
     
     <% } else { %>
