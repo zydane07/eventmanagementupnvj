@@ -5,6 +5,7 @@ const LandingPage = require('../Models/landingPage');
 const Prasyarat = require('../Models/prasyarat');
 const cloudinary = require('../utils/cloudinary');
 const upload = require('../utils/multer');
+const client = require('../utils/redis');
 exports.getEvents = async(req,res)=>{
   try {
     const events = await Event.find({isVerified: true}).sort([['_id',-1]]).limit(9);
@@ -19,6 +20,10 @@ exports.getEvents = async(req,res)=>{
       })*/
         // return res.json(homePage)
         const landing = await LandingPage.findOne({ id: 1 });
+        const data = {events,newestEvents,landing};
+        // Set data to Redis
+        await client.set(req.user.email,3600, data);
+
         res.render("index", {
             nama: req.user.nama,
             photo: req.user.photo,

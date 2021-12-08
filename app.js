@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+
 
 const routers = require('./src/routes');
 const cspMiddleware = require('./src/csp');
@@ -11,7 +11,9 @@ const helmet = require('helmet');
 const cookieparser = require('cookie-parser');
 const methodOverride = require('method-override');
 
-//require('dotenv/config');
+
+const port = process.env.PORT || 5000;
+
 require('dotenv').config();
 
 app.use(helmet());

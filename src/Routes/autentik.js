@@ -17,7 +17,7 @@ const auth = async(req, res, next) => {
   const token = req.cookies.dataUser
   
   if(!token){
-    req.user = {nama: 'Stranger'};
+    req.user = {nama: 'Stranger',email:'Stranger'};
     return next();
   }
   const verified = jwt.verify(token, process.env.SECRET_KEY);
@@ -28,6 +28,7 @@ const auth = async(req, res, next) => {
       checkNama = await Mahasiswa.findOne({email:req.user.email});
       req.user["nama"] = checkNama.nama_lengkap;
       req.user["photo"] = checkNama.photo.avatar;
+      req.user["email"] = checkNama.email;
     }
     else if(req.user.role==='ormawa'){
       checkNama = await Ormawa.findOne({email_ormawa:req.user.email});

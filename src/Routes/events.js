@@ -2,6 +2,7 @@ const express = require("express");
 const eventController = require("../Controller/eventController");
 const Identifikasi = require("./autentik");
 const checkRole = require("./checkAccessType");
+const cache = require('./cache');
 const checkRoleMhs = require("./checkAccessTypeMhs");
 const Auth = require("./verifyToken");
 const router = express.Router();
@@ -18,7 +19,7 @@ router.get("/tentang", (req, res) => {
  * @route /api/events
  */
 
-router.get("/", Identifikasi, checkRoleMhs, eventController.getEvents);
+router.get("/", Identifikasi, checkRoleMhs, cache,eventController.getEvents);
 router.get("/detail/:id_event", Identifikasi, checkRoleMhs, eventController.getEventsDetails);
 router.post("/detail/:id_event", Auth, checkRoleMhs, eventController.daftarEvent);
 router.post("/detail/:id_event/saved", Auth, checkRoleMhs, eventController.wishlistEvent);
