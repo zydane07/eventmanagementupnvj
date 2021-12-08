@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tgl_lahir"><b>Tanggal Lahir: </b></label>
-                            <% if (user.tanggal_lahir === 'undefined') { %>
+                            <% if (user.tanggal_lahir !== 'undefined') { %>
                                 <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir" value="<%= user.tanggal_lahir.toISOString().substr(0, 10) %>" />
                             
                             <% } else { %>
