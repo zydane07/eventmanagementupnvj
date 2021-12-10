@@ -225,8 +225,8 @@ exports.forgotPassword = async(req,res) =>{
         email,
         otp: nanoid(),
       }).save();
-      const link = `http://localhost:5000/reset-password/${saveotp.otp}`;
-      // const link = `https://sim-u.herokuapp.com/reset-password/${saveotp.otp}`;
+      //const link = `http://localhost:5000/reset-password/${saveotp.otp}`;
+      const link = `https://sim-u.herokuapp.com/reset-password/${saveotp.otp}`;
       // ngirim kode otp ke email forgot password, untuk sekarang masih make email dummy 
       await sendEmail(email, 'Lupa password?', `Gunakan link ini untuk mereset password anda:${link}`);
       // Kode OTP berhasil dikirim
