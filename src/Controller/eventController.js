@@ -117,6 +117,10 @@ exports.daftarEvent = async (req, res) => {
                 message: "Event tidak ada",
             });
         }
+        const check = await Mahasiswa.findOne({ email: req.user.email, "historyEvent.id_event": event.id_event });
+        if(check){
+            return res.redirect(`/detail/${req.params.id_event}`);
+        }
         const user = await Mahasiswa.findOne({ email: req.user.email });
         if (!user) {
             return res.status(400).send({
