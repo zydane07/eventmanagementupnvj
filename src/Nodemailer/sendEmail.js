@@ -15,7 +15,7 @@ module.exports = async (email, subject, text) => {
 
     });
     await transporter.sendMail({
-      from: process.env.GMAIL,
+      from:process.env.GMAIL,
       to:email,
       subject,
       generateTextFromHTML: true,
