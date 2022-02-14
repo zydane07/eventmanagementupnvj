@@ -422,3 +422,65 @@ Response:
   "message": "string"
 }
 ```
+## Edit Profile Mahasiswa Photo
+
+Request:
+
+- Method: PUT
+- Endpoint: `/profile`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+```json
+{
+  "photo": "string",
+
+}
+```
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+## Edit Profile Mahasiswa Data
+
+Request:
+
+- Method: PUT
+- Endpoint: `/profile`
+- Header:
+  - Accept: "application/json"
+  - Cookies: "token"
+- Body:
+
+```json
+{
+  "email": "string",
+  "nama_lengkap": "string",
+  "password": "string",
+  "nim": "string",
+  "no_hp": "string",
+  "fakultas": "string",
+  "prodi":"string",
+  "angkatan": "string",
+  "Jenis_Kelamin": "string",
+  "tanggal_lahir":"datetime"
+
+}
+```
+
+Response:
+
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```

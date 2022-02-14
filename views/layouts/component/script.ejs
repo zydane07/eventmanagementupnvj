@@ -47,6 +47,8 @@
         inputc.select();
         document.execCommand("copy");
         inputc.parentNode.removeChild(inputc);
-        alert("URL Copied.");
+        toastr.success("link event berhasil di copy", "Success");
+        var audio = new Audio("/sounds/notification.mp3");
+        audio.play();
     }
 </script>

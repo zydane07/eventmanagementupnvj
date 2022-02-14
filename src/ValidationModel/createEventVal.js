@@ -1,4 +1,4 @@
-const Joi = require('Joi');
+const Joi = require('joi');
 
 const valEvent = Joi.object({
   nama_event: Joi.string().min(6).max(120).required(),

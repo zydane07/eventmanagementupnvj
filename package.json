@@ -2,11 +2,12 @@
   "name": "eventmanagement",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "watch": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 1 --no-ui --no-inject-changes"
+    "start": "npm run build && nodemon app.js",
+    "watch": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 1 --no-ui --no-inject-changes",
+    "build": "npm i"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
+    "googleapis": "^92.0.0",
     "helmet": "^4.6.0",
     "joi": "^17.4.2",
     "jquery-plugin-c-share": "^1.2.0",
@@ -31,7 +33,8 @@
     "multer-s3": "^2.10.0",
     "nanoid": "^3.1.30",
     "nodemailer": "^6.7.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "redis": "^4.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",

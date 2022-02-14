@@ -9,7 +9,7 @@ const authAdmin = require('./verifyAdmin');
 
 router.get("/login-admin", (req, res) => {
     res.render("login-admin", {
-        layout: "layouts/loginadmin-layout",
+        layout: "layouts/loginAdmin-layout",
         css: "login",
         title: "login admin",
     });

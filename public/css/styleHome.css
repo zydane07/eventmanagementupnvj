@@ -219,6 +219,8 @@ ul li a {
 /* event */
 .card-custom {
     /* padding: 10rem 0 0; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 
@@ -376,6 +378,4 @@ input[type="file"] {
     color: #2f4858;
     font-weight: bold;
     font-size: 1.5rem;
-
 }
-

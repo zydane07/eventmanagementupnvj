@@ -1,4 +1,4 @@
-const Joi = require('Joi');
+const Joi = require('joi');
 
 const valRegisMhs = Joi.object({
   email: Joi.string().email().required(),
